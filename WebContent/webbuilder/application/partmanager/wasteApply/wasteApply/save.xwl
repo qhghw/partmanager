@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="saveStorage" sql="insert  into t_waste_apply ( &#xA;PUR_NO,PUR_DTE,APPLY_DEPT_COD,PARTS_TYPE,PUR_STATUE,STORAGE_COD,STORAGE_NAM,MANA_MAN,WF_STATUE,REMARKS,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID&#xA;) values(&#xA;CONCAT('WA-', left(now()+0,8),'-',nextval('WasteApply')),now(),{?APPLY_DEPT_COD?},{?PARTS_TYPE?},{?PUR_STATUE?},{?STORAGE_COD?},&#xA;{?STORAGE_NAM?},{?MANA_MAN?},{?WF_STATUE?},{?REMARKS?},&#xA;now(),&#xA;'{#sys.username#}',&#xA;'{#sys.deptCode#}',&#xA;'{#sys.userid#}'&#xA;)" type="update"/></body>

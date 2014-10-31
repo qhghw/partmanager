@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="UPDATE  T_PARTS_OUT SET RECP_NO={?RECP_NO?},PLAN_DTE={?PLAN_DTE?},UNIT_COD={?UNIT_COD?},FETCHER_COD={?FETCHER_COD?},OUT_TYPE={?OUT_TYPE?},SENDER_COD={?SENDER_COD?},CLASS_COD={?CLASS_COD?},ORIGIN_RECP_NO={?ORIGIN_RECP_NO?},PUR_NO={?PUR_NO?},BILL_MAN={?BILL_MAN?},IS_OLD={?IS_OLD?},RECORD_TIM=now(),RECORD_MAN='{#sys.username#}',DEPT_COD='{#sys.deptCode#}',USERID='{#sys.userid#}'&#xA; where RECP_NO={?OLD_RECP_NO?}" dbType="MySql" transaction="commit" type="update"/></body>

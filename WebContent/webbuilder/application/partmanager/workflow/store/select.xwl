@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT&#xA;dp.id_ as id,&#xA;dp.name_ as name_,&#xA;dp.rev_ as version,&#xA;dp.key_ as key_,&#xA;dp.create_time_ as create_time,&#xA;dp.last_update_time_ as last_update_time &#xA;FROM&#xA;act_re_model AS dp {#whereSql#}" totalSql="SELECT &#xA;count(1) &#xA;FROM act_re_model AS dp {#whereSql#}" metaData="-"/></body>

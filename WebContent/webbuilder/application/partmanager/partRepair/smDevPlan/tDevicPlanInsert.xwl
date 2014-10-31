@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" dbType="MySql" type="execute" sql="insert  into t_devic_plan( BILL_NO,&#xA;DEV_NO,&#xA;C_DEV_NAM,&#xA;E_DEV_NAM,&#xA;PLAN_MONTH,&#xA;WORK_STA,&#xA;RP_MODE,&#xA;WORK_ADD,&#xA;RESPON_MAN,&#xA;APPLY_DEPT_COD,&#xA;APPLY_MAN_COD,&#xA;APPLY_TIM,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;REMARKS) values ( CONCAT('DP-', left(now()+0,8),'-',nextval('DevPlan')),&#xA;{?DEV_NO?},&#xA;{?C_DEV_NAM?},&#xA;{?E_DEV_NAM?},&#xA;{?PLAN_MONTH?},&#xA;{?WORK_STA?},&#xA;{?RP_MODE?},&#xA;{?WORK_ADD?},&#xA;{?RESPON_MAN?},&#xA;{?APPLY_DEPT_COD?},&#xA;{?APPLY_MAN_COD?},&#xA;{?TIMESTAMP.APPLY_TIM?}&#xA;,now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}',&#xA;{?REMARKS?})"/>
+</body>

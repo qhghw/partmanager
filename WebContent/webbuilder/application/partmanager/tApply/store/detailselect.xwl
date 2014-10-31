@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" metaData="-" sql="SELECT&#xA;detail.PUR_NO,detail.PUR_NO PUR_NO1,detail.PUR_NO PUR_NO_,&#xA;detail.PARTS_COD,&#xA;detail.C_PARTS_NAM,&#xA;detail.E_PARTS_NAM,&#xA;detail.STAND_TXT,&#xA;detail.PUR_TXT,&#xA;detail.PRICE_VAL,&#xA;detail.PUR_NUM,&#xA;detail.AMOUNT,&#xA;detail.PUR_WAY_COD,&#xA;detail.RECORD_TIM,&#xA;detail.RECORD_MAN,&#xA;detail.DEPT_COD,&#xA;detail.USERID,&#xA;detail.REMARKS,&#xA;detail.MIN_UNIT,&#xA;detail.SUPPLIER_NAM,&#xA;detail.IS_CONTANT&#xA;FROM&#xA;t_apply_detail AS detail WHERE  PUR_NO = '{#putNo#}' {#whereSql#}" totalSql="select count(1) from t_apply_detail WHERE  PUR_NO = '{#putNo#}' {#whereSql#}"/></body>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" metaData="-" sql="select  CONCAT(SUM(ifnull(AMOUNT,0)),'@',SUM(ifnull(INDEPOT_NUM,0)),'@',SUM(ifnull(TAX_NUM,0)),'@',SUM(ifnull(A_A_TAX,0))) TAX from  T_PARTS_IN_DETAIL  WHERE RECP_NO={?recpNo?}" dateAsString="true" totalSql="-"/></body>

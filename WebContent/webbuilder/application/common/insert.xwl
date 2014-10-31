@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" compact="true" simpleError="true">
+	<query type="query" fastMode="" loadData="true" sql="select BILL_NO from SHIP_BILL where BILL_NBR={?BILL_NBR?}  and SHIP_NO={?shipNo?}  and PORT_ID='1'" name="checkDuplicate"/><excepter nameList="checkDuplicate.BILL_NO" condition="exists" name="duplicate" message="提单号已存在"/><query type="update" fastMode="" sql="insert into  ship_bill(BILL_TYPE_ID,PORT_ID,BILL_NO,SHIP_NO,BILL_NBR,TRUST_COD,BILL_ID,TRANSFER_ID
+,TRANS_MOD_COD,LOAD_PORT_COD,DISCHRG_PORT_COD,
+CNTR_EF_ID,E_SHIPPER_NAM,DEST_PORT_COD,
+TRANS_PORT_COD,PAY_WAY_ID,DR_TYPE_ID,TRADE_ID,TRADE_TERMS_ID,E_CONSIGNEE_NAM,WORK_PLACE_COD,
+CUSTOM_COD,REMARK_TXT,E_NOTIFY_NAM,MARKS_STR,CARGO_KIND_COD,PACKAGE_COD,
+E_CARGO_NAM,PIECE_NUM,GWEIGHT_TON,GVOL_NUM,NWEIGHT_TON,  DANG_UN_NO,DANG_PAGE_NO,DANG_CLASS_NAM,DANG_LABLE_STR,DANG_FLASH_POINT,DANG_EMS_NO,
+DANG_MFAG_NO,DANG_CONTACTSTR,TEMP_ID,SET_TEMP_NUM,MIN_TEMP_NUM,MAX_TEMP_NUM,USERID,TENTANTID,LOAD_PORT_NAM,DISCHRG_PORT_NAM,DEST_PORT_NAM,TRANS_PORT_NAM,PACKAGE_STR,RECORD_MAN,RECORD_TIM)
+values('C','1',{?BILL_NO?}, {?shipNo?},
+{?BILL_NBR?},{?TRUST_COD?},
+'0',{?TRANSFER_ID?},substr({?TRANS_MOD_COD?}, 1, instr({?TRANS_MOD_COD?},'(') - 1 ),
+{?LOAD_PORT_COD?},
+{?DISCHRG_PORT_COD?},'F',
+{?E_SHIPPER_NAM?},{?DEST_PORT_COD?},
+{?TRANS_PORT_COD?}, 
+ {?PAY_WAY_ID?},{?DR_TYPE_ID?},nvl({?TRADE_ID?},'1'),{?TRADE_TERMS_ID?},{?E_CONSIGNEE_NAM?},
+substr({?WORK_PLACE_COD?}, 1, instr({?WORK_PLACE_COD?},'(') - 1 ),
+substr({?CUSTOM_COD?}, 1, instr({?CUSTOM_COD?},'(') - 1 ),
+{?REMARK_TXT?},{?E_NOTIFY_NAM?},{?MARKS_STR?},
+{?CARGO_KIND_COD?},
+{?PACKAGE_COD?},
+{?E_CARGO_NAM?},{?PIECE_NUM?},{?GWEIGHT_TON?},{?GVOL_NUM?},{?NWEIGHT_TON?},
+{?DANG_UN_NO?},{?DANG_PAGE_NO?},{?DANG_CLASS_NAM?},{?DANG_LABLE_STR?},{?DANG_FLASH_POINT?},{?DANG_EMS_NO?},{?DANG_MFAG_NO?},
+{?DANG_CONTACTSTR?},{?TEMP_ID?},{?SET_TEMP_NUM?},{?MIN_TEMP_NUM?},{?MAX_TEMP_NUM?},'{#sys.userId#}','{#sys.tentantId#}',
+{?LOAD_PORT_NAM?},{?DISCHRG_PORT_NAM?},{?DEST_PORT_NAM?},{?TRANS_PORT_NAM?},{?PACKAGE_STR?},'{#sys.username#}',sysdate
+)" name="insert"/></body>

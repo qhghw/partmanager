@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="select 
+guid,
+title,
+content,
+active_man,
+active_date,
+unactive_date,
+status,
+scope,
+RECORD_TIM,
+RECORD_MAN,
+DEPT_COD,
+USERID,
+REMARKS
+from announce" totalSql="SELECT 
+count(1) 
+FROM 
+announce" metaData="-"/></body>

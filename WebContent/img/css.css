@@ -1,0 +1,45 @@
+TD {
+	BORDER-RIGHT: #7f9db9 1px; BORDER-TOP: #7f9db9 1px; FONT-SIZE: 12px; BORDER-LEFT: #7f9db9 1px; LINE-HEIGHT: 18px; BORDER-BOTTOM: #7f9db9 1px; FONT-FAMILY: "宋体"
+}
+BODY {
+	BACKGROUND-COLOR: #abcefe
+}
+.p12-5 {
+	CURSOR: hand; LINE-HEIGHT: 25px; FONT-FAMILY: "宋体"; LETTER-SPACING: 5px
+}
+.p12-h18 {
+	FONT-SIZE: 14px; LINE-HEIGHT: 25px
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.ibbtn {
+	BORDER-RIGHT: #688db0 1px solid; BORDER-TOP: #688db0 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(/info/images/title.gif); BORDER-LEFT: #688db0 1px solid; COLOR: #003366; LINE-HEIGHT: 20px; BORDER-BOTTOM: #688db0 1px solid; FONT-FAMILY: "宋体"; HEIGHT: 22px; BACKGROUND-COLOR: #ffffff
+}
+.form {
+	BORDER-RIGHT: #7f9db9 1px solid; BORDER-TOP: #7f9db9 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #7f9db9 1px solid; BORDER-BOTTOM: #7f9db9 1px solid; FONT-FAMILY: "宋体"
+}
+.td-color {
+	BACKGROUND-POSITION: 50% top; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #e0f1fe
+}
+.title-td {
+	BACKGROUND-POSITION: center center; FONT-WEIGHT: bold; FONT-SIZE: 14px; BACKGROUND-IMAGE: url(/info/images/title_tdbg.gif); COLOR: #003366; LETTER-SPACING: 2px
+}
+.p14-24 {
+	FONT-SIZE: 14px; LINE-HEIGHT: 24px; FONT-FAMILY: "宋体"
+}
+.p12-22 {
+	FONT-SIZE: 12px; LINE-HEIGHT: 22px; FONT-FAMILY: "宋体"
+}
+.p12-18 {
+	FONT-SIZE: 12px; LINE-HEIGHT: 18px; FONT-FAMILY: "宋体"
+}
+.p12-w2 {
+	LETTER-SPACING: 2px
+}

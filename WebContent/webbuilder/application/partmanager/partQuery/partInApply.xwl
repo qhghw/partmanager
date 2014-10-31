@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" caption="物料采购申请" headerScript="var operateType ;">
+	<folder name="storeFolder">
+		<extStore name="mainselect" url="main?action=webbuilder/application/partmanager/partQuery/inApplyDao/mainselect.xwl" autoLoad="false"/>
+		<extStore name="detailselect" url="main?action=webbuilder/application/partmanager/partQuery/inApplyDao/detailselect.xwl" autoLoad="false"/></folder>
+	<folder name="column"><extColumnModel name="mainModel"><extColumn caption="申请号" fieldName="PUR_NO" align="left" name="_PUR_NO"/><extColumn caption="申请日期" fieldName="PUR_DTE" width="140" align="left" name="_PUR_DTE"/><extColumn caption="申请部门" fieldName="APPLY_DEPT_COD" align="left" name="_APPLY_DEPT_COD"/><extColumn fieldName="PARTS_TYPE" align="left" name="_PARTS_TYPE" caption="物料类型"/><extColumn caption="采购方式" fieldName="PUR_WAY_COD" align="left" name="_PUR_WAY_COD"/><extColumn caption="负责人" fieldName="MANA_MAN" align="left" name="_MANA_MAN"/><extColumn caption="采购说明" fieldName="PUR_TXT" align="left" name="_PUR_TXT"/><extColumn fieldName="IS_URGENT" align="left" name="_IS_URGENT" caption="是否急用"/><extColumn caption="录入时间" fieldName="RECORD_TIM" width="140" align="left" name="_RECORD_TIM"/><extColumn caption="录入人" fieldName="RECORD_MAN" align="left" name="_RECORD_MAN"/><extColumn caption="备注" fieldName="REMARKS" align="left" name="_REMARKS_"/></extColumnModel><extColumnModel name="detailModel"><extColumn name="_PARTS_COD_" caption="单号" fieldName="PARTS_COD"/><extColumn name="_C_PARTS_NAM_" caption="名称" fieldName="C_PARTS_NAM"/><extColumn name="_STAND_TXT_" caption="规格" fieldName="STAND_TXT"/><extColumn name="column1" caption="单位" fieldName="MIN_UNIT"/><extColumn name="_PUR_TXT_" fieldName="PUR_TXT" caption="备注"/><extColumn name="_PUR_NUM_" fieldName="PUR_NUM" caption="采购数量"/><extColumn name="_PUR_WAY_COD_" fieldName="PUR_WAY_COD" caption="采购方式"/><extColumn name="_RECORD_TIM_" caption="录入时间" fieldName="RECORD_TIM"/><extColumn name="_RECORD_MAN_" fieldName="RECORD_MAN" caption="录入人"/><extColumn name="_REMARKS__" fieldName="REMARKS" caption="备注" hidden="true"/></extColumnModel></folder><folder name="menu"><extMenu name="mainmenu" style="" bodyStyle="" autoShow="false"><extLabel name="PUR_NO" caption="申请单号"/><extTextField name="purNo" width="100"/><extLabel name="extLabel17" caption="状态"/><extComboBox mode="local" displayField="KEY_TEXT" name="sta" valueField="KEY_ID" width="50" mapKey="WF"/><extLabel name="extLabel1" caption="日期："/><extDate name="begTim"/><extLabel name="extLabel13" html="-"/><extDate name="endTim"/><extMenuItem onClick="var stA=sta.getValue()==null?'':sta.getValue();
+var purNoValue=purNo.getValue()==null?'':purNo.getValue();
+var beginDate =  Ext.getCmp('begTim').getValue().format('Y-m-d') ;
+var endDate =  Ext.getCmp('endTim').getValue().format('Y-m-d') ;
+var st = &quot;1=1&quot;;
+if(IsEmpty(stA))
+{
+  st = &quot; (WF_STATUE like '%%' OR WF_STATUE IS NULL) &quot;;
+}
+else if(stA == '0')
+{
+st = &quot; ( WF_STATUE IS NULL) &quot;;
+}
+else
+{
+  st = &quot; (WF_STATUE = '&quot;+stA+&quot;'  ) &quot;;
+}
+if (IsEmpty(beginDate ))
+{
+  extShowMessage('请选择开始时间');
+ return;
+}
+if (IsEmpty(endDate ))
+{
+  extShowMessage('请选择结束时间');
+ return;
+}
+mainselect.baseParams.whereSql=&quot; where   (date_format(PUR_DTE,'%Y-%m-%d') &gt;= '&quot;+beginDate +&quot;' AND date_format(PUR_DTE,'%Y-%m-%d') &lt;= '&quot;+endDate +&quot;') AND &quot;+st+&quot; AND   PUR_NO like '%&quot;+purNoValue+&quot;%'  &quot;;
+mainselect.load({params:{start:0,limit:30}});" caption="查询" iconCls="icon_find" name="menusearch"/><extMenuItem name="menuItem3" caption="打印" iconCls="icon_report" onClick="maingrid=Ext.getCmp(&quot;maingrid&quot;);
+if (maingrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	var record = maingrid.getSelectionModel().getSelected();
+       var purno= record.get('PUR_NO');
+Get('iframe2').src='mydesk_tapplyReport.do?purno=' +purno;
+extWindowPrint.show();
+}"/><extTextField name="dtType" hidden="true"/><extTextField name="ptType" hidden="true"/></extMenu><extMenu name="detailmenu"><extLabel name="C_PARTS_NAM_toolbar1" caption="物料名称"/><extTextField name="partsName"/><extLabel caption="物料编码" name="PARTS_COD_TOOL"/><extTextField name="partsCod"/><extMenuItem name="detailsearch" caption="查询" iconCls="icon_property" onClick="var partscode=partsCode.getValue()==null?'':partsCode.getValue();
+var partsname =partsName.getValue()==null?'':partsName.getValue();
+mainselect.baseParams.whereSql=&quot; where PARTS_COD like '%&quot;+partscode+&quot;%' and C_PARTS_NAM like '%&quot;+partsname+&quot;%'&quot;;
+mainselect.load({params:{start:0,limit:30}});"/></extMenu><extWindow name="extWindowPrint" closeAction="hide" frame="true" width="866" height="548" layout="absolute" caption="打印"><iframe name="iframe2" width="100%" height="100%"/></extWindow></folder><extViewPort name="viewPort" layout="border">
+		<extGrid name="maingrid" bbar="" columnsModel="mainModel" autoExpandColumn="" onRowDblClick="extCall(editMenu);" downloadAll="true" pageSize="30" store="mainselect" loadStore="false" region="north" width="100%" height="300" tbar="mainmenu" onRowClick="var record = maingrid.getSelectionModel().getSelected();
+detailselect.baseParams.whereSql=&quot; where PUR_NO = '&quot;+record.data.PUR_NO+&quot;'&quot;;
+detailselect.load({params:{start:0,limit:30}});"/><extGrid name="detailgrid" store="detailselect" columnsModel="detailModel" tbar="detailmenu" width="100%" loadStore="false" region="center" height="300" pageSize="30"/></extViewPort>
+</body>

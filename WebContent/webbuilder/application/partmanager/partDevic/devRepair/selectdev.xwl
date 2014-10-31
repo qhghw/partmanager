@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" logType="exception">
+	<defaultValue name="query" key="query" value="%{#query#}%" initialize="true"/><dataProvider name="dataProvider" metaData="-" sql="select DEV_NO||'('||C_DEV_NAM||'-'||E_DEV_NAM||')'  NAME from  SM_DEV  where 
+
+C_DEV_NAM  like {?query?}  or  
+E_DEV_NAM  like {?query?}"/></body>

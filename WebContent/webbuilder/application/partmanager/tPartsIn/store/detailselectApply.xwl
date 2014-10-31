@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" metaData="-" sql="SELECT
+detail.PUR_NO,detail.PUR_NO PUR_NO1,detail.PUR_NO PUR_NO_,
+detail.PARTS_COD,
+detail.C_PARTS_NAM,
+detail.E_PARTS_NAM,
+detail.STAND_TXT,
+detail.PUR_TXT,
+detail.PRICE_VAL,
+detail.PUR_NUM,
+detail.AMOUNT,
+detail.PUR_WAY_COD,
+detail.RECORD_TIM,
+detail.RECORD_MAN,
+detail.DEPT_COD,
+detail.USERID,
+detail.REMARKS,
+detail.MIN_UNIT,
+detail.SUPPLIER_NAM,
+detail.IS_CONTANT
+FROM
+t_apply_detail AS detail  where detail.PARTS_COD not in (select PARTS_COD from t_parts_in zin,t_parts_in_detail ind where zin.RECP_NO = ind.RECP_NO AND zin.IN_STATUE ='计划' AND zin.PUR_NO = '{#putNo#}') AND  PUR_NO = '{#putNo#}' {#whereSql#}" totalSql="-"/></body>

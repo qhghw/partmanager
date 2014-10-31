@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" caption="图表连接测试" headerScript="function showUser(){
+	extWindow.setTitle('中国港口网');
+	extWindow.show(); 
+	var s='http://www.chinaports.com';
+	Get('iframe').src=s;
+}">
+	<folder name="folder"><query dbType="Oracle" fastMode="false" sql="select TNAME label,value1+value2+value3 value1,'javascript:showUser()' link from  qjtest" name="query"/><chartContent name="test" query="query" simpleSet="true" yAxisNameWidth="15" rotateYAxisName="0" palette="4" imageSave="1" formatNumberScale="0" useRoundEdges="1" showValues="0" showLabels="1" xAxisName="客户名称" yAxisName="数量"/></folder><extWindow name="extWindow" caption="caption" closeAction="hide" frame="true" layout="absolute" autoScroll="true" dialog="false" width="1155" height="489"><iframe name="iframe" left="5" top="10" width="1125" height="435"/></extWindow><extViewPort name="viewPort" layout="fit"><extPanel name="panel" border="false" layout="fit"><extChart name="chart" type="Column3D" chartContent="test" autoShow="true" left="10" top="10" width="820" height="400"/></extPanel></extViewPort></body>

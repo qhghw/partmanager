@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query dbType="MySql" type="execute" sql="insert  into T_PARTS_IN( RECP_NO,OF_NO,PUR_NO,&#xA;PARTS_TYPE,IN_STATUE,PLAN_DTE,INDEPOT_DTE,STORAGE_COD,IN_MOD,&#xA;STORAGE_NAM,CARRYFEE_NUM,MANAGER_COD,COMPUTER_COD,&#xA;SAVER_COD,FETCHMODE_TXT,PAYKIND_TYP,WF_STATUE,BUYER_COD,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;REMARKS,is_contract) values ( CONCAT('JI-', left(now()+0,8),'-',nextval('TApply')),{?OF_NO?},{?PUR_NO1?},&#xA;{?PARTS_TYPE?},'计划',{?TIMESTAMP.PLAN_DTE?},{?TIMESTAMP.INDEPOT_DTE?},{?STORAGE_COD?},{?IN_MOD?},&#xA;{?STORAGE_NAM?},{?CARRYFEE_NUM?},{?MANAGER_COD?},{?COMPUTER_COD?},&#xA;{?SAVER_COD?},{?FETCHMODE_TXT?},{?PAYKIND_TYP?},{?WF_STATUE?},{?BUYER_COD?},&#xA;now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}',{?REMARKS?},{?is_contract?})" name="saveApply"/>
+</body>

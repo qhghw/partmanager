@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query dbType="MySql" type="update" sql="insert  into T_APPLY( PUR_NO,&#xA;PUR_DTE,&#xA;APPLY_DEPT_COD,&#xA;PARTS_TYPE,&#xA;PAY_MOD,&#xA;PUR_WAY_COD,&#xA;MANA_MAN,&#xA;PUR_TXT,&#xA;IS_URGENT,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;REMARKS) values ( CONCAT('AI-', left(now()+0,8),'-',nextval('TApply')),&#xA;{?TIMESTAMP.PUR_DTE?},&#xA;{?APPLY_DEPT_COD?},&#xA;{?PARTS_TYPE?},&#xA;{?PAY_MOD?},&#xA;{?PUR_WAY_COD?},&#xA;{?MANA_MAN?},&#xA;{?PUR_TXT?},&#xA;{?IS_URGENT?},&#xA;now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}',{?REMARKS?})" name="saveApply"/>
+</body>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT
+detail.IN_SEQ_NO,
+detail.RECP_NO,
+detail.PURCH_NO,
+detail.SEQ_NO,
+detail.SORT_COD,
+detail.PARTS_COD,
+detail.C_PARTS_NAM,
+detail.E_PARTS_NAM,
+detail.STAND_TXT,
+detail.PRICE_VAL,
+detail.AMOUNT,
+detail.MIN_UNIT,
+detail.IS_TAX,
+detail.TAX_NUM,
+detail.INDEPOT_NUM,
+detail.STOCK_NUM,
+detail.KEEP_VAL,
+detail.LOCATION_NO,
+detail.CHEQUE_NO,
+detail.INVOICE_NO,
+detail.PAY_MOD,
+detail.SUPPLIER_COD,
+detail.SUPPLIER_NAM,
+detail.IS_CONTANT,
+detail.RECORD_TIM,
+detail.RECORD_MAN,
+detail.DEPT_COD,
+detail.USERID,
+detail.REMARKS,
+detail.PARTS_CLASS,
+detail.PARTS_TYPE
+FROM
+t_parts_in_detail AS detail
+ {#whereSql#}" totalSql="SELECT
+count(1) 
+FROM
+t_parts_in_detail
+ {#whereSql#}" metaData="-"/></body>

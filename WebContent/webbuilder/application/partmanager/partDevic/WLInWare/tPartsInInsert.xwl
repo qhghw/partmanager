@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" dbType="MySql" type="execute" sql="insert  into T_PARTS_IN( RECP_NO,&#xA;OF_NO,&#xA;PUR_NO,&#xA;PARTS_TYPE,&#xA;IN_STATUE,&#xA;IN_MOD,&#xA;PLAN_DTE,&#xA;STORAGE_COD,&#xA;STORAGE_NAM,&#xA;CARRYFEE_NUM,&#xA;MANAGER_COD,&#xA;COMPUTER_COD,&#xA;SAVER_COD,&#xA;FETCHMODE_TXT,&#xA;PAYKIND_TYP,&#xA;BUYER_COD,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;REMARKS) values (CONCAT('PI-', left(now()+0,8),'-',nextval('PartIn')),&#xA;{?OF_NO?},&#xA;{?PUR_NO?},&#xA;{?PARTS_TYPE?},&#xA;{?IN_STATUE?},&#xA;{?IN_MOD?},&#xA;{?TIMESTAMP.PLAN_DTE?},&#xA;{?STORAGE_COD?},&#xA;{?STORAGE_NAM?},&#xA;{?CARRYFEE_NUM?},&#xA;{?MANAGER_COD?},&#xA;{?COMPUTER_COD?},&#xA;{?SAVER_COD?},&#xA;{?FETCHMODE_TXT?},&#xA;{?PAYKIND_TYP?},&#xA;{?BUYER_COD?},&#xA;now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}',&#xA;{?REMARKS?})"/>
+</body>

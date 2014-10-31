@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal">
+	<folder name="supplier"><folder name="store"><extStore name="select" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/select.xwl" autoLoad="false"/><extAjax out="extWindow" name="save" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/save.xwl" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="extShowMessage('新增成功！');extCall(search);extWindow.hide();"/><extAjax url="main?action=webbuilder/application/common/getSql.xwl" out="extWindow" onSuccess="alert(&quot;保存成功！&quot;);" onFailure="alert(&quot;保存失败&quot;);" name="getSql"/><extAjax name="update" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/update.xwl" out="extWindow" onSuccess="extShowMessage('保存成功！');extCall(search);extWindow.hide();" onFailure="var s = response.responseText;
+extShowExcept(s);"/><extAjax out="grid" onSuccess="extRemoveGridSelection(grid);" name="deleted" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/delete.xwl"/><extStore url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/selectdetail.xwl" autoLoad="false" name="selectdetail"/><extAjax out="extDetailWindow" name="savedetail" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/savedetail.xwl" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="extShowMessage('新增成功！');extCall(searchdetail);extDetailWindow.hide();"/><extAjax out="grid" onSuccess="extRemoveGridSelection(detailgrid);" name="deletedetail" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/deletedetail.xwl"/><extAjax name="updatedetail" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/updatedetail.xwl" out="extWindow" onSuccess="extShowMessage('保存成功！');extCall(search);extDetailWindow.hide();" onFailure="var s = response.responseText;
+extShowExcept(s);"/><method name="getOrg" methodName="com.xuelang.partmanage.MultipleTree.getOrg"/><extStore name="selectStorage" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/selectStorage.xwl"/><method methodName="com.xuelang.partmanage.MultipleTree.getDeviceTree" name="getDeviceTree"/><extStore name="getWasteType" url="main?action=webbuilder/application/partmanager/common/CodeSelect.xwl" baseParams="fldId:'14'"/><extAjax url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/startProcess.xwl" onSuccess="extShowMessage('发起成功！');select.reload();" onFailure="extShowMessage('发起失败！');" out="grid" name="ajaxStartProcess"/><extAjax name="ajaxViewprocess" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/viewProcess.xwl"/><extStore url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/selectprocess.xwl" autoLoad="true" name="selectprocess"/><extTextField name="PARTS_CODe" autoShow="false"/><extTextField name="C_PARTS_NAMee" autoShow="false"/><extTextField name="STAND_TXTe" autoShow="false"/><extTextField name="PUR_TXTe" inputType="textArea" width="100" height="150" autoShow="false"/><extComboBox mode="local" name="PUR_WAY_CODe" autoShow="false" store="getWasteType" displayField="RNAME" valueField="RNAME" pageSize="10"/><extNumber name="NEW_VALUEe" autoShow="false"/><extNumber name="OLD_VALUEe" autoShow="false"/><extNumber name="DISCOUNT_YEARe" autoShow="false"/><extDate name="USE_DATEe" autoShow="false"/><extStore name="getDwStore" baseParams="fldId:'14'" url="main?action=webbuilder/application/partmanager/common/CodeSelect.xwl"/></folder><folder name="column"><extColumnModel name="columnModel"><extColumn name="_PUR_NO" caption="申请号" fieldName="PUR_NO" align="center" width="80"/><extColumn name="_PUR_DTE" caption="申请日期" fieldName="PUR_DTE" align="center" width="80"/><extColumn name="_APPLY_DEPT_COD" caption="所属部门" fieldName="APPLY_DEPT_COD" align="center" width="80"/><extColumn name="_PARTS_TYPE" caption="类型" fieldName="PARTS_TYPE" align="center" width="80"/><extColumn name="_PUR_STATUE" caption="状态" fieldName="PUR_STATUE" hidden="true"/><extColumn name="_STORAGE_COD" caption="仓库编号" fieldName="STORAGE_COD" align="center" width="80"/><extColumn name="_STORAGE_NAM" caption="仓库名称" fieldName="STORAGE_NAM" align="center" width="100"/><extColumn name="_MANA_MAN" caption="负责人" fieldName="MANA_MAN" align="center" width="80"/><extColumn width="80" align="center" name="_WF_STATUE" fieldName="WF_STATUE" caption="流程状态" renderer="if(value==1){
+return '正在审批';
+}else if(value==2){
+return '审批通过';
+}else if(value==3){
+return '未通过';
+}else{
+return '未审批';
+}"/><extColumn name="_RECORD_TIM" caption="录入时间" fieldName="RECORD_TIM" align="center" width="80"/><extColumn name="_RECORD_MAN" caption="录入人" fieldName="RECORD_MAN" align="center" width="80"/><extColumn name="_DEPT_COD" caption="所属部门" fieldName="DEPT_COD" align="center" width="80"/><extColumn name="_USERID" caption="用户代码" fieldName="USERID" hidden="true"/><extColumn name="_REMARKS" caption="备注" fieldName="REMARKS" align="left" width="200"/><extColumn name="_procdefid" caption="流程定义" hidden="true" fieldName="procdefid"/><extColumn name="_processinstid" caption="流程实例" hidden="true" fieldName="processinstid"/></extColumnModel><extColumnModel name="columnDetail"><extColumn name="column1" type="rowNum"/><extColumn fieldName="PUR_NO" name="PUR_NO_" caption="申请号" align="center" hidden="true"/><extColumn fieldName="PARTS_COD" caption="设备编码" width="100" name="PARTS_COD_" editor="PARTS_CODe"/><extColumn name="C_PARTS_NAM_" fieldName="C_PARTS_NAM" caption="中文名" width="100" editor="C_PARTS_NAMee"/><extColumn name="STAND_TXT_" fieldName="STAND_TXT" caption="规格" width="150" align="left" editor="STAND_TXTe"/><extColumn name="PUR_WAY_COD_" caption="报废方式" fieldName="PUR_WAY_COD" width="80" align="center" editor="PUR_WAY_CODe"/><extColumn name="PUR_TXT_" caption="说明" fieldName="PUR_TXT" width="150" align="left" editor="PUR_TXTe"/><extColumn fieldName="NEW_VALUE" name="NEW_VALUEs" caption="新值" editor="NEW_VALUEe"/><extColumn fieldName="OLD_VALUE" name="OLD_VALUEs" caption="原值" editor="OLD_VALUEe"/><extColumn fieldName="USE_DATE" name="USE_DATES" caption="领用时间" editor="USE_DATEe" type="datetime"/><extColumn fieldName="DISCOUNT_YEAR" name="DISCOUNT_YEARs" caption="折旧年限" editor="DISCOUNT_YEARe"/><extColumn name="REMARKS_" caption="备注" fieldName="REMARKS" width="200" align="left"/><extColumn name="RECORD_TIM_" caption="录入时间" fieldName="RECORD_TIM" width="80" align="center"/><extColumn name="RECORD_MAN_" caption="录入人" fieldName="RECORD_MAN" width="80" align="center"/><extColumn name="DEPT_COD_" caption="所属部门" fieldName="DEPT_COD" hidden="true"/></extColumnModel><extColumnModel name="columnProcess"><extColumn name="username_" fieldName="username" caption="发起人" align="center" width="80"/><extColumn name="starttime_" fieldName="starttime" caption="发起时间" align="center" width="100"/><extColumn name="taskname_" fieldName="taskname" caption="审核阶段" align="center" width="100"/><extColumn name="checkman_" fieldName="checkman" caption="审核人" align="center" width="80"/><extColumn name="begintime_" fieldName="begintime" caption="到达日期" align="center" width="100"/><extColumn name="endtime_" fieldName="endtime" caption="完成日期" align="center" width="100"/><extColumn name="duration_" fieldName="duration" caption="过程耗时(H)" align="center" width="100"/><extColumn name="status_" fieldName="status" caption="状态" align="center" width="80" renderer="if(value==1){
+	return '通过'
+}else{
+	return '未通过'
+}"/><extColumn name="remark_" caption="审批意见" fieldName="remark" align="center" width="200"/></extColumnModel></folder><folder name="menu"><extMenu name="suppliermenu"><extLabel name="pur_no_toolbar" caption="申请号"/><extTextField name="pur_noo"/><extLabel name="store_name_toolbar" caption="仓库名称"/><extTextField name="storage_name"/><extMenuItem name="search" caption="查询" iconCls="icon_property" onClick="var storecode=pur_noo.getValue()==null?'':pur_noo.getValue();
+var storename =storage_name.getValue()==null?'':storage_name.getValue();
+select.baseParams.whereSql=&quot; where STORAGE_NAM like '%&quot;+storename +&quot;%' and PUR_NO like '%&quot;+storecode+&quot;%'&quot;;
+select.load({params:{start:0,limit:30}});"/><extMenuItem name="add" caption="增加" onClick="extWindow.setTitle('新增');
+extWindow.show();
+operateType = 'insert';
+extResetAllControlsValue(&quot;extWindow&quot;);" iconCls="icon_new"/><extMenuItem name="del" caption="删除" iconCls="icon_delete" onClick="grid=Ext.getCmp(&quot;grid&quot;);
+if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	var record = grid.getSelectionModel().getSelected();
+	var wfstatus=record.data.WF_STATUE;
+	if(wfstatus==1){
+		extShowWarning('正在审批,不允许删除');
+		return;
+	}else if(wfstatus==2||wfstatus==3){
+		extShowWarning('审批完成，不允许删除。');
+		return;
+	}else{
+		extGridDeleteConfirm(grid,&quot;STORAGE_NAM&quot;,function(){
+		deleted();
+	});
+	}
+}"/><extMenuItem name="edit" caption="修改" iconCls="icon_edit" onClick="operateType = 'modify';
+grid=Ext.getCmp(&quot;grid&quot;);
+
+if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	var record = grid.getSelectionModel().getSelected();
+	var wfstatus=record.data.WF_STATUE;
+	if(wfstatus==1){
+		extShowWarning('正在审批,不允许编辑');
+		return;
+	}else if(wfstatus==2||wfstatus==3){
+		extShowWarning('审批完成，不允许编辑。');
+		return;
+	}else{
+		extSetAllControlsValueObj(extWindow, record.data);
+	}
+}"/><extMenuItem name="startprocess" caption="发起流程" onClick="if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	var record = grid.getSelectionModel().getSelected();
+	var wfstatus=record.data.WF_STATUE;
+	if(wfstatus==1){
+		extShowWarning('正在审批。。。');
+		return;
+	}else if(wfstatus==2||wfstatus==3){
+		extShowWarning('审批完成，无需重复审批。');
+		return;
+	}else{
+		ajaxStartProcess();
+	}
+}" iconCls="icon_edit"/><extMenuItem caption="流程进度" name="showprocess" onClick="if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	var record = grid.getSelectionModel().getSelected();
+	var wfstatus=record.data.WF_STATUE;
+	if(wfstatus==0||wfstatus==null||wfstatus==''){
+		extShowWarning('尚未发起审批。');
+	}else{
+		Get('image').src='/PartManager/modelFlowImage_getProcessTask.do?processinstid='+record.data.processinstid;
+		var  wheresql=&quot; where  procinstid='&quot;+record.data.processinstid+&quot;' &quot;;
+		selectprocess.baseParams.whereSql = wheresql;
+		selectprocess.load({params:{start:0,limit:30}});
+		APPLY_DEPT_COD1.setValue(record.data.APPLY_DEPT_COD);
+		PARTS_TYPE1.setValue(record.data.PARTS_TYPE);
+		MANA_MAN1.setValue(record.data.MANA_MAN);
+		STORAGE_NAM1.setValue(record.data.STORAGE_NAM);
+		REMARKS1.setValue(record.data.REMARKS);		
+		processViewWindow.show();
+		
+	}
+}" iconCls="icon_edit"/></extMenu><extMenu name="detailmenu"><extLabel name="parts_nam_toolbar" caption="中文名"/><extTextField name="c_parts_name"/><extMenuItem name="searchdetail" caption="查询" iconCls="icon_property" onClick="var storename =c_parts_name.getValue()==null?'':c_parts_name.getValue();
+selectdetail.baseParams.whereSqlDetail=&quot; and C_PARTS_NAM like '%&quot;+storename +&quot;%'&quot;;
+selectdetail.load({params:{start:0,limit:30}});"/><extMenuItem name="adddetail" caption="增加" onClick="var record = grid.getSelectionModel().getSelected();
+if(record ==null){
+	return false;
+}
+
+	var wfstatus=record.data.WF_STATUE;
+	if(wfstatus&gt;0){
+		extShowWarning('正在审批,不允许编辑');
+		return;
+	}
+
+extDetailWindow.setTitle('新增');
+extDetailWindow.show();
+operateType = 'insert';
+extResetAllControlsValue(&quot;extDetailWindow&quot;);
+PUR_NO.setValue(record.data.PUR_NO);" iconCls="icon_new"/><extMenuItem name="deldetail" caption="删除" iconCls="icon_delete" onClick="var record = grid.getSelectionModel().getSelected();
+var wfstatus=record.data.WF_STATUE;
+	if(wfstatus&gt;0){
+		extShowWarning('正在审批,不允许编辑');
+		return;
+	}
+
+extRemoveGridSelection(detailgrid);"/><extMenuItem name="editdetail" caption="修改" iconCls="icon_edit" onClick="operateType = 'modify';
+operateType2 = 'modify';
+var sm = detailgrid.getSelectionModel();
+var celIndex = sm.getSelectedCell();
+var record = detailgrid.getStore().getAt(celIndex [0]);
+var recordM = grid.getSelectionModel().getSelected();
+var wfstatus=recordM .data.WF_STATUE;
+	if(wfstatus&gt;0){
+		extShowWarning('正在审批,不允许编辑');
+		return;
+	}
+
+extDetailWindow.show();
+extSetAllControlsValueObj(extDetailWindow, record.data);"/><extTextField name="purNos" hidden="true"/><extMenuItem name="menuItem" caption="保存" iconCls="icon_save" onClick="mulGridSave();"/></extMenu></folder><folder name="script"/><folder name="window"><extWindow name="extWindow" closeAction="hide" frame="true" width="698" height="201" layout="absolute" onOk="if (!extVerifyAllControls('extWindow')) return;
+if (operateType == 'insert'){
+save();
+} else update();" onHide="extResetAllControlsValue('extWindow');" caption="新增"><extLabel left="25" top="45" caption="仓库编号：" name="storageCod" width="80"/><extComboBox mode="local" name="STORAGE_COD" left="115" top="40" width="145" store="selectStorage" displayField="storage" valueField="storage" onSelect="var storage_=this.value.split('/');
+STORAGE_COD.setValue(storage_[0]);
+STORAGE_NAM.setValue(storage_[1]);"/><extLabel name="storageNameLabel" left="270" top="45" caption="仓库名称：" width="75"/><extTextField left="355" top="40" width="310" name="STORAGE_NAM" readOnly="true"/><extLabel left="270" top="20" caption="报废类型：" width="75" name="partsType"/><extComboBox mode="local" left="355" top="15" width="90" pageSize="10" name="PARTS_TYPE" store="getDwStore" displayField="RNAME" valueField="RNAME"/><extLabel left="460" top="20" caption="责任人：" width="60" name="manaMan"/><extTextField left="520" top="15" width="145" name="MANA_MAN"/><extTextField left="115" top="70" width="550" name="REMARKS" inputType="textArea" height="50"/><extLabel left="25" top="80" caption="备注：" name="REMARKS_LABEL" width="80"/><extTextField left="135" top="130" width="120" hidden="true" name="PUR_STATUE"/><extLabel left="25" top="20" width="80" name="applyDeptCod" caption="申请部门："/><extComboTree left="115" top="15" width="145" height="25" data="{#orgTree#}" onClick="var text=node.text;
+APPLY_DEPT_COD.setValue(text);
+APPLY_DEPT_COD.collapse();" name="APPLY_DEPT_COD"/></extWindow><extWindow name="extDetailWindow" closeAction="hide" frame="true" width="725" height="286" layout="absolute" onOk="if (!extVerifyAllControls('extDetailWindow')) return;
+if (operateType == 'insert'){
+savedetail();
+} else updatedetail();" onHide="extResetAllControlsValue('extDetailWindow');" caption="新增明细"><extLabel left="460" top="40" width="65" caption="净值：" name="NEW_VALUE_LAB"/><extLabel left="265" top="10" caption="名称：" width="50" name="ePartsNam"/><extLabel left="10" top="115" width="80" caption="报废原因：" name="PUR_TXT_LAB"/><extLabel left="25" top="40" caption="报废方式：" width="65" name="PUR_WAY_COD_LAB"/><extTextField left="100" top="160" width="585" inputType="textArea" height="50" name="_REMARKS_"/><extLabel left="10" top="165" caption="备注：" name="REMARKS_LABEL1" width="80"/><extLabel left="15" top="10" width="80" caption="设备代码：" name="partsCod"/><extTextField left="325" top="10" width="120" name="C_PARTS_NAM" readOnly="true"/><extTextField left="100" top="100" width="585" name="PUR_TXT" inputType="textArea" height="50"/><extLabel left="260" top="40" width="55" caption="原值：" name="OLD_VALUE_LAB"/><extLabel left="15" top="70" width="80" caption="折旧年限：" name="DISCOUNT_YEAR_LAB"/><extTextField left="100" top="70" width="150" name="DISCOUNT_YEAR"/><extLabel left="455" top="10" width="70" caption="设备规格：" name="STAND_TXT_LAB"/><extTextField left="535" top="10" width="150" name="STAND_TXT"/><extComboBox mode="local" left="100" top="40" width="150" name="PUR_WAY_COD" store="getWasteType" displayField="RNAME" valueField="RNAME" pageSize="15"/><extTextField left="100" top="10" width="150" name="PARTS_COD"/><extDate left="535" top="70" width="155" name="USE_DATE"/><extLabel name="extLabel" left="460" top="70" width="65" caption="领用时间"/><extNumber left="325" top="40" width="120" name="OLD_VALUE"/><extNumber left="535" top="40" width="150" name="NEW_VALUE"/></extWindow><extWindow closeAction="hide" frame="true" name="processViewWindow" caption="审批进度" width="800" height="400" layout="fit" dialog="false" autoScroll="true"><extTab activeTab="0" deferredRender="false" region="center" name="detailtab"><extPanel name="flowPanel" border="false" caption="审批明细" layout="absolute" width="801" height="462"><extGrid store="selectprocess" left="10" top="5" width="765" height="205" name="tasklist" columnsModel="columnProcess"/><extForm name="imagemodel" left="15" top="215" width="760" height="190" layout="absolute"><image name="image"/></extForm></extPanel><extPanel border="false" layout="absolute" width="815" height="468" name="businessPanel" caption="报废明细"><extGrid left="10" top="130" width="770" height="330" name="detailgrid1" store="selectdetail" columnsModel="columnDetail"/><extForm name="mainForm" left="10" top="10" width="772" height="115" layout="absolute" frame="true"><extTextField left="80" top="10" width="120" name="APPLY_DEPT_COD1" readOnly="true"/><extLabel left="600" top="10" width="60" name="storageCod1" caption="仓库编号："/><extLabel left="205" top="15" width="45" name="partsType1" caption="类型："/><extLabel left="390" top="10" width="55" caption="责任人：" name="manaMan1"/><extTextField left="260" top="10" width="120" name="PARTS_TYPE1" readOnly="true"/><extLabel left="5" top="15" width="70" caption="申请部门：" name="APPLY_DEPT_COD_LAB"/><extTextField left="455" top="10" width="135" name="MANA_MAN1" readOnly="true"/><extTextField left="665" top="5" width="100" name="STORAGE_COD1" readOnly="true"/><extLabel name="extLabel4" left="5" top="40" width="65" caption="仓库名称："/><extTextField left="80" top="35" width="685" name="STORAGE_NAM1" readOnly="true"/><extTextField left="80" top="60" width="685" caption="备注：" name="REMARKS1" inputType="textArea" height="45" readOnly="true"/><extLabel left="10" top="75" width="55" name="REMARK_LAB" caption="备注："/></extForm></extPanel></extTab></extWindow></folder></folder><folder name="PartCodPackage"><extStore name="storeSuppli1" url="main?action=webbuilder/application/partmanager/common/SuppliSelect.xwl"/><extStore name="devStore" url="main?action=webbuilder/application/partmanager/partDevic/devJob/devSelect.xwl"/><extScript name="extScript" extHeader="function extInsertRecordWt(store, index) {
+	var fields = store.fields.items;
+	var meta = Ext.data.Record.create(fields);
+	var i, j = fields.length;
+	var data = {};
+
+	for (i = 0; i &lt; j; i++)
+		data[fields[i].name] = &quot;&quot;;
+	var record = new meta(data);
+	if (store.modified.indexOf(record) == -1)
+		store.modified.push(record);
+	if (index == null)
+		store.add(record);
+	else
+		store.insert(index, record);
+	return record;
+}
+function setPartCod()    
+{
+if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}
+var record = grid.getSelectionModel().getSelected();
+
+
+var Temprows =  gridPartCod.getSelectionModel().getSelections();
+     for (var ii = 0; ii &lt; Temprows.length; ii++){
+		 tempRow=Temprows[ii];
+                var r = extInsertRecordWt(selectdetail,ii );
+                    r.set(&quot;PUR_NO&quot;,record.get('PUR_NO'));
+                    r.set(&quot;STAND_TXT&quot;,tempRow.data.STAND_TXT);
+            	    r.set(&quot;PARTS_COD&quot;,tempRow.data.PARTS_NUM);
+                    r.set(&quot;C_PARTS_NAM&quot;,tempRow.data.C_PARTS_NAM);
+                    r.set(&quot;E_PARTS_NAM&quot;,tempRow.data.E_PARTS_NAM);
+     }
+}"/><extMenu name="menuPartCod"><extLabel caption="名称" name="partsNametool"/><extTextField name="partsName1" width="80"/><extLabel name="extLabel26" caption="供应商"/><extComboBox mode="local" width="100" name="SUPPLIER_COD1" store="storeSuppli1" displayField="RNAME" valueField="RNAME" pageSize="30" onSelect="SUPPLIER_COD1.setValue(this.value.split('/')[1]);" listWidth="150"/><extMenuItem name="search1" caption="查询" iconCls="icon_property" onClick="var partscode=SUPPLIER_COD1.getValue()==null?'':SUPPLIER_COD1.getValue();
+var partsname1 =partsName1.getValue()==null?'':partsName1.getValue();
+devStore.baseParams.WhereSql=&quot; and SUPPLIER_COD like  '%&quot;+partscode+&quot;%' and C_PARTS_NAM like '%&quot;+partsname1+&quot;%'&quot;;
+devStore.load({params:{start:0,limit:100}});"/><extMenuItem name="menuItem11" caption="清空" iconCls="icon_delete" onClick="partsName1.setValue('');
+SUPPLIER_COD1.setValue('');"/><extMenuItem name="edit1" iconCls="icon_ok" onClick="setPartCod();" caption="确认"/></extMenu><extColumnModel name="cmDevice"><extScript name="extScript11" extHeader="new Ext.grid.CheckboxSelectionModel()"/><extColumn caption="设备编号" fieldName="PARTS_NUM" name="PARTS_NUMs"/><extColumn name="PARTS_TYPEs" fieldName="PARTS_TYPE" caption="物料分类"/><extColumn name="DEVICE_TYPEs" fieldName="DEVICE_TYPE" caption="设备分类"/><extColumn name="C_PARTS_NAMs" fieldName="C_PARTS_NAM" caption="设备名称"/><extColumn fieldName="STAND_TXT" name="STAND_TXTS" caption="规格型号"/><extColumn fieldName="PROD_FACT" name="PROD_FACTs" caption="生产厂家"/><extColumn name="SUPPLIER_CODs" caption="供应商" fieldName="SUPPLIER_COD"/><extColumn caption="出厂日期" fieldName="OUT_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" name="OUT_DTEs"/><extColumn caption="购买日期" fieldName="BUY_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" name="BUY_DTEs"/><extColumn fieldName="USE_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" caption="使用日期" name="USE_DTES"/><extColumn caption="设备状态" fieldName="STATUS" renderer="if(value=='1')
+return '报废';
+else  
+return '无';" name="STATUSs"/></extColumnModel><extAjax name="mulGridSave" url="main?action=webbuilder/application/partmanager/wasteApply/wasteApply/multSave.xwl" onSuccess="extShowMessage('保存成功！');" onFailure="var s = response.responseText;
+extShowExcept(s);" showMessage="true" out="detailgrid"/></folder><extViewPort name="viewPort" layout="border"><extPanel name="panel" border="false" region="center" layout="border"><extGrid name="grid" store="select" columnsModel="columnModel" tbar="suppliermenu" width="100%" region="center" height="250" loadStore="true" pageSize="10" onCellClick="if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	var record = grid.getSelectionModel().getSelected();
+	purNos.setValue(record.get('PUR_NO'));
+
+	
+	        var  wheresql=&quot; and PUR_NO='&quot;+purNos.getValue()+&quot;' &quot;;
+		selectdetail.baseParams.whereSqlDetail = wheresql;
+		selectdetail.load({params:{start:0,limit:30}});
+
+
+}" split="true"/><extPanel name="panel1" border="true" region="south" layout="border" height="350" split="true"><extPanel name="panel21" border="true" region="center" split="true" layout="border" height="400" width="60%"><extGrid name="detailgrid" store="selectdetail" loadStore="false" columnsModel="columnDetail" pageSize="10" region="center" width="100%" tbar="detailmenu" height="300" split="true" submitMode="modified" canEdit="true" clicksToEdit="1"/></extPanel><extPanel name="panel11" border="true" region="east" collapsible="true" collapsed="true" split="true" layout="border" height="400" width="40%" caption="物料代码选择"><extGrid name="gridPartCod" region="center" split="true" columnsModel="cmDevice" height="400" pageSize="100" tbar="menuPartCod" store="devStore" tag="sm: new Ext.grid.CheckboxSelectionModel({
+        singleSelect: false
+    })"/></extPanel></extPanel></extPanel></extViewPort></body>

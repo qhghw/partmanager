@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" caption="enter替代tab" jsFiles="webbuilder/script/test.js" headerScript="function enterToTab(event, input) {  
+  var e = event?event:window.event;  
+    var form = Ext.getCmp('enter2tab');
+        var tabindex = input.tabIndex; 
+       	tabindex=tabindex+10; 
+  	text1.focus();
+	return;
+}">
+	<folder name="folder"><extStore name="store" url="main?action=webbuilder/application/test/DB/testQuery.xwl" onAfterLoad="ajax();"/></folder><extMenu name="menu" style="" bodyStyle="" autoShow="false"><extLabel name="extLabel" caption="箱尺寸码："/><extTextField name="CNTR_SIZE_COD1"/><extLabel name="extLabel1" html="&amp;nbsp;&amp;nbsp;"/><extLabel name="extLabel2" caption="箱尺寸名："/><extTextField name="CNTR_SIZE_NAM1"/><extLabel name="extLabel11" html="&amp;nbsp;&amp;nbsp;"/><extMenuItem name="menuItem" caption="查询" iconCls="icon_find" onClick="store.baseParams=extGetAllControlsValue('menu');
+store.load({params:{start:0,limit:30}});"/><extMenuItem name="menuItem1" caption="新增" iconCls="icon_new" onClick="operateType = 'insert';
+extWindow.show();"/><extMenuItem name="menuItem2" caption="修改" iconCls="icon_edit" onClick="operateType = 'modify';
+if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	extWindow.show();
+}"/><extMenuItem name="menuItem3" caption="删除" iconCls="icon_delete" onClick="extGridDeleteConfirm(grid,'CNTR_SIZE_COD',function(){
+	deleteAjax();
+});"/><extTextField name="msgTemp" hidden="true"/></extMenu><extWindow name="extWindow" closeAction="hide" frame="true" maximizable="true" caption="测试" width="537" layout="absolute" height="250"><extForm name="enter2tab" layout="absolute" width="526" height="227"><extLabel name="extLabel3" left="50" top="20" width="45" caption="名称1："/><extTextField name="text" left="110" top="15" width="120" onSpecialkey="if (event.getKey() == event.ENTER){
+	text1.focus();
+}" tag="tabIndex:1"/><extLabel name="extLabel4" left="280" top="20" width="45" caption="名称2："/><extTextField name="text1" left="340" top="15" width="120" tag="tabIndex:11" onSpecialkey="if (event.getKey() == event.ENTER){
+	text2.focus();
+}"/><extLabel name="extLabel5" left="50" top="50" width="45" caption="名称3："/><extTextField name="text2" left="110" top="45" width="120" tag="tabIndex:21" onSpecialkey="if (event.getKey() == event.ENTER){
+	text3.focus();
+}"/><extLabel name="extLabel6" left="280" top="50" width="45" caption="名称4："/><extTextField name="text3" left="340" top="45" width="120" tag="tabIndex:31" onSpecialkey="if (event.getKey() == event.ENTER){
+	text4.focus();
+}"/><extLabel name="extLabel7" left="50" top="80" width="45" caption="名称5："/><extTextField name="text4" left="110" top="75" width="350" inputType="textArea" height="60" tag="tabIndex:41" onSpecialkey="if (event.getKey() == event.ENTER){
+	text5.focus();
+}"/><extLabel name="extLabel8" left="50" top="150" width="45" caption="名称6："/><extTextField name="text5" left="110" top="145" width="120" tag="tabIndex:51" onSpecialkey="if (event.getKey() == event.ENTER){
+	text6.focus();
+}"/><extLabel name="extLabel9" left="280" top="150" width="45" caption="名称7："/><extTextField name="text6" left="340" top="145" width="120" tag="tabIndex:61"/></extForm></extWindow><extColumnModel name="columnModel"><extColumn name="column" caption="名称" fieldName="TNAME"/><extColumn name="column1" caption="价值1" fieldName="VALUE1" format="#,###.00"/><extColumn name="column2" width="200" sortable="50" caption="价值2" fieldName="VALUE2" format="#,###.00"/><extColumn name="column3" caption="价值3" fieldName="VALUE3" format="#,###.00"/></extColumnModel><extViewPort name="viewPort" layout="fit"><extPanel name="panel" border="false" layout="fit" tbar="menu"><extGrid name="grid" bbar="" autoExpandColumn="" downloadAll="true" pageSize="30" columnsModel="columnModel" onRowDblClick="extCall(menuItem2);"/></extPanel></extViewPort></body>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="mark" logText="explorer导入:{#importDir#} ">
+	<method name="import" methodName="com.xuelang.partmanage.partDevie.getAndSaveFile"/></body>

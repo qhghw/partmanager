@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="save" sql="insert  into file_manage(&#xA;id,file_type,receive_man,file_describe,&#xA;RECORD_TIM,RECORD_MAN,DEPT_COD,USERID,REMARKS,mainshow&#xA;) values (&#xA;replace(uuid(),'-',''),{?file_type?},{?receive_man?},{?file_describe?},&#xA;now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}',{?REMARKS?},'1')" type="update"/></body>

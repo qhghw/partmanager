@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" type="update" dbType="MySql" sql="update    USERS set   &#xA;LOGINCODE={?LOGINCODE?},&#xA;PASSWORD={?PASSWORD?},&#xA;USERNAME={?USERNAME?},&#xA;ROLEID={?ROLEID?},&#xA;DEPT_COD={?DEPT_COD?},&#xA;BZ={?BZ?}&#xA;where USERID={?USERID?}" transaction="commit"/></body>

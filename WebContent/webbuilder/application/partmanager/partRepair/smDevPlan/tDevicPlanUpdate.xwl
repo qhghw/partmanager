@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" type="update" dbType="Oracle" sql="update    t_devic_plan set   BILL_NO={?BILL_NO?},&#xA;DEV_NO={?DEV_NO?},&#xA;C_DEV_NAM={?C_DEV_NAM?},&#xA;E_DEV_NAM={?E_DEV_NAM?},&#xA;PLAN_MONTH={?PLAN_MONTH?},&#xA;WORK_STA={?WORK_STA?},&#xA;RP_MODE={?RP_MODE?},&#xA;WORK_ADD={?WORK_ADD?},&#xA;RESPON_MAN={?RESPON_MAN?},&#xA;APPLY_DEPT_COD={?APPLY_DEPT_COD?},&#xA;APPLY_MAN_COD={?APPLY_MAN_COD?},&#xA;APPLY_TIM={?TIMESTAMP.APPLY_TIM?},&#xA;RECORD_TIM={?TIMESTAMP.RECORD_TIM?},&#xA;RECORD_MAN={?RECORD_MAN?},&#xA;DEPT_COD={?DEPT_COD?},&#xA;USERID={?USERID?},&#xA;REMARKS={?REMARKS?} where BILL_NO={?BILL_NO?}"/></body>

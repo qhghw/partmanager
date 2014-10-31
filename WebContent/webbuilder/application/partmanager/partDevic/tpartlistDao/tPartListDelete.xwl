@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dbUpdater name="deleteCntrData" data="{#grid#}" deleteSql="delete from T_PART_LIST where LIST_ID={?LIST_ID?}"/></body>

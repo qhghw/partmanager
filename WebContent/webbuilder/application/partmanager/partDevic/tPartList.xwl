@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" caption="物料台账表" headerScript="var operateType ;">
+	<folder name="storeFolder">
+		<extStore name="tPartListStore" url="main?action=webbuilder/application/partmanager/partDevic/tpartlistDao/tPartListQuery.xwl"/>
+		<extAjax name="insertTPartListAjax" url="main?action=webbuilder/application/partmanager/partDevic/tpartlistDao/tPartListInsert.xwl" out="tPartListWindow" onSuccess="alert('操作成功');
+tPartListWindow.hide();
+tPartListStore.baseParams=extGetAllControlsValue('menu');
+tPartListStore.load({params:{start:0,limit:30}});"/>
+		<extAjax name="updateTPartListAjax" url="main?action=webbuilder/application/partmanager/partDevic/tpartlistDao/tPartListUpdate.xwl" out="tPartListWindow" onSuccess="alert('操作成功');
+tPartListWindow.hide();
+tPartListStore.baseParams=extGetAllControlsValue('menu');
+tPartListStore.load({params:{start:0,limit:30}});"/>
+		<extAjax name="deleteTPartListAjax" url="main?action=webbuilder/application/partmanager/partDevic/tpartlistDao/tPartListDelete.xwl" onSuccess="extRemoveGridSelection(grid);
+tPartListStore.baseParams=extGetAllControlsValue('menu');
+tPartListStore.load({params:{start:0,limit:30}});" out="grid" showMessage="true"/>
+	</folder>
+	<folder name="columnfolder">
+		<extColumnModel name="columnModel1">
+			<extColumn name="column2" caption="仓库名称" fieldName="STORAGE_NAM" align="left"/>
+			<extColumn name="column3" caption="类型" fieldName="PARTS_TYPE" align="left"/>
+			<extColumn name="column4" caption="代码" fieldName="PARTS_COD" align="left"/>
+			<extColumn name="column5" fieldName="C_PARTS_NAM" align="left" caption="名称"/>
+			<extColumn name="column7" caption="规格型号" fieldName="STAND_TXT" align="left"/>
+			<extColumn name="column9" fieldName="MIN_UNIT" align="left" caption="单位"/>
+			<extColumn caption="数量" fieldName="STORE_NUM" align="left" name="STORE_NUMs"/>
+			<extColumn fieldName="STORE_PRICE" name="STORE_PRICEs" caption="单价"/><extColumn caption="库存成本" fieldName="STORE_AMOUNT" name="STORE_AMOUNTs"/><extColumn name="column13" caption="责任人" fieldName="RESP_NAM" align="left"/>
+			<extColumn name="column14" caption="责任部门名称" fieldName="RESP_DEPT" align="left"/>
+			<extColumn name="column16" caption="录入人" fieldName="RECORD_MAN" align="left"/>
+			<extColumn name="column17" caption="所属部门" fieldName="DEPT_COD" align="left"/>
+		</extColumnModel>
+		<extWindow name="extWindowPrint" closeAction="hide" frame="true" width="866" height="548" layout="absolute" caption="打印"><iframe name="iframe2" width="100%" height="100%"/></extWindow></folder>
+	<extMenu name="menu" style="" bodyStyle="" autoShow="false">
+		<extLabel name="extLabel811" caption="仓库名称："/><extTextField name="storeNam"/><extLabel name="extLabeMenu5" caption="中文名：" align="right"/>
+		<extTextField name="S_C_PARTS_NAM"/>
+		<extMenuItem name="findTskMenu" onClick="if(storeNam.getValue()=='')
+{
+	extShowMessage('请选择仓库！');
+	return;
+	
+}
+
+tPartListStore.baseParams=extGetAllControlsValue('menu');
+tPartListStore.load({params:{start:0,limit:30}});" caption="查询" iconCls="icon_find"/>
+		<extMenuItem name="newMenu" iconCls="icon_new" caption="增加" onClick="operateType = 'insert';
+tPartListWindow.show();" hidden="true"/>
+		<extMenuItem name="editMenu" caption="编辑" iconCls="icon_edit" onClick="operateType = 'modify';
+if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	tPartListWindow.show();
+}" hidden="true"/>
+		<extMenuItem name="delMenu" iconCls="icon_delete" caption="删除" onClick="extGridDeleteConfirm(grid,'LIST_ID',function(){
+	deleteTPartListAjax();
+});" hidden="true"/>
+		<extMenuItem name="menuItem" caption="导出" iconCls="icon_excel" onClick="Get('iframe2').src='mydesk_stockOutExcel.do?purno=';"/></extMenu>
+	<extWindow name="tPartListWindow" frame="true" caption="物料台账表维护" onShow="if(operateType == 'insert'){
+	extResetAllControlsValue(&quot;tPartListWindow&quot;);	
+
+
+}
+if(operateType == 'modify'){
+	var record = grid.getSelectionModel().getSelected();		
+	extSetAllControlsValueObj(tPartListWindow, record.data);
+
+}" onOk="if (!extVerifyAllControls('tPartListWindow')) return; 
+if(operateType == 'insert'){
+
+	insertTPartListAjax();
+	
+}
+if(operateType == 'modify'){
+	updateTPartListAjax();
+}" width="813" height="302" dialog="true" layout="absolute" closeAction="hide">
+		<extLabel caption="仓库编号：" name="extLabel1" left="10" top="15" width="100"/>
+		<extTextField name="STORAGE_COD" left="125" top="10" width="130"/>
+		<extLabel caption="仓库名称：" name="extLabel2" left="270" top="15" width="100"/>
+		<extTextField name="STORAGE_NAM" left="375" top="10" width="130"/>
+		<extLabel caption="类型：" name="extLabel3" left="10" top="45" width="100"/>
+		<extTextField name="PARTS_TYPE" left="125" top="40" width="130"/>
+		<extLabel caption="代码：" name="extLabel4" left="270" top="45" width="100"/>
+		<extTextField name="PARTS_COD" left="375" top="40" width="130"/>
+		<extLabel caption="名称：" name="extLabel5" left="515" top="10" width="100"/>
+		<extTextField name="C_PARTS_NAM" left="620" top="5" width="130"/>
+		<extLabel caption="规格型号：" name="extLabel7" left="515" top="40" width="100"/>
+		<extTextField name="STAND_TXT" left="620" top="35" width="130"/>
+		<extLabel caption="单位：" name="extLabel9" left="10" top="75" width="100"/>
+		<extTextField name="MIN_UNIT" left="125" top="70" width="130"/>
+		<extLabel caption="状态：" name="extLabel10" left="270" top="75" width="100"/>
+		<extTextField name="STATUS" left="375" top="70" width="130"/>
+		<extLabel caption="数量：" name="extLabel11" left="515" top="75" width="100"/>
+		<extTextField name="STORE_NUM" left="620" top="65" width="130"/>
+		<extLabel caption="责任人：" name="extLabel13" left="10" top="105" width="100"/>
+		<extTextField name="RESP_NAM" left="125" top="100" width="130"/>
+		<extLabel caption="责任部门名称：" name="extLabel14" left="270" top="105" width="100"/>
+		<extTextField name="RESP_DEPT" left="375" top="100" width="130"/>
+		<extLabel caption="备注：" name="extLabel19" left="10" top="140" width="100"/>
+		<extTextField name="NOTE" left="125" top="130" width="630" inputType="textArea" height="80"/>
+	</extWindow>
+	<extViewPort name="viewPort" layout="border">
+		<extPanel name="panel1" border="false" region="west" layout="fit" height="100%" caption="代码类别树" collapsible="true" split="true" width="150"><extTree name="tree" autoScroll="true" onClick="Ext.getCmp(&quot;storeNam&quot;).setValue(node.text);
+p=node;" remoteUrl="main?action=webbuilder/application/partmanager/partDevic/WLOutWare/jsonQuery.xwl" onBeforeLoad="control.baseParams.id=node.id;"/></extPanel><extPanel name="panel" border="false" layout="fit" tbar="menu" region="center" split="true">
+			<extGrid name="grid" bbar="" columnsModel="columnModel1" autoExpandColumn="" onRowDblClick="extCall(editMenu);" downloadAll="true" pageSize="30" store="tPartListStore" loadStore="false"/>
+		</extPanel>
+	</extViewPort>
+</body>

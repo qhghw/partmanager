@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT
+partsout.RECP_NO,
+partsout.OUTDEPOT_DTE,
+partsout.PARTS_TYPE,
+partsout.UNIT_COD,
+partsout.FETCHER_COD,
+partsout.OUT_TYPE,
+partsout.SENDER_COD,
+partsout.CLASS_COD,
+partsout.ORIGIN_RECP_NO,
+partsout.PUR_NO,
+partsout.BILL_MAN,
+partsout.FEE_TYP_COD,
+partsout.IS_OLD,
+partsout.STORAGE_COD,
+partsout.WF_STATUE,
+partsout.STORAGE_NAM,
+partsout.RECORD_TIM,
+partsout.RECORD_MAN,
+partsout.DEPT_COD,
+partsout.USERID,
+partsout.REMARKS
+FROM
+T_PARTS_OUT AS partsout
+ {#whereSql#}" totalSql="SELECT
+count(1) 
+FROM
+T_PARTS_OUT
+ {#whereSql#}" metaData="-"/></body>

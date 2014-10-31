@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" dbType="MySql" type="execute" sql="insert  into USERS( LOGINCODE,&#xA;PASSWORD,&#xA;USERNAME,&#xA;ROLEID,&#xA;DEPT_COD,&#xA;BZ) values ( &#xA;{?LOGINCODE?},&#xA;{?PASSWORD?},&#xA;{?USERNAME?},&#xA;{?ROLEID?},&#xA;{?DEPT_COD?},&#xA;{?BZ?})"/>
+</body>

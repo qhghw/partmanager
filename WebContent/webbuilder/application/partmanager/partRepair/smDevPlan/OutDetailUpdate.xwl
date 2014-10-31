@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="update    SM_DEV_PLAN_B set   WORK_CLASS={?WORK_CLASS?},MAINTAIN_TYP_COD={?MAINTAIN_TYP_COD?},MAINT_REQ={?MAINT_REQ?},PLAN_BEGIN_TIM={?TIMESTAMP.PLAN_BEGIN_TIM?},PLAN_END_TIM={?TIMESTAMP.PLAN_END_TIM?},PLAN_FEE={?PLAN_FEE?},SET_DTE={?TIMESTAMP.SET_DTE?},WORKBILL_NO={?WORKBILL_NO?},BEGIN_TIM={?TIMESTAMP.BEGIN_TIM?},END_TIM={?TIMESTAMP.END_TIM?},
+FINISH_ID={?FINISH_ID?},FINISH_DES={?FINISH_DES?},NOTE={?NOTE2?}
+where BILL_NO={?billNo?}  and  MAINTAIN_ITEM_COD={?MAINTAIN_ITEM_COD?}" dbType="Oracle" transaction="commit" type="update"/></body>

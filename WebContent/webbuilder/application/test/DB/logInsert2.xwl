@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" dbType="Oracle" type="update" sql="insert into LOGMANAGE(ID,FUN_NAME,FUN_NAME1,OPERATE,USERNAME,OPE_DATE)
+values(sys_guid(),{?funName?},{?funName1?},{?OPERATE?},'{#sys.username#}',sysdate,1)"/></body>

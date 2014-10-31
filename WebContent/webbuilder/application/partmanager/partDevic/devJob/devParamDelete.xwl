@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<dbUpdater data="{#grid1#}" name="delete" transaction="start" deleteSql="delete  SM_DEV_PARAM  where  PARAM_ID={?PARAM_ID?}"/></body>

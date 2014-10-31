@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query type="query" fastMode="" loadData="true" sql="select  STORAGE_ID NAME from  
+SM_CODE_STORAGE  where STORAGE_COD={?STORAGE_COD?}" name="checkDuplicate"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="代码重复，请重新输入"/><query name="query" sql="insert  into SM_CODE_STORAGE( STORAGE_ID,DEPT_COD,SHIP_DEV_NO,E_SHIP_NAM,C_SHIP_NAM,STORAGE_COD,STORAGE_NAM,STORAGE_TYPE,RECORD_TIM,RECORD_MAN,USERID,TENTANTID,REMARKS) values ( seq_sm_pm_code.NEXTVAL,
+'0',{?shipCod?},{?eShipNam?},{?cShipNam?},{?STORAGE_COD?},{?STORAGE_NAM?},
+{?STORAGE_TYPE?},sysdate,'{#sys.username#}','{#sys.userId#}','{#sys.tentantId#}',{?REMARKS?})"/></body>

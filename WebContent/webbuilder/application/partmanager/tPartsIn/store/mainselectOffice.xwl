@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT 
+partsin.RECP_NO,
+partsin.OF_NO,
+partsin.PUR_NO,
+partsin.PARTS_TYPE,
+partsin.IN_STATUE,
+partsin.IN_MOD,
+partsin.INDEPOT_DTE,
+partsin.STORAGE_COD,
+partsin.STORAGE_NAM,
+partsin.CARRYFEE_NUM,
+partsin.MANAGER_COD,
+partsin.COMPUTER_COD,
+partsin.SAVER_COD,
+partsin.FETCHMODE_TXT,
+partsin.PAYKIND_TYP,
+partsin.WF_STATUE,
+partsin.BUYER_COD,
+partsin.RECORD_TIM,
+partsin.RECORD_MAN,
+partsin.DEPT_COD,
+partsin.USERID,
+partsin.REMARKS,
+partsin.is_contract,
+partsin.procdefid,
+partsin.processinstid
+FROM
+T_PARTS_IN AS partsin  WHERE partsin.IN_STATUE = '计划' AND partsin.STORAGE_NAM = '办公用品'
+ {#whereSql#}" totalSql="SELECT 
+count(1) 
+FROM
+T_PARTS_IN
+ WHERE IN_STATUE = '计划'  AND STORAGE_NAM = '办公用品'
+ {#whereSql#}" metaData="-"/></body>

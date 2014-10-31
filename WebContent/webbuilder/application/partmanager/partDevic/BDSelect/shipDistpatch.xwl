@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" caption="调度日志">
+	<method name="method1" methodName="net.huadong.shipmanage.ShipBDSelect.getShipDis"/><dataProvider name="dataProvider" sql="select DISPATCH_DTE,DISPATCH_INFO  ,E_SHIP_NAM  ,
+ C_SHIP_NAM  from  SHIP_DISPATCH   where {#whereSql#}" metaData="-" dateAsString="false" totalSql="select count(1)  from  SHIP_DISPATCH  where  {#whereSql#}" paging="false"/></body>

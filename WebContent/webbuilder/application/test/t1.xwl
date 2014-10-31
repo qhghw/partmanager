@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal">
+	<extAjax name="ajax" url="main?action=webbuilder/application/test/DB/t1.xwl" onSuccess="&#xA;var s = response.responseText; alert(s);" onFailure="&#xA;var s = response.responseText;"/><extViewPort name="viewPort" layout="border"><extForm name="extForm" layout="absolute" width="500" height="350" region="center"><extButton name="extButton" caption="caption" left="200" top="145" width="75" height="25" onClick="ajax();"/></extForm></extViewPort></body>

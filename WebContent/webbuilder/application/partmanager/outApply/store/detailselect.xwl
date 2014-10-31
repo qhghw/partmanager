@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT
+dp.PUR_NO,
+dp.PUR_NO PUR_NO_,
+dp.PARTS_COD,
+dp.C_PARTS_NAM,
+dp.E_PARTS_NAM,
+dp.IS_OLD,
+dp.STAND_TXT,
+dp.OUTDEPOT_NUM,
+dp.STOCK_NUM,
+dp.PRICE_VAL,
+dp.MIN_UNIT,
+dp.USE_COD,
+dp.RECORD_TIM,
+dp.RECORD_MAN,
+dp.DEPT_COD,
+dp.USERID,
+dp.REMARKS
+FROM
+t_out_apply_detail AS dp WHERE dp.PUR_NO = '{#purNo#}' {#whereSql#}" totalSql="SELECT
+count(1) 
+FROM
+t_out_apply_detail  WHERE PUR_NO = '{#purNo#}'  {#whereSql#}" metaData="-"/></body>

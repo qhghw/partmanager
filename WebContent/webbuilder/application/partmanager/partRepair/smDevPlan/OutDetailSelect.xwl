@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="select      BILL_NO,
+(select  MAINTAIN_ITEM_COD||'-'|| MAINTAIN_ITEM_NAM from  SM_DEV_MAINTAIN_ITM  where SM_DEV_MAINTAIN_ITM.MAINTAIN_ITEM_COD=SM_DEV_PLAN_B.MAINTAIN_ITEM_COD) MAINTAIN_ITEM_NAM,
+MAINTAIN_ITEM_COD,WORK_CLASS,
+(select MAINTIAN_TYP_COD||'-'||MAINTAIN_TYP_NAM from  SM_CODE_MAINTAIN_TYP  where MAINTIAN_TYP_COD=MAINTAIN_TYP_COD ) MAINTAIN_TYP_NAM,
+MAINTAIN_TYP_COD,
+MAINT_REQ,PLAN_BEGIN_TIM,
+PLAN_END_TIM,PLAN_FEE,SET_DTE,
+WORKBILL_NO,BEGIN_TIM,END_TIM,FINISH_ID,FINISH_DES,
+OPER_NAM,OPER_TIM,USERID,TENTANTID,NOTE  
+from  SM_DEV_PLAN_B   where  BILL_NO={?billNo?}" metaData="-" dateAsString="false" totalSql="select      count(1) 
+from  SM_DEV_PLAN_B 
+ where  BILL_NO={?billNo?}" paging="false"/></body>

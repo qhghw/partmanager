@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT &#xA;id,&#xA;manageid,&#xA;filename,&#xA;filesize,&#xA;url,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;REMARKS ,&#xA;uploadman&#xA;from file_detail&#xA; {#whereSql#}" totalSql="SELECT &#xA;count(1) &#xA;FROM &#xA;file_detail&#xA; {#whereSql#}" metaData="-"/></body>

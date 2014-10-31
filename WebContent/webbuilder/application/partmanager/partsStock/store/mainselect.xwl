@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT
+partsstock.STOCKH_ID,
+partsstock.STORAGE_COD,
+partsstock.STORAGE_NAM,
+partsstock.CHECK_DTE,
+partsstock.CHECK_NAM,
+partsstock.WF_STATUE,
+partsstock.RECORD_TIM,
+partsstock.RECORD_MAN,
+partsstock.DEPT_COD,
+partsstock.REMARKS,
+partsstock.USERID,
+partsstock.processinstid,
+partsstock.procdefid
+FROM
+T_PARTS_STOCK AS partsstock
+ {#whereSql#}" totalSql="SELECT
+count(1) 
+FROM
+t_parts_stock
+ {#whereSql#}" metaData="-"/></body>

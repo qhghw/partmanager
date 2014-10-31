@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Context>
+<Context reloadable="true" crossContext="true">
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+	<!--<Resource name="jdbc/wb_oracle" auth="Container" type="javax.sql.DataSource"
+		driverClassName="com.p6spy.engine.spy.P6SpyDriver" url="jdbc:oracle:thin:@221.0.112.227:1521:orcl"
+		username="hg_bws" password="ok" maxActive="20" maxIdle="10"
+		maxWait="-1" />  -->
+	
+		<Resource name="jdbc/mysql" auth="Container" type="javax.sql.DataSource"
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/partmanager?useUnicode=true&amp;characterEncoding=UTF-8"
+		username="root" password="root" maxActive="100" maxIdle="100"
+		maxWait="-1" />  
+</Context>

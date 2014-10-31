@@ -1,0 +1,62 @@
+@charset "utf-8";
+* {PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+BODY {
+	FONT-SIZE: 9pt; COLOR: #525552; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #fff
+}
+TD {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "宋体";
+}
+
+
+.activetab {
+  text-align:center;
+  WIDTH: 86px;
+  height:31px;
+  color:#ffffff;
+  font-weight:bold; 
+  padding-top:0px;
+  background-image:url(../../images/menu1.jpg);
+  background-repeat:no-repeat;
+}
+.activetab A:link {
+	 FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "宋体";  TEXT-DECORATION: none
+}
+.activetab A:visited {
+	 FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "宋体";  TEXT-DECORATION: none
+}
+.activetab A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.passivetab {
+  text-align:center;
+  WIDTH: 86px;
+  height:31px;
+  color:#434544;
+  font-weight:bold;
+  padding-top:0px;
+}
+.passivetab A:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #434544; FONT-FAMILY: "宋体";  TEXT-DECORATION: none
+}
+.passivetab A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #434544; FONT-FAMILY: "宋体";  TEXT-DECORATION: none
+}
+.passivetab A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #434544; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.subnavvisible {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; PADDING-TOP: 4px; WHITE-SPACE: nowrap; background-color:#036dd8; height:17px; color:#ffffff;
+}
+.subnavvisible A:link {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 2px; COLOR: #fff; PADDING-TOP: 2px; TEXT-DECORATION: none
+}
+.subnavvisible A:visited {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 2px; COLOR: #fff; PADDING-TOP: 2px; TEXT-DECORATION: none;
+}
+.subnavvisible A:hover {
+	COLOR: #9bcefa;
+}
+.subnavhidden {
+	PADDING-RIGHT: 2px; DISPLAY: none; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px
+}

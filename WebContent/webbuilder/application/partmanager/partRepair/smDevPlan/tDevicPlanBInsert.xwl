@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" dbType="MySql" type="execute" sql="insert  into t_devic_plan_B( BILL_NO,&#xA;MAINTAIN_TYP_COD,&#xA;MAINT_REQ,&#xA;PLAN_BEGIN_TIM,&#xA;PLAN_END_TIM,&#xA;PLAN_FEE,&#xA;SET_DTE,&#xA;WORKBILL_NO,&#xA;BEGIN_TIM,&#xA;END_TIM,&#xA;FINISH_ID,&#xA;FINISH_DES,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;REMARKS) values ({?BILL_NO?},&#xA;{?MAINTAIN_TYP_COD?},&#xA;{?MAINT_REQ?},&#xA;{?TIMESTAMP.PLAN_BEGIN_TIM?},&#xA;{?TIMESTAMP.PLAN_END_TIM?},&#xA;{?PLAN_FEE?},&#xA;{?TIMESTAMP.SET_DTE?},&#xA;{?WORKBILL_NO?},&#xA;{?TIMESTAMP.BEGIN_TIM?},&#xA;{?TIMESTAMP.END_TIM?},&#xA;{?FINISH_ID?},&#xA;{?FINISH_DES?}&#xA;,now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}',&#xA;{?REMARKSB?})"/>
+</body>

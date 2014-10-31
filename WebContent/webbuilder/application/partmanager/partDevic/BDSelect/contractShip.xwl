@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" caption="航次合同">
+	<method name="method1" methodName="net.huadong.shipmanage.ShipBDSelect.getConShip"/><dataProvider name="dataProvider" sql="select  CONTRACT_SHIP.E_SHIP_NAM ,  CONTRACT_SHIP.C_SHIP_NAM ,CONTRACT_SHIP_NBR,CONTRACT_SHIP_DTE,SHIP_DTE, 
+
+decode(HANDOVER_ID,'A','封舱交接','B','乙方理货') HANDOVER_ID,
+
+(select  C_CLIENT_NAM from  c_client  where CLIENT_COD =PARTY_B_COD  )PARTY_B_COD,
+PARTY_B_MAN
+from CONTRACT_SHIP,
+
+c_ship_data
+
+  where    
+  CONTRACT_SHIP.ship_cod=
+c_ship_data.ship_cod  
+  
+  
+    {#whereSql#}" metaData="-" dateAsString="true" totalSql="select count(1)
+from CONTRACT_SHIP,
+c_ship_data
+
+  where    
+  CONTRACT_SHIP.ship_cod=
+c_ship_data.ship_cod  
+  
+    {#whereSql#}" paging="false"/></body>

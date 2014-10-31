@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="com.xuelang.partmanage.IkexpressPlat.getOrgId"/><dataProvider name="dataProvider" metaData="-" totalSql="select count(1) from  T_DEVIC_ACCIDENT where 1=1 {#whereSql#}" dateAsString="false" sql="select      BILL_NO,&#xA;PARTS_NO,&#xA;C_PARTS_NAM,&#xA;PARTS_NUM,&#xA;ACCIDENT_HAPPEN_TIM,&#xA;COURSE_LOSE_DES,&#xA;DUTY_JUDGE,&#xA;ANALYSIS_TXT,&#xA;ACC_DUTY_MAN,&#xA;IDER_TIM,&#xA;IDER_MAN,&#xA;IDER_TXT,&#xA;OPER_NAM,&#xA;OPER_TIM,&#xA;ACC_DUTY_CORP,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;NOTE  from  T_DEVIC_ACCIDENT where 1=1 {#whereSql#}"/></body>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" caption="用户表" headerScript="var operateType ;">
+	<folder name="storeFolder">
+		<extStore name="usersStore" url="main?action=webbuilder/application/partmanager/system/usersDao/usersQuery.xwl"/>
+		<extAjax name="insertUsersAjax" url="main?action=webbuilder/application/partmanager/system/usersDao/usersInsert.xwl" out="usersWindow" onSuccess="extShowMessage('保存成功！')&#xA;;usersWindow.hide();&#xA;usersStore.baseParams=extGetAllControlsValue('menu');&#xA;usersStore.load({params:{start:0,limit:30}});"/>
+		<extAjax name="updateUsersAjax" url="main?action=webbuilder/application/partmanager/system/usersDao/usersUpdate.xwl" out="usersWindow" onSuccess="extShowMessage('保存成功！');&#xA;usersWindow.hide();&#xA;usersStore.baseParams=extGetAllControlsValue('menu');&#xA;usersStore.load({params:{start:0,limit:30}});"/>
+		<extAjax name="deleteUsersAjax" url="main?action=webbuilder/application/partmanager/system/usersDao/usersDelete.xwl" onSuccess="extRemoveGridSelection(grid);&#xA;usersStore.baseParams=extGetAllControlsValue('menu');&#xA;usersStore.load({params:{start:0,limit:30}});" out="grid" showMessage="true"/>
+		<extStore name="storeRole" url="main?action=webbuilder/application/partmanager/common/RoleSelect.xwl"/><method name="method" methodName="com.xuelang.partmanage.MultipleTree.getOrg"/></folder>
+	<folder name="columnfolder">
+		<extColumnModel name="columnModel1">
+			<extColumn name="column0" caption="用户ID" fieldName="USERID" align="left"/>
+			<extColumn name="column1" caption="登录代码" fieldName="LOGINCODE" align="left"/>
+			<extColumn name="column3" caption="用户名" fieldName="USERNAME" align="left"/>
+			<extColumn name="column4" caption="角色名" align="left" fieldName="ROLENAME"/>
+			<extColumn name="column5" caption="部门" fieldName="DEPT_COD" align="left"/>
+			<extColumn name="column6" caption="状态" fieldName="STATE" align="left"/>
+			<extColumn name="column7" caption="备注" fieldName="BZ" align="left"/>
+		</extColumnModel>
+	</folder>
+	<extMenu name="menu" style="" bodyStyle="" autoShow="false">
+		<extLabel name="extLabeMenu3" caption="用户名：" align="right"/>
+		<extTextField name="S_USERNAME" hidden="false"/>
+		<extMenuItem name="findTskMenu" onClick="usersStore.baseParams.whereSql=&quot; WHERE USERNAME = '&quot;+S_USERNAME.getValue()+&quot;'&quot;;&#xA;usersStore.load({params:{start:0,limit:30}});" caption="查询" iconCls="icon_find"/>
+		<extMenuItem name="newMenu" iconCls="icon_new" caption="增加" onClick="operateType = 'insert';&#xA;usersWindow.show();"/>
+		<extMenuItem name="editMenu" caption="编辑" iconCls="icon_edit" onClick="operateType = 'modify';&#xA;if (grid.getSelectionModel().getSelections().length != 1)&#xA;{&#xA;	extShowWarning('请选择一个有效的条目。');&#xA;	return;&#xA;}else{&#xA;	usersWindow.show();&#xA;}"/>
+		<extMenuItem name="delMenu" iconCls="icon_delete" caption="删除" onClick="extGridDeleteConfirm(grid,'USERID',function(){&#xA;	deleteUsersAjax();&#xA;});"/>
+	</extMenu>
+	<extWindow name="usersWindow" frame="true" caption="用户表维护" onShow="if(operateType == 'insert'){&#xA;	extResetAllControlsValue(&quot;usersWindow&quot;);	&#xA;&#xA;&#xA;}&#xA;if(operateType == 'modify'){&#xA;	var record = grid.getSelectionModel().getSelected();		&#xA;	extSetAllControlsValueObj(usersWindow, record.data);&#xA;&#xA;}" onOk="if (!extVerifyAllControls('usersWindow')) return; &#xA;if(operateType == 'insert'){&#xA;&#xA;	insertUsersAjax();&#xA;	&#xA;}&#xA;if(operateType == 'modify'){&#xA;	updateUsersAjax();&#xA;}" width="554" height="232" dialog="true" layout="absolute" closeAction="hide">
+		<extLabel caption="用户ID：" name="extLabel0" left="10" top="15" width="100"/>
+		<extTextField name="USERID" left="125" top="10" width="130" disabled="true"/>
+		<extLabel caption="登录代码：" name="extLabel1" left="270" top="15" width="100"/>
+		<extTextField name="LOGINCODE" left="375" top="10" width="130"/>
+		<extLabel caption="密码：" name="extLabel2" left="270" top="45" width="100"/>
+		<extTextField name="PASSWORD" left="375" top="40" width="130" inputType="password"/>
+		<extLabel caption="用户名：" name="extLabel3" left="10" top="45" width="100"/>
+		<extTextField name="USERNAME" left="125" top="40" width="130"/>
+		<extLabel caption="角色名：" name="extLabel4" left="20" top="75" width="100"/>
+		<extLabel caption="部门：" name="extLabel5" left="270" top="75" width="90"/>
+		<extLabel caption="备注：" name="extLabel7" left="20" top="105" width="100"/>
+		<extTextField name="BZ" left="125" top="100" width="380" inputType="textArea"/>
+		<extComboBox mode="local" left="125" top="70" width="130" name="ROLEID" store="storeRole" pageSize="30" displayField="RNAME" valueField="RNAME" onSelect="ROLEID.setValue(this.value.split('/')[0]);"/><extComboTree left="375" top="70" width="135" height="20" name="DEPT_COD" data="{#orgTree#}" onClick="var text=node.text;&#xA;DEPT_COD.setValue(text);" onDblClick="DEPT_COD.collapse();" treeHeight="300" treeWidth="200"/></extWindow>
+	<extViewPort name="viewPort" layout="fit">
+		<extPanel name="panel" border="false" layout="fit" tbar="menu">
+			<extGrid name="grid" bbar="" columnsModel="columnModel1" autoExpandColumn="" onRowDblClick="extCall(editMenu);" downloadAll="true" pageSize="30" store="usersStore" loadStore="true"/>
+		</extPanel>
+	</extViewPort>
+</body>

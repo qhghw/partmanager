@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="net.huadong.code.CountryCod.getPortSql"/><dataProvider name="dataProvider" sql="select  
+(select  C_COUNTRY_NAM  from c_country where COUNTRY_COD=c_port.COUNTRY_COD)
+C_COUNTRY_NAM,
+PORT_COD,C_PORT_NAM,E_PORT_NAM,SOURCE_STR,E_COUNTRY_NAM,CUSTOM_PORT_COD,RATE_KIND_COD,COUNTRY_COD
+   from  C_PORT where 
+  1=1    {#whereSql#}" metaData="-" dateAsString="false" totalSql="-"/></body>

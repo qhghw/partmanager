@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<dbUpdater data="{#InDetailGrid#}" name="delete" transaction="start" deleteSql="delete  from &#xA;t_parts_stock_detail where  STOCK_ID={?STOCK_ID?}"/></body>

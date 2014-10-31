@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT&#xA;dp.STOCK_ID,&#xA;dp.STOCKH_ID,&#xA;dp.PARTS_TYPE,&#xA;dp.PARTS_COD,&#xA;dp.C_PARTS_NAM,&#xA;dp.E_PARTS_NAM,&#xA;dp.STAND_TXT,&#xA;dp.ACCOUNT_NUM,&#xA;dp.MIN_UNIT,&#xA;dp.CHECK_NUM,&#xA;dp.RECORD_TIM,&#xA;dp.RECORD_MAN,&#xA;dp.DEPT_COD,&#xA;dp.USERID,&#xA;dp.STOCK_RESULT,&#xA;dp.NOTE&#xA;FROM&#xA;t_parts_stock_detail AS dp&#xA; where  STOCKH_ID={?STOCKH_ID?} {#numWhere#}" metaData="-" dateAsString="false" totalSql="SELECT count(1)&#xA;  FROM t_parts_stock_detail where  STOCKH_ID={?STOCKH_ID?} {#numWhere#}" paging="true"/></body>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" caption="采购申请查询">
+	<method name="method1" methodName="net.huadong.shipmanage.ShipBDSelect.getSmPmApply"/><dataProvider name="dataProvider" sql="SELECT sm_pm_pur_apply_h.c_ship_nam, sm_pm_pur_apply_h.e_ship_nam,sm_pm_pur_apply_h.PUR_DTE,
+sm_pm_pur_apply_h.AUDIT_DTE,
+PM_COD,C_PM_NAM,E_PM_NAM,STAND_TXT,MODEL_TXT,sm_pm_pur_apply.PUR_TXT,PUR_NUM
+  FROM sm_pm_pur_apply_h, sm_pm_pur_apply, c_ship_data 
+ WHERE sm_pm_pur_apply_h.pur_no = sm_pm_pur_apply.pur_no  and  SHIP_DEV_NO=ship_cod  {#whereSql#}
+
+order  by PUR_DTE  desc" metaData="-" dateAsString="false" totalSql="SELECT count(1)
+  FROM sm_pm_pur_apply_h, sm_pm_pur_apply, c_ship_data 
+ WHERE sm_pm_pur_apply_h.pur_no = sm_pm_pur_apply.pur_no  and  SHIP_DEV_NO=ship_cod  {#whereSql#}" paging="false"/></body>

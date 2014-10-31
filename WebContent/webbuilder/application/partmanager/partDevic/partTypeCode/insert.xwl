@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query type="query" fastMode="" loadData="true" sql="select  TYPE_ID name from  c_parts_type  where PARTS_TYPE={?PARTS_TYPE?}" name="checkDuplicate"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="该类别已存在。"/><query name="query" sql="insert  into c_parts_type(DATA_TYP,PARTS_TYPE,PARENT_ID,RECORD_TIM,RECORD_MAN,DEPT_COD,USERID,REMARKS) &#xA;values({?DATA_TYP?},{?PARTS_TYPE?},{?PARENT_ID?},now(),'{#sys.username#}','{#dept_cod#}','{#sys.userId#}',{?REMARKS?})" type="execute"/></body>

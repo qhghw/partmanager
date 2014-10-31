@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" headerScript="var currentNode=null,roleNameIsExpaned=true;
+var  operateType ,operateType1,operateType2 ,operateType3 ;
+
+
+function verifyData(){
+var f=true,k;
+var s=InDetailWareGrid.getStore();
+Ext.each(s.getModifiedRecords(), function(r) {
+k=100;
+if(r.get('STOCK_NUM')&lt;r.get('OUTDEPOT_NUM'))
+{
+k=1;
+}
+  
+
+
+if(k!=100)
+{var i=s.indexOf(r);
+
+f=false;
+extShowMessage('输入的出库数量比库存数量大！');
+return false;
+}
+});
+return f;
+}" jsFiles="webbuilder/script/wbfilter.js" caption="出库管理">
+	<folder name="folder1"><extStore name="mainselect" url="main?action=webbuilder/application/partmanager/partsOut/store/mainselect.xwl" autoLoad="false"/><extStore name="detailselect" url="main?action=webbuilder/application/partmanager/outApply/store/detailselect.xwl"/></folder><folder name="folder"><extColumnModel name="detailModel"><extColumn name="_PARTS_COD" caption="物料代码" fieldName="PARTS_COD" width="120"/><extColumn name="_C_PARTS_NAM" caption="物料中文名" fieldName="C_PARTS_NAM"/><extColumn name="_STAND_TXT" caption="规格" fieldName="STAND_TXT"/><extColumn name="_OUTDEPOT_NUM" caption="出库数量" fieldName="OUTDEPOT_NUM"/><extColumn fieldName="MIN_UNIT" name="MIN_UNITs" caption="单位"/><extColumn name="_PRICE_VAL" fieldName="PRICE_VAL" caption="成本价格" hidden="true"/><extColumn name="STOCK_NUMs" fieldName="STOCK_NUM" caption="可用库存"/><extColumn name="_USE_COD" fieldName="USE_COD" caption="领料人"/><extColumn name="_IS_OLD1" caption="是否有旧件" width="80" hidden="false" fieldName="IS_OLD"/><extColumn name="RECORD_TIM_" fieldName="RECORD_TIM" caption="录入时间"/><extColumn name="RECORD_MAN_" caption="录入人" fieldName="RECORD_MAN"/><extColumn name="DEPT_COD_" fieldName="DEPT_COD" caption="所属部门"/><extColumn fieldName="E_PARTS_NAM" name="E_PARTS_NAMS" caption="备注"/><extColumn name="REMARKS_" caption="备注" fieldName="REMARKS" hidden="true"/><extColumn name="column1" fieldName="PUR_NO" caption="PUR_NO" hidden="true"/></extColumnModel><extColumnModel name="mainModel"><extColumn name="_PUR_NO" align="center" fieldName="PUR_NO" caption="申请单号" width="120"/><extColumn name="_PUR_DTE" width="100" align="center" fieldName="PUR_DTE" caption="申请日期"/><extColumn name="_APPLY_DEPT_COD" fieldName="APPLY_DEPT_COD" caption="所属部门"/><extColumn name="_PARTS_TYPE" fieldName="PARTS_TYPE" caption="类型"/><extColumn name="_PUR_STATUE" renderer="if(value=='0')
+return '申请';
+else if(value=='1')
+return '执行';
+else if(value=='2')
+return '作废';" fieldName="PUR_STATUE" caption="申请状态" hidden="true"/><extColumn name="_APPLY_TYP" fieldName="APPLY_TYP" caption="申请类型"/><extColumn width="80" name="_OUT_MOD" fieldName="OUT_MOD" caption="出库方式"/><extColumn hidden="true" width="80" name="_STORAGE_COD" align="center" fieldName="STORAGE_COD" caption="仓库编号"/><extColumn name="_STORAGE_NAM" fieldName="STORAGE_NAM" caption="仓库名称"/><extColumn renderer="if(value=='0')
+return '否';
+else if(value=='1')
+return '是';" width="80" name="_MANA_MAN" fieldName="MANA_MAN" caption="负责人"/><extColumn width="60" name="_WF_STATUE" caption="审批状态" fieldName="WF_STATUE" renderer="if(value=='0')
+return '未提交';
+else if(value=='1')
+return '待审批';
+else if(value=='2')
+return '通过';
+else if(value=='3')
+return '未通过';"/><extColumn name="_AUDIT_IDEA" fieldName="AUDIT_IDEA" caption="审批意见" width="200"/><extColumn name="_RECORD_TIM" fieldName="RECORD_TIM" caption="录入时间"/><extColumn name="_RECORD_MAN" fieldName="RECORD_MAN" caption="录入人"/><extColumn name="_DEPT_COD" fieldName="DEPT_COD" caption="所属部门"/><extColumn fieldName="USERID" name="_USERID" caption="用户代码"/><extColumn name="_REMARKS" fieldName="REMARKS" caption="备注"/><extColumn name="_IS_OLD" caption="是否有旧货" fieldName="IS_OLD" renderer="if(value=='0')
+return '无';
+else if(value=='1')
+return '有';" width="80"/><extColumn name="_AUDIT_DTE" fieldName="AUDIT_DTE" caption="审批日期"/></extColumnModel></folder><extMenu name="mainmenu"><extLabel caption="申请单号" name="PUR_NO_toolbar"/><extTextField name="purNo"/><extLabel name="extLabel17" caption="状态"/><extComboBox mode="local" displayField="KEY_TEXT" name="sta" valueField="KEY_ID" width="50" mapKey="WF"/><extLabel name="extLabel1" caption="日期："/><extDate name="begTim"/><extLabel name="extLabel13" html="-"/><extDate name="endTim"/><extMenuItem name="mainsearch" caption="查询" iconCls="icon_property" onClick="var stA=sta.getValue()==null?'':sta.getValue();
+var purNoValue=purNo.getValue()==null?'':purNo.getValue();
+var beginDate =  Ext.getCmp('begTim').getValue().format('Y-m-d') ;
+var endDate =  Ext.getCmp('endTim').getValue().format('Y-m-d') ;
+var st = &quot;1=1&quot;;
+if(IsEmpty(stA))
+{
+  st = &quot; (WF_STATUE like '%%' OR WF_STATUE IS NULL) &quot;;
+}
+else if(stA == '0')
+{
+st = &quot; ( WF_STATUE IS NULL) &quot;;
+}
+else
+{
+  st = &quot; (WF_STATUE = '&quot;+stA+&quot;'  ) &quot;;
+}
+if (IsEmpty(beginDate ))
+{
+  extShowMessage('请选择开始时间');
+ return;
+}
+if (IsEmpty(endDate ))
+{
+  extShowMessage('请选择结束时间');
+ return;
+}
+mainselect.baseParams.whereSql=&quot; where OUT_MOD='工具领用' AND (date_format(PUR_DTE,'%Y-%m-%d') &gt;= '&quot;+beginDate +&quot;' AND date_format(PUR_DTE,'%Y-%m-%d') &lt;= '&quot;+endDate +&quot;') AND &quot;+st+&quot; AND   PUR_NO like '%&quot;+purNoValue+&quot;%'&quot;;
+mainselect.load({params:{start:0,limit:30}});"/><extMenuItem name="menuItem3" caption="打印" iconCls="icon_report" onClick="var beginDate =  Ext.getCmp('begTim').getValue().format('Y-m-d') ;
+ var endDate =  Ext.getCmp('endTim').getValue().format('Y-m-d') ;
+
+Get('iframe').src='mydesk_tooloutReportAll.do?begTim='+beginDate+'&amp;endTim='+endDate;
+extWindow.show();"/></extMenu><folder name="folder2"><extWindow name="extWindow" closeAction="hide" frame="true" width="1008" caption="打印" layout="fit" height="569"><iframe name="iframe" left="10" top="10" width="970" height="460" src="main?action=webbuilder/application/partmanager/partQuery/outQueryReport.xwl"/></extWindow></folder><extViewPort name="viewPort" layout="border"><extPanel name="panel1" border="false" region="west" layout="fit" height="100%" caption="代码类别树" split="true" width="150" hidden="true"><extTree name="tree" autoScroll="true"/></extPanel><extPanel name="panel2" border="false" layout="border" region="center" height="200" split="true" frame="true"><extGrid name="OutMainGrid" columnsModel="mainModel" pageSize="15" onCellClick="if (OutMainGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	var record = OutMainGrid.getSelectionModel().getSelected();
+detailselect.baseParams.purNo= record.data.PUR_NO ;
+detailselect.load({params:{start:0,limit:30}});
+
+}" store="mainselect" loadStore="false" region="north" split="true" height="300" tbar="mainmenu" downloadAll="true"/><extPanel name="panel" border="false" region="center" layout="border" height="400"><extPanel name="panel21" border="false" region="center" split="true" layout="border" height="400"><extGrid name="OutDetailGrid" loadStore="false" columnsModel="detailModel" store="detailselect" region="center" height="300" canEdit="true" submitMode="modified" pageSize="30" clicksToEdit="1" onRowClick="OutDetailGrid=Ext.getCmp(&quot;OutDetailGrid&quot;);
+var sm = OutDetailGrid.getSelectionModel();
+var celIndex = sm.getSelectedCell();
+var record = OutDetailGrid.getStore().getAt(celIndex [0]);
+
+getDwStore.baseParams.PARTS_COD= record.data.PARTS_COD;
+getDwStore.load({params:{start:0,limit:30}});"/></extPanel></extPanel></extPanel></extViewPort><extScript name="extScript" extFooter="var d=new Date();
+d.setDate(d.getDate()+5);
+Ext.getCmp('endTim').setValue(d);
+d.setDate(d.getDate()-10);
+Ext.getCmp('begTim').setValue(d);"/></body>

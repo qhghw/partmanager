@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" logType="exception">
+	<method name="method" methodName="net.huadong.pass.core.platform.IkexpressPlat.getOrgId2"/><dataProvider name="dataProvider" metaData="-" sql="select 
+BILL_NO,SHIP_DEV_NO,C_SHIP_NAM,E_SHIP_NAM,
+DEV_NO||'('||C_DEV_NAM||'-'||E_DEV_NAM||')'  DEV_NAM,
+DEV_NO,C_DEV_NAM,E_DEV_NAM,
+
+UP_ID,
+APPLY_MAN_COD,APPLY_DEPT_COD,APPLY_TIM,ASSIGN_ID,ASSIGN_MAN_COD,ASSIGN_DEPT_COD,
+ASSIGN_TIM,FINISH_ID,FEEDBACK_DEPT_COD,FEEDBACK_MAN_COD,FEEDBACK_TIM,DEV_HITCH_EXPRESS,
+DEV_PART_COD,DEV_HITCH_REASON,DEV_HITCH_RESOLVENT,BEGIN_TIM,END_TIM,REPAIR_ID,PROCESS_DES,
+REPAIR_WORKER_NAM,ACCEPT_MAN,OUT_REPAIR_CORP,OUT_REPAIR_MAN,HITCH_TYP_COD,REPAIR_MONEY_NUM,
+UP_ID2,ACCEPT_ID,ACCEPT_TIM,RECORD_TIM,RECORD_NAM,UPDATE_TIM,UPDATE_NAM,USERID,TENTANTID,NOTE
+ from  SM_DEV_REPAIR_REC  dp
+where  1=1   {#IKsql#} 
+
+ {#WhereSql#}" totalSql="select 
+count(1)  from  SM_DEV_REPAIR_REC dp
+where   1=1 {#IKsql#} 
+
+ {#WhereSql#}" paging="false" dateAsString="false"/></body>

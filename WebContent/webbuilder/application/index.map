@@ -1,0 +1,30 @@
+﻿<?xml version="1.1" encoding="UTF-8"?>
+<map><file name="myapp" caption="我的应用" role="" icon="" hint="我的个人的应用和设置" hidden="true"/>
+<file name="hr" caption="人力资源管理" role="" icon="" hint="对人事、工资等信息进行管理" hidden="1"/>
+<file name="files" caption="文件管理" role="" icon="" hint="文件的综合管理" hidden="true"/>
+<file name="crm" caption="客户关系管理" role="" icon="" hint="对客户信息进行全面的管理" hidden="1"/>
+<file name="bwms" caption="保税仓储管理" role="" icon="" hint="员工的考核及考试" hidden="0"/>
+<file name="jtport" caption="物流信息平台" role="" icon="" hint="物流信息平台" hidden="0"/>
+<file name="test" caption="考核与考试" role="" icon="" hint="员工的考核及考试" hidden="1"/>
+<file name="assets" caption="资产管理" role="" icon="" hint="对单位的资产进行管理" hidden="1"/>
+<file name="inventory" caption="库存管理" role="" icon="" hint="对产品的库存进行管理" hidden="1"/>
+<file name="bbs" caption="交流论坛" role="" icon="" hint="发布与交流信息" hidden="1"/>
+<file name="admin" caption="管理工具" role="管理员" icon="" hint="管理和维护系统的工具" hidden="false"/>
+
+<file name="system" caption="系统管理" role="管理员" icon="" hint="对系统功能进行管理和维护" hidden="1"/>
+<file name="widget" caption="附件" role="" icon="" hint="系统附带的小应用" hidden="1"/>
+<file name="about" caption="帮助中心" role="" icon="" hint="应用的帮助及其相关信息" hidden="1"/>
+<file name="portal" caption="门户相关模块" role="" icon="" hint="" hidden="1"/>
+<file name="service" caption="公共服务相关模块" role="" icon="" hint="" hidden="1"/>
+
+
+<file name="catalina.properties" caption="打印控件" role="" icon="" hint="" hidden="true"/>
+<file name="CheckActivX.js" caption="打印控件" role="" icon="" hint="" hidden="true"/>
+<file name="install_lodop.exe" caption="打印控件" role="" icon="" hint="" hidden="true"/>
+<file name="inWareReport.jsp" caption="打印控件" role="" icon="" hint="" hidden="true"/>
+<file name="npActiveXFirefox4x.xpi" caption="打印控件" role="" icon="" hint="" hidden="true"/>
+<file name="report.jsp" caption="打印控件" role="" icon="" hint="" hidden="true"/>
+<file name="logging.properties" caption="打印控件" role="" icon="" hint="" hidden="true"/>
+<file name="print.jsp" caption="打印控件" role="" icon="" hint="" hidden="true"/>
+
+</map>

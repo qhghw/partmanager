@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="devicRepairRec" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f729ddaf-f9c5-45ca-bdbf-5cfff0669b68">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="106"/>
+	<parameter name="purno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+BILL_NO,
+DEV_NO,
+C_DEV_NAM,E_DEV_NAM,
+UP_ID,
+APPLY_MAN_COD,
+APPLY_DEPT_COD,
+APPLY_TIM,
+ASSIGN_ID,
+ASSIGN_MAN_COD,
+ASSIGN_DEPT_COD,
+ASSIGN_TIM,
+FINISH_ID,
+FEEDBACK_DEPT_COD,
+FEEDBACK_MAN_COD,
+FEEDBACK_TIM,
+DEV_HITCH_EXPRESS,
+DEV_PART_COD,
+DEV_HITCH_REASON,
+DEV_HITCH_RESOLVENT,
+BEGIN_TIM,
+END_TIM,
+REPAIR_ID,
+PROCESS_DES,
+REPAIR_WORKER_NAM,
+ACCEPT_MAN,
+OUT_REPAIR_CORP,
+OUT_REPAIR_MAN,
+HITCH_TYP_COD,
+REPAIR_MONEY_NUM,
+ACCEPT_ID,
+ACCEPT_TIM
+
+FROM
+t_devic_repair_rec
+where BILL_NO=$P{purno}]]>
+	</queryString>
+	<field name="BILL_NO" class="java.lang.String">
+		<fieldDescription><![CDATA[故障单号]]></fieldDescription>
+	</field>
+	<field name="DEV_NO" class="java.lang.String">
+		<fieldDescription><![CDATA[设备号]]></fieldDescription>
+	</field>
+	<field name="C_DEV_NAM" class="java.lang.String">
+		<fieldDescription><![CDATA[设备中文名]]></fieldDescription>
+	</field>
+	<field name="E_DEV_NAM" class="java.lang.String">
+		<fieldDescription><![CDATA[设备英文名]]></fieldDescription>
+	</field>
+	<field name="UP_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[是否报修]]></fieldDescription>
+	</field>
+	<field name="APPLY_MAN_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[报修人]]></fieldDescription>
+	</field>
+	<field name="APPLY_DEPT_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[报修部门]]></fieldDescription>
+	</field>
+	<field name="APPLY_TIM" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[报修日期]]></fieldDescription>
+	</field>
+	<field name="ASSIGN_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[是否派工]]></fieldDescription>
+	</field>
+	<field name="ASSIGN_MAN_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[派工员]]></fieldDescription>
+	</field>
+	<field name="ASSIGN_DEPT_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[派工部门]]></fieldDescription>
+	</field>
+	<field name="ASSIGN_TIM" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[派工日期]]></fieldDescription>
+	</field>
+	<field name="FINISH_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[是否完成维修]]></fieldDescription>
+	</field>
+	<field name="FEEDBACK_DEPT_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[反馈部门]]></fieldDescription>
+	</field>
+	<field name="FEEDBACK_MAN_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[反馈人]]></fieldDescription>
+	</field>
+	<field name="FEEDBACK_TIM" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[反馈时间]]></fieldDescription>
+	</field>
+	<field name="DEV_HITCH_EXPRESS" class="java.lang.String">
+		<fieldDescription><![CDATA[故障现象描述]]></fieldDescription>
+	</field>
+	<field name="DEV_PART_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[故障部位]]></fieldDescription>
+	</field>
+	<field name="DEV_HITCH_REASON" class="java.lang.String">
+		<fieldDescription><![CDATA[故障原因]]></fieldDescription>
+	</field>
+	<field name="DEV_HITCH_RESOLVENT" class="java.lang.String">
+		<fieldDescription><![CDATA[故障解决方法]]></fieldDescription>
+	</field>
+	<field name="BEGIN_TIM" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[开工时间]]></fieldDescription>
+	</field>
+	<field name="END_TIM" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[完工时间]]></fieldDescription>
+	</field>
+	<field name="REPAIR_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[故障是否修复]]></fieldDescription>
+	</field>
+	<field name="PROCESS_DES" class="java.lang.String">
+		<fieldDescription><![CDATA[验收意见]]></fieldDescription>
+	</field>
+	<field name="REPAIR_WORKER_NAM" class="java.lang.String">
+		<fieldDescription><![CDATA[维修工人姓名]]></fieldDescription>
+	</field>
+	<field name="ACCEPT_MAN" class="java.lang.String">
+		<fieldDescription><![CDATA[验收人]]></fieldDescription>
+	</field>
+	<field name="OUT_REPAIR_CORP" class="java.lang.String">
+		<fieldDescription><![CDATA[外包单位]]></fieldDescription>
+	</field>
+	<field name="OUT_REPAIR_MAN" class="java.lang.String">
+		<fieldDescription><![CDATA[外包单位维修人]]></fieldDescription>
+	</field>
+	<field name="HITCH_TYP_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[故障类型代码]]></fieldDescription>
+	</field>
+	<field name="REPAIR_MONEY_NUM" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[维修费用]]></fieldDescription>
+	</field>
+	<field name="ACCEPT_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[验收标志（1，0）]]></fieldDescription>
+	</field>
+	<field name="ACCEPT_TIM" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[验收时间]]></fieldDescription>
+	</field>
+	<group name="BILL_NO">
+		<groupExpression><![CDATA[$F{BILL_NO}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="a8c65880-b666-4f2a-b66b-4a4bf766613f" x="228" y="13" width="125" height="30"/>
+				<textElement>
+					<font size="20" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[设备大修]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="198" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="88f9b56b-077e-44f6-9f9d-775f0b6ef443" x="74" y="0" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BILL_NO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1a738d03-46f1-4d54-9b16-7621d0c1cd99" x="0" y="0" width="74" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[设备编号：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1a930545-59e8-4d5e-b6dd-ec9b7305d452" x="174" y="0" width="69" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[设备名称：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="40744cc4-4037-4be1-b2aa-a0c0aa2cce3b" x="343" y="0" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[报修人：]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5df6e0db-3686-4707-a798-8a3557ff7fe4" x="443" y="0" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APPLY_MAN_COD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="abee6aef-d6e7-46d8-9f96-525b232dfa7d" x="0" y="20" width="74" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[报修部门：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2deeef84-dea7-4ce2-a63c-76a2af345955" x="174" y="20" width="69" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[报修日期：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1fb63d60-d8da-4372-8cac-0f0eb2bc6808" x="343" y="20" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[派工员：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="31c0b40c-05b6-45d0-a7fb-32e25c7200bb" x="174" y="40" width="69" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[派工日期：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f93b7935-1b95-4302-b15c-7200e9fef25f" x="0" y="40" width="74" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[派工部门：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="829d422a-eb90-4a8c-b328-b2f55969b2ae" x="343" y="40" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[反馈人：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2eeef1c9-da58-4175-94f7-f795a7533aa9" x="174" y="60" width="69" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[反馈时间：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="219ac9b7-92c3-477b-a1ec-ee18d2abac2a" x="0" y="60" width="74" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[反馈部门：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="903d1b47-e3f3-48f1-9566-6590a932d1fc" x="343" y="60" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[故障描述：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d868bd2d-e2a1-49f8-8121-bf293e54707c" x="174" y="80" width="69" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[解决办法：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8b1b4a38-decf-4327-9c42-ecafda8a68ec" x="0" y="80" width="74" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[故障部位：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="34d35568-3dd3-4e56-ae37-d9c3103da11b" x="343" y="80" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[故障原因：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="085772fe-09db-4dcf-8b7f-e35cecc74ca6" x="0" y="100" width="74" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[开工时间：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="28892a45-dd21-4c7d-8886-7cdd3c07a47a" x="343" y="100" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[验收意见：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="830c8f51-4037-4107-8c8d-8851b99653ab" x="174" y="100" width="69" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[结束时间：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="53cc7f4c-f6ee-43a4-8af7-a5cd3512b85b" x="0" y="120" width="74" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[维修工人名单：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c73c08b3-181e-4534-aded-e9b22270de19" x="343" y="120" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[外包维修人员：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8b878e3-fd05-4ca9-9913-63c6826b0d5e" x="174" y="120" width="69" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[外包单位：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1695a24d-60cb-48a3-bd3b-0d9e0c754ff1" x="0" y="140" width="74" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[验收人：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0625a76d-5055-44fe-a4d1-c0373b6326c2" x="343" y="140" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[维修费用：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c45fdcc4-c7a6-41cb-8959-9e0bfd53e569" x="174" y="140" width="69" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[故障类型代码：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a4c8467a-dfca-4d86-8291-38b7cce38bec" x="343" y="160" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[验收时间：]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b3fef7d0-fa19-4a06-8c2b-0f3041bfc4da" x="74" y="20" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APPLY_DEPT_COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="7bef31d0-2c24-45ce-97dc-756f56c0f8f5" x="243" y="20" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APPLY_TIM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3602715a-f6f4-4683-8cee-eecfc4499c37" x="443" y="20" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ASSIGN_MAN_COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="153dd5fc-1844-4901-b50f-dc58100738a3" x="74" y="40" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ASSIGN_DEPT_COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5b4ab963-5069-4b1c-ae77-e9135364fbdf" x="243" y="40" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ASSIGN_TIM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a35aeb74-e5b0-4282-8482-c96619118824" x="443" y="40" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FEEDBACK_MAN_COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="acbc8195-1845-4c1e-98b5-9f7a3e683977" x="74" y="60" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FEEDBACK_DEPT_COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="27edc9a7-b0cd-4392-b349-8a036023e080" x="243" y="60" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FEEDBACK_TIM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="43a52120-66f7-4e3f-8d62-bcbc9ab9164d" x="443" y="60" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEV_HITCH_EXPRESS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="07e39a9c-c45d-48be-810b-fa7c2c6b8daa" x="74" y="80" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEV_PART_COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="9a10fda5-28d3-4f05-9579-287cadbaa203" x="243" y="80" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEV_HITCH_RESOLVENT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="d5eecb98-d4e7-4f53-b148-1137cc8f70da" x="443" y="80" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEV_HITCH_REASON}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="491cf9ff-d953-4e1c-8cfe-70f4baaa4f8b" x="74" y="100" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BEGIN_TIM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ae099876-7877-4a5b-874d-09083bb3a55a" x="243" y="100" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{END_TIM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a0d8b7e4-aebd-4cc6-bcf2-82d8e2c3c349" x="443" y="100" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROCESS_DES}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="bfede671-c211-4752-af77-87ac921ac21d" x="74" y="120" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REPAIR_WORKER_NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="9bbbe2b9-329a-4576-9e90-282ca0883904" x="243" y="120" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OUT_REPAIR_CORP}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="9757d741-697d-43f0-a8a8-c4db583d806b" x="443" y="120" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OUT_REPAIR_MAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="089d0d78-5d12-4b13-a2a5-037468be197d" x="74" y="140" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCEPT_MAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="94098148-1c83-4237-b448-008ee55fa7f9" x="243" y="140" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HITCH_TYP_COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="78ea1f7f-f675-4988-9c70-239bec1082ba" x="443" y="140" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REPAIR_MONEY_NUM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="2a797107-f472-40ab-b725-102aa0fcede8" x="432" y="160" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACCEPT_TIM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9690d9a3-ef75-4744-ad80-ecf0f02035ef" x="243" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{C_DEV_NAM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

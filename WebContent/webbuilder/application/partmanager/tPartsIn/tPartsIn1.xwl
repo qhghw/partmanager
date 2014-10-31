@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" caption="备件物料入库主表" headerScript="var operateType ;">
+	<folder name="storeFolder">
+		<extStore name="tPartsInStore"
+			url="main?action=webbuilder/application/shipagency/fregit/tPartsInDao/tPartsInQuery.xwl" />
+		<extAjax name="insertTPartsInAjax"
+			url="main?action=webbuilder/application/shipagency/fregit/tPartsInDao/tPartsInInsert.xwl"
+			out="tPartsInWindow"
+			onSuccess="alert('操作成功');&#xA;tPartsInWindow.hide();&#xA;tPartsInStore.baseParams=extGetAllControlsValue('menu');&#xA;tPartsInStore.load({params:{start:0,limit:30}});" />
+		<extAjax name="updateTPartsInAjax"
+			url="main?action=webbuilder/application/shipagency/fregit/tPartsInDao/tPartsInUpdate.xwl"
+			out="tPartsInWindow"
+			onSuccess="alert('操作成功');&#xA;tPartsInWindow.hide();&#xA;tPartsInStore.baseParams=extGetAllControlsValue('menu');&#xA;tPartsInStore.load({params:{start:0,limit:30}});" />
+		<extAjax name="deleteTPartsInAjax"
+			url="main?action=webbuilder/application/shipagency/fregit/tPartsInDao/tPartsInDelete.xwl"
+			onSuccess="extRemoveGridSelection(grid);&#xA;tPartsInStore.baseParams=extGetAllControlsValue('menu');&#xA;tPartsInStore.load({params:{start:0,limit:30}});"
+			out="grid" showMessage="true" />
+	</folder>
+	<folder name="columnfolder">
+		<extColumnModel name="columnModel1">
+					<extColumn name="column0" caption="入库单号" fieldName="RECP_NO" align="left" />
+					<extColumn name="column1" caption="订单号" fieldName="OF_NO" align="left" />
+					<extColumn name="column2" caption="申请号" fieldName="PUR_NO" align="left" />
+					<extColumn name="column3" caption="类型（物料、备件）" fieldName="PARTS_TYPE" align="left" />
+					<extColumn name="column4" caption="入库状态" fieldName="IN_STATUE" align="left" />
+					<extColumn name="column5" caption="入库模式" fieldName="IN_MOD" align="left" />
+					<extColumn name="column6" caption="入库日期" fieldName="INDEPOT_DTE" width="140" align="left" type="datetime" renderer="return value.format('Y-m-d H:i');" />
+					<extColumn name="column7" caption="仓库编号" fieldName="STORAGE_COD" align="left" />
+					<extColumn name="column8" caption="仓库名称" fieldName="STORAGE_NAM" align="left" />
+					<extColumn name="column9" caption="运杂费" fieldName="CARRYFEE_NUM" align="left" />
+					<extColumn name="column10" caption="主管人" fieldName="MANAGER_COD" align="left" />
+					<extColumn name="column11" caption="核算员" fieldName="COMPUTER_COD" align="left" />
+					<extColumn name="column12" caption="保管员" fieldName="SAVER_COD" align="left" />
+					<extColumn name="column13" caption="提运方式" fieldName="FETCHMODE_TXT" align="left" />
+					<extColumn name="column14" caption="结算方式" fieldName="PAYKIND_TYP" align="left" />
+					<extColumn name="column15" caption="上报标志（1，0）" fieldName="UP_ID" align="left" />
+					<extColumn name="column16" caption="采购员" fieldName="BUYER_COD" align="left" />
+					<extColumn name="column17" caption="录入时间" fieldName="RECORD_TIM" width="140" align="left" type="datetime" renderer="return value.format('Y-m-d H:i');" />
+					<extColumn name="column18" caption="录入人" fieldName="RECORD_MAN" align="left" />
+					<extColumn name="column19" caption="所属部门" fieldName="DEPT_COD" align="left" />
+					<extColumn name="column20" caption="用户代码" fieldName="USERID" align="left" />
+					<extColumn name="column21" caption="备注" fieldName="REMARKS" align="left" />
+		</extColumnModel>
+	</folder>
+	<extMenu name="menu" style="" bodyStyle="" autoShow="false">
+				<extLabel name="extLabeMenu0" caption="入库单号：" align="right" />
+				<extTextField name="S_RECP_NO" />
+				<extLabel name="extLabeMenu3" caption="类型（物料、备件）：" align="right" />
+				<extTextField name="S_PARTS_TYPE" />
+		
+		<extMenuItem name="findTskMenu"
+			onClick="&#xA;tPartsInStore.baseParams=extGetAllControlsValue('menu');&#xA;tPartsInStore.load({params:{start:0,limit:30}});"
+			caption="查询" iconCls="icon_find" />
+		<extMenuItem name="newMenu" iconCls="icon_new" caption="增加"
+			onClick="operateType = 'insert';&#xA;tPartsInWindow.show();" />
+		<extMenuItem name="editMenu" caption="编辑" iconCls="icon_edit"
+			onClick="operateType = 'modify';&#xA;if (grid.getSelectionModel().getSelections().length != 1)&#xA;{&#xA;	extShowWarning('请选择一个有效的条目。');&#xA;	return;&#xA;}else{&#xA;	tPartsInWindow.show();&#xA;}" />
+		<extMenuItem name="delMenu" iconCls="icon_delete" caption="删除"
+			onClick="extGridDeleteConfirm(grid,'RECP_NO',function(){&#xA;	deleteTPartsInAjax();&#xA;});" />
+	</extMenu>
+	<extWindow name="tPartsInWindow" frame="true" 
+		caption="备件物料入库主表维护"
+		onShow="if(operateType == 'insert'){&#xA;	extResetAllControlsValue(&quot;tPartsInWindow&quot;);	&#xA;&#xA;&#xA;}&#xA;if(operateType == 'modify'){&#xA;	var record = grid.getSelectionModel().getSelected();		&#xA;	extSetAllControlsValueObj(tPartsInWindow, record.data);&#xA;&#xA;}"
+		onOk="if (!extVerifyAllControls('tPartsInWindow')) return; &#xA;if(operateType == 'insert'){&#xA;&#xA;	insertTPartsInAjax();&#xA;	&#xA;}&#xA;if(operateType == 'modify'){&#xA;	updateTPartsInAjax();&#xA;}"
+		width="813" height="306"  dialog="true" layout="absolute" closeAction="hide">
+		
+				<extLabel caption="入库单号：" name="extLabel0" left="10" top="15" width="100" />
+				<extTextField name="RECP_NO" left="125" top="10" width="130"/>
+				<extLabel caption="订单号：" name="extLabel1" left="270" top="15" width="100" />
+				<extTextField name="OF_NO" left="375" top="10" width="130"/>
+				<extLabel caption="申请号：" name="extLabel2" left="520" top="15" width="100" />
+				<extTextField name="PUR_NO" left="625" top="10" width="130"/>
+				<extLabel caption="类型（物料、备件）：" name="extLabel3" left="10" top="45" width="100" />
+				<extTextField name="PARTS_TYPE" left="125" top="40" width="130"/>
+				<extLabel caption="入库状态：" name="extLabel4" left="270" top="45" width="100" />
+				<extTextField name="IN_STATUE" left="375" top="40" width="130"/>
+				<extLabel caption="入库模式：" name="extLabel5" left="520" top="45" width="100" />
+				<extTextField name="IN_MOD" left="625" top="40" width="130"/>
+				<extLabel caption="入库日期：" name="extLabel6" left="10" top="75" width="100" />
+				<extDate name="INDEPOT_DTE" left="125" top="70" width="130" />
+				<extLabel caption="仓库编号：" name="extLabel7" left="270" top="75" width="100" />
+				<extTextField name="STORAGE_COD" left="375" top="70" width="130"/>
+				<extLabel caption="仓库名称：" name="extLabel8" left="520" top="75" width="100" />
+				<extTextField name="STORAGE_NAM" left="625" top="70" width="130"/>
+				<extLabel caption="运杂费：" name="extLabel9" left="10" top="105" width="100" />
+				<extTextField name="CARRYFEE_NUM" left="125" top="100" width="130"/>
+				<extLabel caption="主管人：" name="extLabel10" left="270" top="105" width="100" />
+				<extTextField name="MANAGER_COD" left="375" top="100" width="130"/>
+				<extLabel caption="核算员：" name="extLabel11" left="520" top="105" width="100" />
+				<extTextField name="COMPUTER_COD" left="625" top="100" width="130"/>
+				<extLabel caption="保管员：" name="extLabel12" left="10" top="135" width="100" />
+				<extTextField name="SAVER_COD" left="125" top="130" width="130"/>
+				<extLabel caption="提运方式：" name="extLabel13" left="270" top="135" width="100" />
+				<extTextField name="FETCHMODE_TXT" left="375" top="130" width="130"/>
+				<extLabel caption="结算方式：" name="extLabel14" left="520" top="135" width="100" />
+				<extTextField name="PAYKIND_TYP" left="625" top="130" width="130"/>
+				<extLabel caption="上报标志（1，0）：" name="extLabel15" left="10" top="165" width="100" />
+				<extTextField name="UP_ID" left="125" top="160" width="130"/>
+				<extLabel caption="采购员：" name="extLabel16" left="270" top="165" width="100" />
+				<extTextField name="BUYER_COD" left="375" top="160" width="130"/>
+				<extLabel caption="录入时间：" name="extLabel17" left="520" top="165" width="100" />
+				<extDate name="RECORD_TIM" left="625" top="160" width="130" />
+				<extLabel caption="录入人：" name="extLabel18" left="10" top="195" width="100" />
+				<extTextField name="RECORD_MAN" left="125" top="190" width="130"/>
+				<extLabel caption="所属部门：" name="extLabel19" left="270" top="195" width="100" />
+				<extTextField name="DEPT_COD" left="375" top="190" width="130"/>
+				<extLabel caption="用户代码：" name="extLabel20" left="520" top="195" width="100" />
+				<extTextField name="USERID" left="625" top="190" width="130"/>
+				<extLabel caption="备注：" name="extLabel21" left="10" top="225" width="100" />
+				<extTextField name="REMARKS" left="125" top="220" width="130"/>
+		
+	</extWindow>
+	<extViewPort name="viewPort" layout="fit">
+		<extPanel name="panel" border="false" layout="fit" tbar="menu">
+			<extGrid name="grid" bbar="" columnsModel="columnModel1"
+				autoExpandColumn="" onRowDblClick="extCall(editMenu);" downloadAll="true"
+				pageSize="30" store="tPartsInStore" loadStore="false"
+				/>
+		</extPanel>
+	</extViewPort>
+</body>

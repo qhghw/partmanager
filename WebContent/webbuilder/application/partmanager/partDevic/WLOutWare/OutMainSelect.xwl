@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="com.xuelang.partmanage.IkexpressPlat.getOrgId"/><method name="method1" methodName="com.xuelang.partmanage.partDevie.getWLOutWareJson"/><dataProvider name="dataProvider" sql="SELECT
+dp.RECP_NO OLD_RECP_NO,
+dp.RECP_NO,
+dp.OUTDEPOT_DTE,
+dp.OUT_STATUE,
+dp.PARTS_TYPE,
+dp.UNIT_COD,
+dp.FETCHER_COD,
+dp.OUT_TYPE,
+dp.SENDER_COD,
+dp.CLASS_COD,
+dp.ORIGIN_RECP_NO,
+dp.PUR_NO,
+dp.BILL_MAN,
+dp.FEE_TYP_COD,
+dp.IS_OLD,
+dp.STORAGE_COD,
+dp.WF_STATUE,
+dp.STORAGE_NAM,
+dp.RECORD_TIM,
+dp.RECORD_MAN,
+dp.DEPT_COD,
+dp.USERID,
+dp.REMARKS,
+dp.PLAN_DTE
+FROM
+t_parts_out AS dp
+  where dp.STORAGE_NAM &lt;&gt; '办公用品' AND {#whereSql#}
+ {#IKsql#}" metaData="-" dateAsString="false" totalSql="select  
+count(1)
+ FROM
+t_parts_out AS dp   where dp.STORAGE_NAM &lt;&gt; '办公用品' AND {#whereSql#}
+{#IKsql#}" paging="false"/></body>

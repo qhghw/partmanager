@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query type="update" dbType="MySql" sql="update  t_parts_in set 
+OF_NO={?OF_NO?},PUR_NO={?PUR_NO1?},PLAN_DTE={?PLAN_DTE?},PARTS_TYPE={?PARTS_TYPE?},IN_STATUE={?IN_STATUE?},
+IN_MOD={?IN_MOD?},INDEPOT_DTE={?INDEPOT_DTE?},STORAGE_COD={?STORAGE_COD?},STORAGE_NAM={?STORAGE_NAM?},
+CARRYFEE_NUM={?CARRYFEE_NUM?},
+MANAGER_COD={?MANAGER_COD?},COMPUTER_COD={?COMPUTER_COD?},SAVER_COD={?SAVER_COD?},
+FETCHMODE_TXT={?FETCHMODE_TXT?},PAYKIND_TYP={?PAYKIND_TYP?},
+WF_STATUE={?WF_STATUE?},BUYER_COD={?BUYER_COD?},is_contract={?is_contract?}
+
+ where RECP_NO={?RECP_NO1?}" name="updateApply"/></body>

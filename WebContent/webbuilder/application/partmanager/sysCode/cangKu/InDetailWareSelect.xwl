@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="net.huadong.pass.core.platform.IkexpressPlat.getOrgId2"/><dataProvider name="dataProvider" sql="SELECT in_seq_no, sm_pm_in_dt.recp_no, purch_no, seq_no, sort_cod, pm_cod, c_pm_nam,
+       e_pm_nam, model_txt, stand_txt, price_val, indepot_num, stock_num,
+       keep_val, location_no, supplier_cod,
+       (SELECT c_client_nam || '-' || client_cod NAME
+          FROM c_client
+         WHERE client_cod = supplier_cod) supplier_nam, storage_cod,
+       (SELECT storage_nam || '(' || storage_cod || ')' NAME
+          FROM sm_code_storage
+         WHERE storage_cod = sm_pm_in_dt.storage_cod) storage_nam, 
+    sm_pm_in_dt.note,  0 OUTDEPOT_NUM
+  FROM sm_pm_in_dt  ,sm_pm_in
+  
+  
+  where sm_pm_in_dt.RECP_NO  =sm_pm_in.RECP_NO  and  sm_pm_in.DEV_NO={?shipCod?} and stock_num&lt;&gt;0
+
+  and  sm_pm_in_dt.PM_COD={?pmCod?}" metaData="-" dateAsString="false" totalSql="SELECT count(1)
+  FROM sm_pm_in_dt  ,sm_pm_in
+  
+  
+  where sm_pm_in_dt.RECP_NO  =sm_pm_in.RECP_NO  and  sm_pm_in.DEV_NO={?shipCod?}  and stock_num&lt;&gt;0
+
+  and  sm_pm_in_dt.PM_COD={?pmCod?}" paging="false"/></body>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="saveOutApply" sql="insert  into t_out_apply &#xA;( PUR_NO,PUR_DTE,APPLY_DEPT_COD,PARTS_TYPE,OUT_MOD,STORAGE_COD,STORAGE_NAM,MANA_MAN,&#xA;WF_STATUE,REMARKS,APPLY_TYP,&#xA;RECORD_TIM,RECORD_MAN,DEPT_COD,USERID)&#xA; values&#xA;(CONCAT('MO-', left(now()+0,8),'-',nextval('ToolBorrow')),{?PUR_DTE?},{?APPLY_DEPT_COD?},{?PARTS_TYPE?},&#xA;{?OUT_MOD?},{?STORAGE_COD?},{?STORAGE_NAM?},{?MANA_MAN?},{?WF_STATUE?},&#xA;{?REMARKS1?},{?APPLY_TYP?},&#xA;now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}')" type="update"/></body>

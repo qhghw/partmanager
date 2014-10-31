@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" caption="设备事故记录" headerScript="var operateType ;">
+	<folder name="storeFolder">
+		<extStore name="tDevicAccidentStore" url="main?action=webbuilder/application/partmanager/partDevic/tdevicaccidentDao/tDevicAccidentQuery.xwl"/>
+		<extAjax name="insertTDevicAccidentAjax" url="main?action=webbuilder/application/partmanager/partDevic/tdevicaccidentDao/tDevicAccidentInsert.xwl" out="tDevicAccidentWindow" onSuccess="extShowMessage('保存成功！');
+tDevicAccidentWindow.hide();
+tDevicAccidentStore.baseParams=extGetAllControlsValue('menu');
+tDevicAccidentStore.load({params:{start:0,limit:30}});"/>
+		<extAjax name="updateTDevicAccidentAjax" url="main?action=webbuilder/application/partmanager/partDevic/tdevicaccidentDao/tDevicAccidentUpdate.xwl" out="tDevicAccidentWindow" onSuccess="extShowMessage('保存成功！');
+tDevicAccidentWindow.hide();
+tDevicAccidentStore.baseParams=extGetAllControlsValue('menu');
+tDevicAccidentStore.load({params:{start:0,limit:30}});"/>
+		<extAjax name="deleteTDevicAccidentAjax" url="main?action=webbuilder/application/partmanager/partDevic/tdevicaccidentDao/tDevicAccidentDelete.xwl" onSuccess="extRemoveGridSelection(grid);
+tDevicAccidentStore.baseParams=extGetAllControlsValue('menu');
+tDevicAccidentStore.load({params:{start:0,limit:30}});" out="grid" showMessage="true"/>
+		<method methodName="com.xuelang.partmanage.MultipleTree.getDeviceTree" name="getDeviceTree"/></folder>
+	<folder name="columnfolder">
+		<extColumnModel name="columnModel1">
+			<extColumn name="column2" caption="设备名" fieldName="C_PARTS_NAM" align="left"/>
+			<extColumn name="column3" caption="设备编码" fieldName="PARTS_NUM" align="left"/>
+			<extColumn name="column4" caption="事故发生时间" fieldName="ACCIDENT_HAPPEN_TIM" width="140" align="left" type="datetime"/>
+			<extColumn name="column6" caption="事故排除时间" fieldName="DUTY_JUDGE" align="left"/>
+			<extColumn name="column8" caption="事故责任人" fieldName="ACC_DUTY_MAN" align="left"/>
+			<extColumn name="column9" caption="处理时间" fieldName="IDER_TIM" width="140" align="left" type="datetime"/>
+			<extColumn name="column10" caption="处理人" fieldName="IDER_MAN" align="left"/>
+			<extColumn name="column14" caption="事故责任单位" fieldName="ACC_DUTY_CORP" align="left"/>
+			<extColumn name="column15" caption="录入日期" fieldName="RECORD_TIM" width="140" align="left" type="datetime"/>
+			<extColumn name="column16" caption="录入人" fieldName="RECORD_MAN" align="left"/>
+			<extColumn name="column17" caption="所属部门" fieldName="DEPT_COD" align="left"/>
+		</extColumnModel>
+	</folder>
+	<extMenu name="menu" style="" bodyStyle="" autoShow="false">
+		<extLabel name="extLabeMenu2" caption="设备中文名：" align="right"/>
+		<extTextField name="S_C_PARTS_NAM"/>
+		<extMenuItem name="findTskMenu" onClick="tDevicAccidentStore.baseParams.whereSql=&quot; AND C_PARTS_NAM = '&quot;+S_C_PARTS_NAM.getValue()+&quot;'&quot;;
+tDevicAccidentStore.baseParams=extGetAllControlsValue('menu');
+tDevicAccidentStore.load({params:{start:0,limit:30}});" caption="查询" iconCls="icon_find"/>
+		<extMenuItem name="newMenu" iconCls="icon_new" caption="增加" onClick="operateType = 'insert';
+tDevicAccidentWindow.show();"/>
+		<extMenuItem name="editMenu" caption="编辑" iconCls="icon_edit" onClick="operateType = 'modify';
+if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	tDevicAccidentWindow.show();
+}"/>
+		<extMenuItem name="delMenu" iconCls="icon_delete" caption="删除" onClick="extGridDeleteConfirm(grid,'BILL_NO',function(){
+	deleteTDevicAccidentAjax();
+});"/>
+	</extMenu>
+	<extWindow name="tDevicAccidentWindow" frame="true" caption="设备事故记录维护" onShow="if(operateType == 'insert'){
+	extResetAllControlsValue(&quot;tDevicAccidentWindow&quot;);	
+
+
+}
+if(operateType == 'modify'){
+	var record = grid.getSelectionModel().getSelected();		
+	extSetAllControlsValueObj(tDevicAccidentWindow, record.data);
+
+}" onOk="if (!extVerifyAllControls('tDevicAccidentWindow')) return; 
+if(operateType == 'insert'){
+
+	insertTDevicAccidentAjax();
+	
+}
+if(operateType == 'modify'){
+	updateTDevicAccidentAjax();
+}" width="568" height="414" dialog="true" layout="absolute" closeAction="hide">
+		<extLabel caption="设备名称：" name="extLabel2" left="270" top="15" width="100"/>
+		<extTextField name="C_PARTS_NAM" left="375" top="10" width="130" onFocus="extWindowSbtz.show();"/>
+		<extLabel caption="设备编码：" name="extLabel3" left="15" top="15" width="100"/>
+		<extLabel caption="事故发生时间：" name="extLabel4" left="15" top="45" width="100"/>
+		<extDate name="ACCIDENT_HAPPEN_TIM" left="125" top="40" width="130"/>
+		<extLabel caption="事故情况：" name="extLabel5" left="15" top="105" width="100"/>
+		<extTextField name="COURSE_LOSE_DES" left="125" top="100" width="380" inputType="textArea" height="55"/>
+		<extLabel caption="值班人：" name="extLabel6" left="270" top="45" width="100"/>
+		<extTextField name="DUTY_JUDGE" left="375" top="40" width="130"/>
+		<extLabel caption="事故原因分析：" name="extLabel7" left="15" top="170" width="100"/>
+		<extTextField name="ANALYSIS_TXT" left="125" top="165" width="380" inputType="textArea" height="55"/>
+		<extLabel caption="事故责任人：" name="extLabel8" left="270" top="75" width="100"/>
+		<extTextField name="ACC_DUTY_MAN" left="375" top="70" width="130"/>
+		<extLabel caption="处理时间：" name="extLabel9" left="15" top="225" width="100"/>
+		<extDate name="IDER_TIM" left="125" top="225" width="130"/>
+		<extLabel caption="处理人：" name="extLabel10" left="270" top="230" width="100"/>
+		<extTextField name="IDER_MAN" left="375" top="225" width="130"/>
+		<extLabel caption="措施及处理意见：" name="extLabel11" left="15" top="260" width="100"/>
+		<extTextField name="IDER_TXT" left="125" top="255" width="380" inputType="textArea" height="60"/>
+		<extLabel caption="事故责任单位：" name="extLabel14" left="15" top="75" width="100"/>
+		<extTextField name="ACC_DUTY_CORP" left="125" top="70" width="130"/>
+		<extTextField left="80" top="355" width="120" name="BILL_NO" hidden="true"/><extTextField left="125" top="10" width="130" name="PARTS_NUM" onFocus="extWindowSbtz.show();"/></extWindow>
+	<folder name="folder4"><extMenu name="muDev1"><extLabel name="extLabel1" caption="设备名称"/><extTextField name="devName"/><extTextField name="typeId" hidden="true"/><extMenuItem caption="查询" iconCls="icon_find" name="findMenu1" onClick="if(Ext.getCmp(&quot;devName&quot;).getValue()!='')
+{
+var nV = Ext.getCmp(&quot;devName&quot;).getValue();
+var	whereSql =&quot; and   DEVICE_TYPE ='&quot;+Ext.getCmp(&quot;typeId&quot;).getValue()+&quot;' and (C_PARTS_NAM  like '%&quot;+nV +&quot;%') &quot;;
+devStore.baseParams.WhereSql =whereSql;
+devStore.load({params:{start:0,limit:30}});
+}"/></extMenu><extStore name="devStore" url="main?action=webbuilder/application/partmanager/partDevic/devJob/devSelect.xwl"/><extColumnModel name="cmDevice"><extColumn caption="设备编号" fieldName="PARTS_NUM" name="PARTS_NUMs"/><extColumn name="PARTS_TYPEs" fieldName="PARTS_TYPE" caption="物料分类"/><extColumn name="DEVICE_TYPEs" fieldName="DEVICE_TYPE" caption="设备分类"/><extColumn name="C_PARTS_NAMs" fieldName="C_PARTS_NAM" caption="设备名称"/><extColumn fieldName="STAND_TXT" name="STAND_TXTS" caption="规格型号"/><extColumn fieldName="PROD_FACT" name="PROD_FACTs" caption="生产厂家"/><extColumn name="SUPPLIER_CODs" caption="供应商" fieldName="SUPPLIER_COD"/><extColumn caption="出厂日期" fieldName="OUT_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" name="OUT_DTEs"/><extColumn caption="购买日期" fieldName="BUY_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" name="BUY_DTEs"/><extColumn fieldName="USE_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" caption="使用日期" name="USE_DTES"/><extColumn caption="设备状态" fieldName="STATUS" renderer="if(value=='1')
+return '报废';
+else  
+return '无';" name="STATUSs"/></extColumnModel><extWindow name="extWindowSbtz" closeAction="hide" frame="true" width="600" height="450" caption="设备台账信息" layout="border" onOk="if (gridDevic.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	
+	var record = gridDevic.getSelectionModel().getSelected();
+        PARTS_NUM.setValue(record.get(&quot;PARTS_NUM&quot;));
+	C_PARTS_NAM.setValue(record.get(&quot;C_PARTS_NAM&quot;)); 
+        extWindowSbtz.hide()
+}"><extPanel name="panel1" border="false" region="west" layout="fit" height="100%" caption="设备种类" split="true" width="150"><extTree name="tree" autoScroll="true" onBeforeLoad="control.baseParams.id=node.id;" onClick="var  whereSql=&quot;  and   DEVICE_TYPE ='&quot;+node.text+&quot;' &quot;;
+Ext.getCmp(&quot;typeId&quot;).setValue(node.text);
+devStore.baseParams.WhereSql =whereSql;
+devStore.load({params:{start:0,limit:30}});
+p=node;" remoteUrl="main?action=webbuilder/application/partmanager/common/jsonQueryDevic.xwl"/></extPanel><extPanel name="panel2" border="false" region="center" layout="fit"><extGrid name="gridDevic" width="100%" tbar="muDev1" store="devStore" pageSize="30" columnsModel="cmDevice" height="400" loadStore="false" onCellDblClick="if (gridDevic.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	
+	var record = gridDevic.getSelectionModel().getSelected();
+        PARTS_NUM.setValue(record.get(&quot;PARTS_NUM&quot;));
+	C_PARTS_NAM.setValue(record.get(&quot;C_PARTS_NAM&quot;)); 
+        extWindowSbtz.hide()
+}"/></extPanel></extWindow></folder><extViewPort name="viewPort" layout="fit">
+		<extPanel name="panel" border="false" layout="fit" tbar="menu">
+			<extGrid name="grid" bbar="" columnsModel="columnModel1" autoExpandColumn="" onRowDblClick="extCall(editMenu);" downloadAll="true" pageSize="30" store="tDevicAccidentStore" loadStore="false"/>
+		</extPanel>
+	</extViewPort>
+</body>

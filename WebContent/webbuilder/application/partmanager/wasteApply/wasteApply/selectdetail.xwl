@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT&#xA;store.PUR_NO,&#xA;store.PARTS_COD,&#xA;store.C_PARTS_NAM,&#xA;store.E_PARTS_NAM,&#xA;store.STAND_TXT,&#xA;store.PUR_TXT,&#xA;store.PUR_NUM,&#xA;store.PUR_WAY_COD,&#xA;store.RECORD_TIM,&#xA;store.RECORD_MAN,&#xA;store.DEPT_COD,&#xA;store.USERID,&#xA;store.REMARKS&#xA;FROM&#xA;t_waste_apply_detail AS store where 1=1 {#whereSqlDetail#}" totalSql="SELECT&#xA;count(1) &#xA;FROM&#xA;t_waste_apply_detail AS store   where 1=1 {#whereSqlDetail#}" metaData="-"/></body>

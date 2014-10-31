@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" compact="true" simpleError="true" exceptionType="mark">
+	<query type="update" fastMode="" sql="insert into CS_WB_NOTE
+(NOTE_ID,NOTE_TITLE,NOTE,NOTE_DATE,NOTE_NAME)
+values({?NOTE_ID?},{?NOTE_TITLE?},{?charstream.NOTE?},sysdate,'{#sys.user#}')" name="insert"/><method name="method" methodName="net.huadong.test.WbNote.uploadFile"/></body>

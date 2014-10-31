@@ -1,0 +1,393 @@
+.sys_normal {
+	font-size: 12px;
+	font-family: 宋体;
+}
+
+.font_title {
+	font-size: 36px;
+	font-family: 宋体;
+	color: #FFFFFF;
+}
+
+.font_bold {
+	font-size: 12px;
+	font-family: 宋体;
+	font-weight: bold;
+}
+
+.font_bigbold {
+	font-size: 18px;
+	font-family: 宋体;
+	font-weight: bold;
+}
+
+.font_red {
+	font-size: 12px;
+	font-family: 宋体;
+	color: #FF0000;
+}
+
+.font_white {
+	font-size: 12px;
+	font-family: 宋体;
+	color: #FFFFFF;
+}
+
+.font_gray {
+	font-size: 12px;
+	font-family: 宋体;
+	color: #808080;
+}
+
+.font_big {
+	font-size: 15px;
+	font-family: 宋体;
+}
+
+.link_void a:link {
+	color: #808080;
+}
+
+.link_void a:visited {
+	color: #808080;
+}
+
+.icon_cancel {
+	background-image: url(../images/cancel.gif) !important;
+}
+
+.icon_chart {
+	background-image: url(../images/chart.gif) !important;
+}
+
+.icon_close {
+	background-image: url(../images/close.gif) !important;
+}
+
+.icon_cut {
+	background-image: url(../images/cut.gif) !important;
+}
+
+.icon_copy {
+	background-image: url(../images/copy.gif) !important;
+}
+
+.icon_paste {
+	background-image: url(../images/paste.gif) !important;
+}
+
+.icon_data {
+	background-image: url(../images/data.gif) !important;
+}
+
+.icon_delete {
+	background-image: url(../images/delete.gif) !important;
+}
+
+.icon_edit {
+	background-image: url(../images/edit.gif) !important;
+}
+
+.icon_excel {
+	background-image: url(../images/excel.gif) !important;
+}
+
+.icon_start {
+	background-image: url(../images/start.gif) !important;
+}
+
+.icon_find {
+	background-image: url(../images/find.gif) !important;
+}
+
+.icon_insert {
+	background-image: url(../images/insert.gif) !important;
+}
+
+.icon_new {
+	background-image: url(../images/new.gif) !important;
+}
+
+.icon_ok {
+	background-image: url(../images/ok.gif) !important;
+}
+
+.icon_option {
+	background-image: url(../images/option.gif) !important;
+}
+
+.icon_pause {
+	background-image: url(../images/pause.gif) !important;
+}
+
+.icon_report {
+	background-image: url(../images/report.gif) !important;
+}
+
+.icon_refresh {
+	background-image: url(../images/refresh.gif) !important;
+}
+
+.icon_resume {
+	background-image: url(../images/resume.gif) !important;
+}
+
+.icon_save {
+	background-image: url(../images/save.gif) !important;
+}
+
+.icon_save_ds {
+	background-image: url(../images/save_ds.gif) !important;
+}
+
+.icon_seek {
+	background-image: url(../images/seek.gif) !important;
+}
+
+.icon_stop {
+	background-image: url(../images/stop.gif) !important;
+}
+
+.icon_word {
+	background-image: url(../images/word.gif) !important;
+}
+
+.icon_home {
+	background-image: url(../images/home.gif) !important;
+}
+
+.icon_user {
+	background-image: url(../images/username.gif) !important;
+}
+
+.icon_item {
+	background-image: url(../images/item.gif) !important;
+}
+
+.icon_include {
+	background-image: url(../images/include.gif) !important;
+}
+
+.icon_includeAll {
+	background-image: url(../images/includeAll.gif) !important;
+}
+
+.icon_exclude {
+	background-image: url(../images/exclude.gif) !important;
+}
+
+.icon_excludeAll {
+	background-image: url(../images/excludeAll.gif) !important;
+}
+
+.icon_property {
+	background-image: url(../images/property.gif) !important;
+}
+
+.icon_folder {
+	background-image: url(../images/folder.gif) !important;
+}
+
+.icon_remove {
+	background-image: url(../images/remove.gif) !important;
+}
+
+.icon_text {
+	background-image: url(../images/text.gif) !important;
+}
+
+.icon_run {
+	background-image: url(../images/run.gif) !important;
+}
+
+.icon_execute {
+	background-image: url(../images/execute.gif) !important;
+}
+
+.icon_role {
+	background-image: url(../images/role.gif) !important;
+}
+
+.icon_web {
+	background-image: url(../images/web.gif) !important;
+}
+
+.icon_go {
+	background-image: url(../images/go.gif) !important;
+}
+
+.icon_upLevel {
+	background-image: url(../images/upLevel.gif) !important;
+}
+
+.icon_rename {
+	background-image: url(../images/rename.gif) !important;
+}
+
+.icon_import {
+	background-image: url(../images/import.gif) !important;
+}
+
+.icon_export {
+	background-image: url(../images/export.gif) !important;
+}
+
+.icon_zip {
+	background-image: url(../images/zip.gif) !important;
+}
+
+.icon_computer {
+	background-image: url(../images/computer.gif) !important;
+}
+
+.icon_order {
+	background-image: url(../images/order.gif) !important;
+}
+
+.icon_explorer {
+	background-image: url(../images/explorer.gif) !important;
+}
+
+.icon_clock {
+	background-image: url(../images/clock.gif) !important;
+}
+
+.icon_db {
+	background-image: url(../images/db.gif) !important;
+}
+
+.icon_table {
+	background-image: url(../images/table.gif) !important;
+}
+
+.icon_prior {
+	background-image: url(../images/prior.gif) !important;
+}
+
+.icon_next {
+	background-image: url(../images/next.gif) !important;
+}
+
+.icon_mail {
+	background-image: url(../images/mail.gif) !important;
+}
+
+.icon_window {
+	background-image: url(../images/window.gif) !important;
+}
+
+.icon_open {
+	background-image: url(../images/open.gif) !important;
+}
+
+.icon_weather {
+	background-image: url(../images/weather.gif) !important;
+}
+
+.icon_system {
+	background-image: url(../images/system.gif) !important;
+}
+
+.icon_money {
+	background-image: url(../images/money.gif) !important;
+}
+
+.icon_tool {
+	background-image: url(../images/tool.gif) !important;
+}
+
+.icon_org {
+	background-image: url(../images/org.gif) !important;
+}
+
+.icon_calc {
+	background-image: url(../images/calc.gif) !important;
+}
+
+.icon_image {
+	background-image: url(../images/image.gif) !important;
+}
+
+.icon_calendar {
+	background-image: url(../images/calendar.gif) !important;
+}
+
+.icon_preview {
+	background-image: url(../images/preview.gif) !important;
+}
+
+.icon_help {
+	background-image: url(../images/help.gif) !important;
+}
+
+.icon_engine {
+	background-image: url(../images/engine.gif) !important;
+}
+
+.icon_info {
+	background-image: url(../images/info.gif) !important;
+}
+
+.icon_file {
+	background-image: url(../images/file.gif) !important;
+}
+
+.icon_view {
+	background-image: url(../images/view.gif) !important;
+}
+
+.icon_list {
+	background-image: url(../images/list.gif) !important;
+}
+
+.icon_speaker {
+	background-image: url(../images/speaker.gif) !important;
+}
+
+.icon_hf {
+	background-image: url(../images/hf.gif) !important;
+}
+
+.icon_ht {
+	background-image: url(../images/ht.gif) !important;
+}
+
+.icon_product {
+	background-image: url(../images/product.gif) !important;
+}
+
+.icon_total {
+	background-image: url(../images/total.gif) !important;
+}
+
+.icon_doc {
+	background-image: url(../images/doc.gif) !important;
+}
+
+.icon_person {
+	background-image: url(../images/person.gif) !important;
+}
+
+.icon_lr {
+	background-image: url(../images/lampred.gif) !important;
+}
+
+.icon_lg {
+	background-image: url(../images/lampgreen.gif) !important;
+}
+
+.icon_resource {
+	background-image: url(../images/resource.gif) !important;
+}
+
+.icon_video {
+	background-image: url(../images/video.gif) !important;
+}
+
+.icon_handle {
+	background-image: url(../images/handle.gif) !important;
+}
+
+.icon_saveas {
+	background-image: url(../images/saveas.gif) !important;
+}

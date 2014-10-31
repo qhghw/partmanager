@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="UPDATE  t_waste_apply SET PUR_NO={?PUR_NO?},PUR_DTE={?PUR_DTE?},APPLY_DEPT_COD={?APPLY_DEPT_COD?},PARTS_TYPE={?PARTS_TYPE?},PUR_STATUE={?PUR_STATUE?},STORAGE_COD={?STORAGE_COD?},STORAGE_NAM={?STORAGE_NAM?},MANA_MAN={?MANA_MAN?},WF_STATUE={?WF_STATUE?},REMARKS={?REMARKS?},RECORD_TIM=now(),RECORD_MAN='{#sys.username#}',DEPT_COD='{#sys.deptCode#}',USERID='{#sys.userid#}' 
+WHERE PUR_NO={?PUR_NO?}" dbType="MySql" transaction="commit" type="update"/></body>

@@ -1,0 +1,433 @@
+/*
+ * Ext JS Library 2.0
+ * Copyright(c) 2006-2007, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://www.extjs.com/license
+ */
+
+.x-panel-header {
+    color:#000;
+	border:1px solid #151515;
+    background-image:url(../images/dark/panel/white-top-bottom.gif);
+}
+
+.x-panel-body {
+    border-color:#151515;
+}
+
+.x-panel-bbar .x-toolbar {
+    border-color:#151515;
+}
+
+.x-panel-tbar .x-toolbar {
+    border-color:#151515;
+}
+
+.x-panel-tbar-noheader .x-toolbar, .x-panel-mc .x-panel-tbar .x-toolbar {
+    border-color:#151515;
+}
+.x-panel-body-noheader, .x-panel-mc .x-panel-body {
+    border-color:#151515;
+}
+.x-panel-tl .x-panel-header {
+    color:#000;
+}
+.x-panel-tc {
+	background-image:url(../images/dark/panel/top-bottom.gif);
+}
+.x-panel-tl {
+	background-image:url(../images/dark/panel/corners-sprite.gif);
+    border-color:#151515;
+}
+.x-panel-tr {
+	background-image:url(../images/dark/panel/corners-sprite.gif);
+}
+.x-panel-bc {
+	background-image:url(../images/dark/panel/top-bottom.gif);
+}
+.x-panel-bl {
+	background-image:url(../images/dark/panel/corners-sprite.gif);
+}
+.x-panel-br {
+	background-image:url(../images/dark/panel/corners-sprite.gif);
+}
+.x-panel-mc {
+    background:#f9f9f9;
+}
+.x-panel-mc .x-panel-body {
+    background:transparent;
+    border: 0 none;
+}
+.x-panel-ml {
+	background-image:url(../images/dark/panel/left-right.gif);
+}
+.x-panel-mr {
+	background-image:url(../images/dark/panel/left-right.gif);
+}
+
+/* Tools */
+.x-tool {
+    background-image:url(../images/dark/panel/tool-sprites.gif);
+}
+
+/* Ghosting */
+.x-panel-ghost {
+    background:#e0e0e0;
+}
+
+.x-panel-ghost ul {
+    border-color:#b0b0b0;
+}
+
+/* Buttons */
+
+.x-btn-left{
+	background-image:url(../images/dark/button/btn-sprite.gif);
+}
+.x-btn-right{
+	background-image:url(../images/dark/button/btn-sprite.gif);
+}
+.x-btn-center{
+	background-image:url(../images/dark/button/btn-sprite.gif);
+}
+
+/* Layout classes */
+
+.x-border-layout-ct {
+    background:#464646;
+}
+
+.x-accordion-hd {
+	background-image:url(../images/dark/panel/light-hd.gif);
+}
+
+.x-layout-collapsed{
+    background-color:#6d6d6d;
+    border-color:#000;
+}
+.x-layout-collapsed-over{
+	 background-color:#909090;
+}
+
+
+/* qtips */
+.x-tip .x-tip-top {
+	background-image:url(../images/dark/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-top-left {
+	background-image:url(../images/dark/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-top-right {
+	background-image:url(../images/dark/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-ft {
+	background-image:url(../images/dark/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-ft-left {
+	background-image:url(../images/dark/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-ft-right {
+	background-image:url(../images/dark/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-bd-left {
+	background-image:url(../images/dark/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-bd-right {
+	background-image:url(../images/dark/qtip/tip-sprite.gif);
+}
+
+/* Toolbars */
+
+.x-toolbar{
+	border-bottom: 1px solid #151515;
+    background:#f0f4f5 url(../images/dark/toolbar/bg.gif) repeat-x top left;
+}
+.x-toolbar button {
+    color:#444;
+}
+.x-toolbar .x-btn-menu-arrow-wrap .x-btn-center button {
+    background-image:url(../images/dark/toolbar/btn-arrow.gif);
+}
+.x-toolbar .x-btn-text-icon .x-btn-menu-arrow-wrap .x-btn-center button {
+    background-image:url(../images/dark/toolbar/btn-arrow.gif);
+}
+.x-toolbar .x-btn-over .x-btn-left{
+	background-image:url(../images/dark/toolbar/tb-btn-sprite.gif);
+}
+.x-toolbar .x-btn-over .x-btn-right{
+	background-image:url(../images/dark/toolbar/tb-btn-sprite.gif);
+}
+.x-toolbar .x-btn-over .x-btn-center{
+	background-image:url(../images/dark/toolbar/tb-btn-sprite.gif);
+}
+.x-toolbar .x-btn-over button {
+    color:#111;
+}
+.x-toolbar .x-btn-click .x-btn-left, .x-toolbar .x-btn-pressed .x-btn-left, .x-toolbar .x-btn-menu-active .x-btn-left{
+	background-image:url(../images/dark/toolbar/tb-btn-sprite.gif);
+}
+.x-toolbar .x-btn-click .x-btn-right, .x-toolbar .x-btn-pressed .x-btn-right, .x-toolbar .x-btn-menu-active .x-btn-right{
+	background-image:url(../images/dark/toolbar/tb-btn-sprite.gif);
+}
+
+.x-toolbar .x-btn-click .x-btn-center, .x-toolbar .x-btn-pressed .x-btn-center, .x-toolbar .x-btn-menu-active .x-btn-center{
+	background-image:url(../images/dark/toolbar/tb-btn-sprite.gif);
+}
+.x-toolbar .ytb-sep {
+	background-image: url(../images/default/grid/grid-split.gif);
+}
+
+/* Tabs */
+
+.x-tab-panel-header, .x-tab-panel-footer {
+	background: #464646;
+	border-color:#151515;
+}
+
+ul.x-tab-strip li {
+    float:left;
+    margin-left:0;
+}
+
+.x-tab-panel-header {
+	border-color:#151515;
+}
+
+.x-tab-panel-footer {
+	border-color:#151515;
+}
+
+ul.x-tab-strip-top{
+	background-image: url(../images/dark/tabs/tab-strip-bg.gif);
+	border-color:#151515;
+    padding-top:0;
+}
+
+ul.x-tab-strip-bottom{
+	background-image:url(../images/dark/tabs/tab-strip-btm-bg.gif);
+	border-color:#151515;
+}
+
+.x-tab-strip-top span.x-tab-strip-text {
+	color:#fff;
+    font-size:12px;
+}
+.x-tab-strip-top .x-tab-strip-over span.x-tab-strip-text {
+	color:#fff;
+}
+
+.x-tab-strip-top .x-tab-strip-active span.x-tab-strip-text {
+	color:#fff;
+    font-weight:normal;
+}
+
+.x-tab-strip-disabled .x-tabs-text {
+	color:#bbb;
+}
+
+.x-tab-strip-top .x-tab-right {
+	background-image:url(../images/dark/tabs/tabs-sprite.gif);
+}
+
+.x-tab-strip-top .x-tab-left {
+	background-image:url(../images/dark/tabs/tabs-sprite.gif);
+}
+.x-tab-strip-top .x-tab-strip-inner {
+	background-image:url(../images/dark/tabs/tabs-sprite.gif);
+}
+
+.x-tab-strip-bottom .x-tab-right {
+	background-image:url(../images/dark/tabs/tab-btm-inactive-right-bg.gif);
+}
+
+.x-tab-strip-bottom .x-tab-left {
+	background-image:url(../images/dark/tabs/tab-btm-inactive-left-bg.gif);
+}
+
+.x-tab-strip-bottom .x-tab-strip-active .x-tab-right {
+	background-image:url(../images/dark/tabs/tab-btm-right-bg.gif);
+}
+
+.x-tab-strip-bottom .x-tab-strip-active .x-tab-left {
+	background-image:url(../images/dark/tabs/tab-btm-left-bg.gif);
+}
+
+
+.x-tab-strip-bottom  span.x-tab-strip-text {
+	color:#333;
+}
+.x-tab-strip-bottom .x-tab-strip-over span.x-tab-strip-text {
+	color:#111;
+}
+
+.x-tab-strip-bottom .x-tab-strip-active span.x-tab-strip-text {
+	color:#333;
+}
+
+.x-tab-strip-bottom .x-tab-strip-disabled .x-tabs-text {
+	color:#aaaaaa;
+}
+
+
+.x-tab-strip .x-tab-strip-closable a.x-tab-strip-close {
+	background-image:url(../images/dark/tabs/tab-close.gif);
+}
+.x-tab-strip .x-tab-strip-closable a.x-tab-strip-close:hover{
+	background-image:url(../images/dark/tabs/tab-close.gif);
+}
+
+.x-tab-panel-body {
+    border-color:#151515;
+    background:#fff;
+}
+.x-tab-panel-bbar .x-toolbar {
+    border-color: #151515;
+}
+
+.x-tab-panel-tbar .x-toolbar {
+    border-color: #151515;
+}
+
+
+.x-tab-panel-header-plain .x-tab-strip-top {
+    padding-top:0 !important;
+    background-image: url(../images/dark/tabs/tab-strip-bg.gif) !important;
+	border-color:#151515;
+}
+.x-tab-panel-header-plain {
+    background: #464646;
+	border-width:1px !important;
+    padding-bottom: 2px; !important;
+}
+
+.x-tab-panel-header-plain .x-tab-strip-spacer {
+    display:none;
+}
+
+
+/* Window */
+
+.x-window-proxy {
+    background:#e0e0e0;
+    border-color:#b0b0b0;
+}
+
+.x-window-tl .x-window-header {
+    color:#555;
+}
+.x-window-tc {
+	background-image:url(../images/dark/window/top-bottom.png);
+}
+.x-window-tl {
+	background-image:url(../images/dark/window/left-corners.png);
+}
+.x-window-tr {
+	background-image:url(../images/dark/window/right-corners.png);
+}
+.x-window-bc {
+	background-image:url(../images/dark/window/top-bottom.png);
+}
+.x-window-bl {
+	background-image:url(../images/dark/window/left-corners.png);
+}
+.x-window-br {
+	background-image:url(../images/dark/window/right-corners.png);
+}
+.x-window-mc {
+    border:1px solid #151515;
+    background:#e8e8e8;
+}
+
+.x-window-ml {
+	background-image:url(../images/dark/window/left-right.png);
+}
+.x-window-mr {
+	background-image:url(../images/dark/window/left-right.png);
+}
+.x-panel-ghost .x-window-tl {
+    border-color:#151515;
+}
+.x-panel-collapsed .x-window-tl {
+    border-color:#151515;
+}
+
+.x-window-plain .x-window-mc {
+    background: #e8e8e8;
+    border-right:1px solid #eee;
+    border-bottom:1px solid #eee;
+    border-top:1px solid #151515;
+    border-left:1px solid #151515;
+}
+
+.x-window-plain .x-window-body {
+    border-left:1px solid #eee;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #151515;
+    border-right:1px solid #151515;
+    background:transparent !important;
+}
+
+body.x-body-masked .x-window-mc {
+    background-color: #e4e4e4;
+}
+
+
+/* misc */
+.x-html-editor-wrap {
+    border-color:#151515;
+}
+
+/* Borders go last for specificity */
+.x-panel-noborder .x-panel-body-noborder {
+    border:0 none;
+}
+
+.x-panel-noborder .x-panel-header-noborder {
+    border:0 none;
+    border-bottom:1px solid #151515;
+}
+
+.x-panel-noborder .x-panel-tbar-noborder .x-toolbar {
+    border:0 none;
+    border-bottom:1px solid #151515;
+}
+
+.x-panel-noborder .x-panel-bbar-noborder .x-toolbar {
+    border:0 none;
+    border-top:1px solid #151515;
+}
+
+.x-window-noborder .x-window-mc {
+    border:0 none;
+}
+.x-window-plain .x-window-body-noborder {
+    border:0 none;
+}
+
+.x-tab-panel-noborder .x-tab-panel-body-noborder {
+	border:0 none;
+}
+
+.x-tab-panel-noborder .x-tab-panel-header-noborder {
+	border-top:0 none;
+	border-left:0 none;
+	border-right:0 none;
+}
+
+.x-tab-panel-noborder .x-tab-panel-footer-noborder {
+	border-bottom:0 none;
+	border-left:0 none;
+	border-right:0 none;
+}
+
+
+.x-tab-panel-bbar-noborder .x-toolbar {
+    border:0 none;
+    border-top:1px solid #151515;
+}
+
+.x-tab-panel-tbar-noborder .x-toolbar {
+    border:0 none;
+    border-bottom:1px solid #151515;
+}

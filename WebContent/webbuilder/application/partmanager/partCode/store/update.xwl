@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="UPDATE  c_parts_code SET PARTS_ID={?PARTS_ID?},PARTS_TYPE={?PARTS_TYPE?},PARTS_COD={?PARTS_COD?},C_PARTS_NAM={?C_PARTS_NAM?},E_PARTS_NAM={?E_PARTS_NAM?},STAND_TXT={?STAND_TXT?},STAND_UNIT={?STAND_UNIT?},STAND_CHANGE={?STAND_CHANGE?},MIN_UNIT={?MIN_UNIT?},STORE_NUM={?STORE_NUM?},MIN_NUM={?MIN_NUM?},SUPPLIER_NAM={?SUPPLIER_NAM?},RESP_NAM={?RESP_NAM?},RESP_DEPT={?RESP_DEPT?},REMARKS={?REMARKS?},RECORD_TIM=now(),RECORD_MAN='{#sys.username#}',DEPT_COD='{#sys.deptCode#}',USERID='{#sys.userid#}' &#xA;WHERE PARTS_ID={?PARTS_ID?}" dbType="MySql" transaction="commit" type="update"/></body>

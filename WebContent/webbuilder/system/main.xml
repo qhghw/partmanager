@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE main>
+<main>
+	<var>
+		<title value="putdb.com 应用系统平台" />
+		<version value="3.8"></version>
+		<portal value="main?action=webbuilder/system/indexs.xwl" />
+		<needLogin value="false" />
+		<needRole value="false" />
+		<recordSession value="true" />
+		<exceptionType value="system" />
+		<logType value="all" />
+		<startTask value="true" />
+		<sessionTimeout value="" />
+		<ajaxTimeout value="500000" />
+		<jndi value="java:comp/env/jdbc/mysql" />
+		<!--<jndi value="java:comp/env/jdbc/mysql" />jdbc/orcale_news-->
+		<sysJndi value="{#sys.jndi#}" />
+		<dbType value="mysql" />
+		<fieldSeparator value="Tab" />
+		<longDateFormat value="" />
+		<shortDateFormat value="" />
+		<webFile value="xwl,htm,html,jsp,asp,aspx,php" />
+		<pagedRecords value="10000" />
+		<bufferSize value="10485760" />
+		<charset value="GBK" />
+		<fileCharset value="GBK" />
+		<ieCss value="" />
+		<firefoxCss value="" />
+		<chromeCss value="" />
+		<operaCss value="" />
+		<safariCss value="" />
+		<otherCss value="" />
+	</var>
+</main>

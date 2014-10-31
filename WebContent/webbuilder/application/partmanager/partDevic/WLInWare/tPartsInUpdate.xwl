@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" type="execute" dbType="MySql" sql="update    T_PARTS_IN set   RECP_NO={?RECP_NO?},&#xA;OF_NO={?OF_NO?},&#xA;PUR_NO={?PUR_NO?},&#xA;PARTS_TYPE={?PARTS_TYPE?},&#xA;IN_STATUE={?IN_STATUE?},&#xA;IN_MOD={?IN_MOD?},&#xA;PLAN_DTE={?TIMESTAMP.PLAN_DTE?},&#xA;STORAGE_COD={?STORAGE_COD?},&#xA;STORAGE_NAM={?STORAGE_NAM?},&#xA;CARRYFEE_NUM={?CARRYFEE_NUM?},&#xA;MANAGER_COD={?MANAGER_COD?},&#xA;COMPUTER_COD={?COMPUTER_COD?},&#xA;SAVER_COD={?SAVER_COD?},&#xA;FETCHMODE_TXT={?FETCHMODE_TXT?},&#xA;PAYKIND_TYP={?PAYKIND_TYP?},&#xA;BUYER_COD={?BUYER_COD?},&#xA;REMARKS={?REMARKS?} where RECP_NO={?OLD_RECP_NO?}"/></body>

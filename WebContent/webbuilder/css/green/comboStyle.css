@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+.x-combo-list-item {
+    zoom:1;
+}
+.x-combo-list-item strong {
+     color:#777;
+    font-size:11px;
+    font-style: normal;
+    float:left;
+}
+.x-combo-list-item em {
+     color:#222;
+    font-size:12px;
+    font-style: normal;
+    float:left;
+    width:70px;
+}
+.defaultFontSize{
+	font-size:12px;
+}

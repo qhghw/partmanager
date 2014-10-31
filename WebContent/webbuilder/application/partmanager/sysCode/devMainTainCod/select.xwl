@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" logType="exception">
+	<method name="method" methodName="net.huadong.pass.core.platform.IkexpressPlat.getOrgId2"/><dataProvider name="dataProvider" metaData="-" sql="select( select  MAINTIAN_TYP_COD ||'-'|| MAINTAIN_TYP_NAM    NAME
+from SM_CODE_MAINTAIN_TYP where  SM_CODE_MAINTAIN_TYP. MAINTIAN_TYP_COD=dp.MAINTAIN_TYP_COD )
+ MAINTAIN_TYP_COD,MAINTAIN_ITEM_COD,MAINTAIN_ITEM_NAM,DEV_PART_COD,MAINTAIN_REQ,RESULT_TXT,SORT_NUM,NOTE,RECORD_TIM,RECORD_MAN,USERID,TENTANTID
+from SM_DEV_MAINTAIN_ITM  dp  where MAINTAIN_ITEM_NAM  like '%'||{?mainItemNam?}||'%'  {#IKsql#}  
+ order  by SORT_NUM asc,RECORD_TIM  desc" paging="false" totalSql="select 
+count(1)
+from SM_DEV_MAINTAIN_ITM dp where MAINTAIN_ITEM_NAM  like '%'||{?mainItemNam?}||'%'  {#IKsql#}"/></body>

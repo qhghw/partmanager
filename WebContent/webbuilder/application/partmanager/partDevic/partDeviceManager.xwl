@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" headerScript="var currentNode=null,roleNameIsExpaned=true;
+var  operateType ,operateType1,operateType2 ,operateType3 ;
+var whereSql = &quot;&quot;;" jsFiles="webbuilder/script/wbfilter.js" caption="设备信息管理">
+	<folder name="stores"><extStore name="devStore" url="main?action=webbuilder/application/partmanager/partDevic/devManager/devSelect.xwl"/><extAjax name="deleteDev" out="devGrid" onSuccess="extRemoveGridSelection(devGrid);
+	parStore.removeAll();
+	jobStore.removeAll();" url="main?action=webbuilder/application/partmanager/partDevic/devManager/devSelect.xwl"/><extAjax name="insertDev" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="extCall(findMenu);
+devWin.hide();
+extShowMessage('新增成功！');" url="main?action=webbuilder/application/partmanager/partDevic/devManager/devInsert.xwl" out="devWin,menu"/><extAjax name="updateDev" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="extCall(findMenu);
+devWin.hide();
+extShowMessage('修改成功！');" url="main?action=webbuilder/application/partmanager/partDevic/devManager/devUpdate.xwl" out="devWin,menu"/><extStore name="parStore" url="main?action=webbuilder/application/partmanager/partDevic/devManager/devPartsSelect.xwl"/><extAjax name="deletePar" out="grid1" onSuccess="extRemoveGridSelection(grid1);" url="main?action=webbuilder/application/partmanager/partDevic/devManager/devPartsDelete.xwl"/><extAjax name="insertPar" out="partWin,menu" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="if(tab.activeTab.el.id=='grid1')      
+	{
+		parStore.baseParams.partId =partsId.getValue();
+		parStore.load({params:{start:0,limit:30}});
+
+	}
+	partWin.hide();
+extShowMessage('新增成功！');" url="main?action=webbuilder/application/partmanager/partDevic/devManager/devPartsInsert.xwl"/><extAjax name="updatePar" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="parStore.baseParams=extGetAllControlsValue('menu');
+		parStore.load({params:{start:0,limit:30}});
+
+ 
+partWin.hide();
+extShowMessage('修改成功！');" url="main?action=webbuilder/application/partmanager/partDevic/devManager/devPartsUpdate.xwl" out="partWin,menu"/><folder name="comboxSelect"><extStore name="storeZc" url="main?action=webbuilder/application/partmanager/common/CodeSelect.xwl" baseParams="fldId:&quot;3&quot;"/><extStore name="storeSuppli" url="main?action=webbuilder/application/partmanager/common/SuppliSelect.xwl"/></folder><method name="method" methodName="com.xuelang.partmanage.MultipleTree.getPartTypWl"/></folder><folder name="columns"><extTextField name="PARTS_COD_" autoShow="false"/><extTextField name="C_PARTS_NAM_" autoShow="false"/><extTextField name="STAND_TXT_" autoShow="false"/><extTextField name="PARTS_TYPE_" autoShow="false"/><extColumnModel name="columnModel"><extColumn name="C_PARTS_NAMs" fieldName="C_PARTS_NAM" caption="设备名称"/><extColumn name="PARTS_TYPEs" fieldName="PARTS_TYPE" caption="物料分类"/><extColumn name="DEVICE_TYPEs" fieldName="DEVICE_TYPE" caption="设备分类"/><extColumn fieldName="STAND_TXT" name="STAND_TXTS" caption="规格型号"/><extColumn fieldName="PROD_FACT" name="PROD_FACTs" caption="生产厂家"/><extColumn name="SUPPLIER_CODs" caption="供应商" fieldName="SUPPLIER_COD"/><extColumn caption="出厂日期" fieldName="OUT_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" name="OUT_DTEs"/><extColumn caption="购买日期" fieldName="BUY_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" name="BUY_DTEs"/><extColumn fieldName="USE_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" caption="使用日期" name="USE_DTES"/><extColumn caption="设备状态" fieldName="STATUS" name="STATUSs" hidden="true"/></extColumnModel><extColumnModel name="columnModel1"><extColumn caption="设备主键" hidden="true" fieldName="PARTS_ID" name="PARTS_IDs"/><extColumn caption="物料代码" fieldName="PARTS_COD" name="PARTS_CODS" editor="PARTS_COD_"/><extColumn caption="设备代码" fieldName="PARTS_NUM" name="PARTS_NUMss" hidden="true"/><extColumn fieldName="C_PARTS_NAM" name="C_PARTS_NAMss" caption="物料名称" editor="C_PARTS_NAM_"/><extColumn name="PARTS_TYPEss" fieldName="PARTS_TYPE" caption="物料类别" editor="PARTS_TYPE_"/><extColumn name="STAND_TXTss" fieldName="STAND_TXT" caption="规格型号" editor="STAND_TXT_"/></extColumnModel></folder><folder name="windows"><extWindow name="devWin" closeAction="hide" frame="true" width="675" height="435" caption="设备信息" layout="absolute" onOk="if (!extVerifyAllControls('devWin')) return;
+
+if (operateType == 'insert'){
+
+insertDev();
+} else updateDev();" onHide="extResetAllControlsValue('devWin');" autoScroll="true"><extLabel name="extLabel3" left="225" top="10" width="70" html="&lt;font color='red'&gt;*&lt;/font&gt;设备类型：" align="left"/><extTextField left="305" top="5" width="120" name="DEVICE_TYPE" disabled="true"/><extTextField left="95" top="35" width="120" name="PARTS_TYPE" disabled="true"/><extLabel name="extLabel5" left="5" top="10" html="&lt;font color='red'&gt;*&lt;/font&gt;设备名称：" width="80" align="left"/><extTextField left="95" top="5" width="120" maxLength="25" allowBlank="false" name="C_PARTS_NAM1"/><extLabel name="extLabel8" left="225" top="70" width="70" caption="生产厂家：" align="left"/><extTextField left="305" top="65" width="120" name="PROD_FACT" maxLength="30"/><extLabel name="extLabel10" left="225" top="130" width="70" caption="购买人：" align="left"/><extTextField left="305" top="125" width="120" name="BUY_MAN" maxLength="15"/><extLabel name="extLabel11" left="435" top="130" width="70" caption="购买日期：" align="left"/><extDate left="515" top="125" width="120" name="BUY_DTE"/><extLabel name="extLabel12" left="5" top="130" caption="购买费用：" width="80" align="left"/><extLabel name="extLabel13" left="5" top="100" width="80" caption="出厂日期：" align="left"/><extDate left="95" top="95" width="120" name="OUT_DTE"/><extLabel name="extLabel15" left="5" top="190" width="80" caption="功率：" align="left"/><extLabel name="extLabel18" left="225" top="190" width="70" caption="流量：" align="left"/><extLabel name="extLabel23" left="435" top="185" width="70" caption="扬程：" align="left"/><extLabel name="extLabel19" left="435" top="10" width="70" caption="规格型号 ：" align="left"/><extTextField left="515" top="5" width="120" name="STAND_TXT" maxLength="20"/><extLabel name="extLabel20" left="5" top="250" width="80" caption="设备描述：" align="left"/><extTextField left="95" top="245" width="215" name="DESCRIPTION" maxLength="50" inputType="textArea" height="45"/><extLabel name="extLabel21" left="325" top="245" width="75" caption="使用说明：" align="left"/><extTextField left="400" top="240" width="230" name="INSTRUCTIONS" inputType="textArea" height="50"/><extLabel name="extLabel22" left="5" top="160" width="80" caption="购置全值：" align="left"/><extLabel name="extLabel25" left="10" top="305" width="75" caption="备注：" align="left"/><extTextField left="95" top="300" width="540" name="NOTE" maxLength="50" inputType="textArea" height="60"/><extLabel name="extLabel27" left="435" top="160" width="70" caption="折旧年限：" align="left"/><extLabel name="extLabel1" left="5" top="40" width="80" caption="物料类别：" align="left"/><extLabel name="extLabel6" left="5" top="70" width="80" caption="制造编号：" align="left"/><extLabel name="extLabel7" left="435" top="70" width="70" caption="供货单位：" align="left"/><extLabel name="extLabel52" left="225" top="100" width="70" caption="使用日期：" align="left"/><extDate left="305" top="95" width="120" name="USE_DTE"/><extLabel name="extLabel53" left="435" top="100" width="70" caption="资产类型：" align="left"/><extComboBox mode="local" left="515" top="95" width="120" name="ZC_TYPE" store="storeZc" displayField="RNAME" valueField="RNAME" pageSize="30"/><extLabel left="225" top="160" width="70" name="d" caption="役龄：" align="left"/><extLabel name="extLabel17" left="225" top="35" width="70" caption="安装地点：" align="left"/><extTextField left="305" top="35" width="120" name="SET_ADD"/><extLabel name="extLabel14" left="435" top="40" width="70" caption="从属设备：" align="left"/><extTextField left="515" top="35" width="120" name="V_DEVICE"/><extLabel name="extLabel9" left="5" top="220" width="80" caption="附件地址：" align="left"/><extTextField left="95" top="215" width="540" name="FILE_LOCAL"/><extTextField left="95" top="65" width="120" name="PARTS_NUM_MD"/><extTextField left="485" top="440" width="120" name="PARTS_ID" hidden="true"/><extTextField left="290" top="485" width="120" name="OLD_PARTS_NUM" hidden="true"/><extComboBox mode="local" left="515" top="65" width="120" name="SUPPLIER_COD" store="storeSuppli" displayField="RNAME" valueField="RNAME" pageSize="30" onSelect="SUPPLIER_COD.setValue(this.value.split('/')[1]);"/><extNumber left="95" top="125" width="120" name="BUY_FEE"/><extNumber left="95" top="155" width="120" name="BUY_VAL"/><extNumber left="305" top="155" width="120" name="Y_AGE"/><extNumber left="515" top="155" width="120" name="DEPRE_LIMIT"/><extNumber left="95" top="185" width="120" name="POWER"/><extNumber left="305" top="185" width="120" name="FLOW"/><extNumber left="515" top="185" width="120" name="LIFT"/></extWindow><extWindow closeAction="hide" frame="true" width="351" height="295" layout="absolute" name="partWin" onHide="extResetAllControlsValue('partWin');" onOk="if (!extVerifyAllControls('partWin')) return;
+
+if (operateType2 == 'insert'){
+
+insertPar();
+} else updatePar();" caption="子设备维护"><extLabel name="extLabel30" left="20" top="280" width="70" caption="设备代码："/><extTextField left="100" top="275" width="165" maxLength="10" allowBlank="false" name="PARTS_NUM_P" disabled="true" hidden="true"/><extLabel name="extLabel31" left="10" top="70" width="70" caption="物料类别："/><extLabel name="extLabel32" left="10" top="15" width="70" caption="物料代码："/><extLabel name="extLabel33" left="5" top="100" width="70" caption="规格型号："/><extLabel name="extLabel34" left="10" top="45" width="70" caption="物料名称："/><extTextField left="90" top="10" width="165" name="PARTS_COD" disabled="true"/><extTextField left="90" top="40" width="165" name="C_PARTS_NAM"/><extTextField left="90" top="95" width="165" name="STAND_TXT_P"/><extTextField left="460" top="245" width="120" name="tableName" value="T_DEVICE_PART"/><extLabel name="extLabel24" left="5" top="125" width="70" caption="备注："/><extTextField left="90" top="125" width="165" inputType="textArea" height="95" name="NOTE_P"/><extTextField left="10" top="160" width="45" hidden="true" name="D_PART_ID"/><extTextField left="145" top="155" width="120" hidden="true" name="PARTS_ID_D"/><extComboTree left="90" top="65" width="165" height="20" data="{#orgTree#}" onClick="var text=node.text;
+PARTS_TYPE_P.setValue(text);PARTS_TYPE_P.collapse();" treeHeight="300" treeWidth="200" name="PARTS_TYPE_P"/></extWindow></folder><folder name="menus"><extMenu name="menu1"><extMenuItem name="addDetail" caption="增加" onClick="operateType2 = 'insert';
+if (devGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	partWin.show();
+	var record = devGrid.getSelectionModel().getSelected();
+	PARTS_ID_D.setValue(record.get('PARTS_ID'));
+        PARTS_NUM_P.setValue(record.get('PARTS_NUM'));
+}" iconCls="icon_new" hidden="true"/><extMenuItem name="editDetail" caption="编辑" onClick="operateType2 = 'modify';
+var sm = grid1.getSelectionModel();
+var celIndex = sm.getSelectedCell();
+var record = grid1.getStore().getAt(celIndex [0]);
+ 
+		     partWin.show();
+		     extSetAllControlsValueObj(partWin, record.data);" iconCls="icon_edit" hidden="true"/><extMenuItem name="delDetail" caption="删除" onClick="extRemoveGridSelection(grid1);" iconCls="icon_delete"/><extTextField name="parnetCode1" hidden="true"/><extMenuItem name="menuItem" caption="保存" iconCls="icon_save" onClick="mulGridSave();"/></extMenu><extMenu name="menu"><extLabel name="extLabel" caption="设备名称："/><extTextField name="devName"/><extMenuItem caption="查询" iconCls="icon_find" name="findMenu" onClick="if(devName.getValue()!='')
+{
+	whereSql =&quot; and   DEVICE_TYPE ='&quot;+typeId.getValue()+&quot;' and (C_PARTS_NAM  like '%&quot;+devName.getValue()+&quot;%') &quot;;
+}
+
+devStore.baseParams.WhereSql =whereSql;
+devStore.load({params:{start:0,limit:30}});
+parStore.removeAll();"/><extMenuItem name="addMenu" iconCls="icon_new" onClick="operateType = 'insert';
+
+if(Ext.getCmp(&quot;typeId&quot;).getValue()=='')
+{
+	extShowMessage(&quot;请选择对应物料类别！&quot;);
+	return;
+
+
+}
+else
+{
+	devWin.show();
+	DEVICE_TYPE.setValue(typeId.getValue());
+        PARTS_TYPE.setValue('设备');
+}
+
+/*
+if (devGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	devWin.show();
+	var record = devGrid.getSelectionModel().getSelected();
+	extSetAllControlsValueObj(devWin, record.data);
+	OLD_PARTS_NUM.setValue(record.get('PARTS_NUM'));
+}*/" caption="新增"/><extMenuItem name="editMenu" caption="编辑" iconCls="icon_edit" onClick="operateType = 'modify';
+if (devGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	devWin.show();
+	var record = devGrid.getSelectionModel().getSelected();
+	extSetAllControlsValueObj(devWin, record.data);
+	OLD_PARTS_NUM.setValue(record.get('PARTS_NUM'));
+}" hidden="false"/><extMenuItem name="delMeu" caption="删除" iconCls="icon_delete" onClick="extGridDeleteConfirm(devGrid,&quot;C_PARTS_NAM&quot;,deleteDev);"/><extTextField hidden="true" name="partsId"/><extTextField name="typeId" hidden="true"/><extTextField name="partNum" hidden="true"/></extMenu></folder><folder name="PartCodPackage"><extStore name="storeSuppli1" url="main?action=webbuilder/application/partmanager/common/SuppliSelect.xwl"/><extStore name="partCodSelect" url="main?action=webbuilder/application/partmanager/common/partCodeStore.xwl" autoLoad="false"/><extScript name="extScript" extHeader="function extInsertRecordWt(store, index) {
+	var fields = store.fields.items;
+	var meta = Ext.data.Record.create(fields);
+	var i, j = fields.length;
+	var data = {};
+
+	for (i = 0; i &lt; j; i++)
+		data[fields[i].name] = &quot;&quot;;
+	var record = new meta(data);
+	if (store.modified.indexOf(record) == -1)
+		store.modified.push(record);
+	if (index == null)
+		store.add(record);
+	else
+		store.insert(index, record);
+	return record;
+}
+function setPartCod()    
+{
+if (devGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}
+var record = devGrid.getSelectionModel().getSelected();
+
+
+var Temprows =  gridPartCod.getSelectionModel().getSelections();
+     for (var ii = 0; ii &lt; Temprows.length; ii++){
+		 tempRow=Temprows[ii];
+                var r = extInsertRecordWt(parStore,ii );
+r.set(&quot;PARTS_ID&quot;,record.get('PARTS_ID'));
+r.set('PARTS_NUM',record.get('PARTS_NUM'));
+
+                r.set(&quot;STAND_TXT&quot;,tempRow.data.STAND_TXT);
+		r.set(&quot;PARTS_COD&quot;,tempRow.data.PARTS_COD);
+                r.set(&quot;C_PARTS_NAM&quot;,tempRow.data.C_PARTS_NAM);
+                  r.set(&quot;PARTS_TYPE&quot;,tempRow.data.PARTS_TYPE);
+
+	 
+     }
+}"/><extMenu name="menuPartCod"><extLabel caption="名称" name="partsNametool"/><extTextField name="partsName1" width="80"/><extLabel name="extLabel2" caption="供应商"/><extComboBox mode="local" width="100" name="SUPPLIER_COD1" store="storeSuppli" displayField="RNAME" valueField="RNAME" pageSize="30" onSelect="SUPPLIER_COD.setValue(this.value.split('/')[1]);" listWidth="150"/><extMenuItem name="search" caption="查询" iconCls="icon_property" onClick="var partscode=SUPPLIER_COD.getValue()==null?'':SUPPLIER_COD.getValue();
+var partsname1 =partsName1.getValue()==null?'':partsName1.getValue();
+partCodSelect.baseParams.whereSql=&quot; where SUPPLIER_NAM like  '%&quot;+partscode+&quot;%' and C_PARTS_NAM like '%&quot;+partsname1+&quot;%'&quot;;
+partCodSelect.load({params:{start:0,limit:100}});"/><extMenuItem name="edit" iconCls="icon_ok" onClick="setPartCod();" caption="确认"/></extMenu><extColumnModel name="cmPartCod"><extScript name="extScript1" extHeader="new Ext.grid.CheckboxSelectionModel()"/><extColumn name="_PARTS_TYPE1" width="100" align="center" fieldName="PARTS_TYPE" caption="类型"/><extColumn name="_PARTS_COD1" fieldName="PARTS_COD" caption="代码"/><extColumn name="_C_PARTS_NAM1" fieldName="C_PARTS_NAM" caption="名称"/><extColumn width="80" name="_STAND_TXT1" fieldName="STAND_TXT" caption="型号"/><extColumn width="80" name="_STAND_UNIT" align="center" fieldName="STAND_UNIT" caption="标准单位"/><extColumn width="80" name="_MIN_UNIT" fieldName="MIN_UNIT" caption="最小单位"/><extColumn name="_STAND_CHANGE" fieldName="STAND_CHANGE" caption="转换率"/><extColumn width="60" name="_STORE_NUM" fieldName="STORE_NUM" caption="数量"/><extColumn width="80" name="_MIN_NUM" fieldName="MIN_NUM" caption="最小保有量"/><extColumn renderer="if(value=='0')
+return '否';
+else if(value=='1')
+return '是';" name="_SUPPLIER_NAM" fieldName="SUPPLIER_NAM" caption="供应商名称"/></extColumnModel><extAjax name="mulGridSave" url="main?action=webbuilder/application/partmanager/partDevic/devManager/multSave.xwl" onSuccess="extShowMessage('保存成功！');" onFailure="var s = response.responseText;
+extShowExcept(s);" showMessage="true" out="grid1"/></folder><extViewPort name="viewPort" layout="border"><extPanel name="panel" border="false" region="west" layout="fit" height="100%" caption="设备种类" split="true" width="150"><extTree name="tree" autoScroll="true" onBeforeLoad="control.baseParams.id=node.id;" onClick="typeId.setValue(node.text);
+var  whereSql=&quot;   AND DEVICE_TYPE ='&quot;+typeId.getValue()+&quot;' &quot;;
+devStore.baseParams.WhereSql =whereSql;
+devStore.load({params:{start:0,limit:30}});
+p=node;" remoteUrl="main?action=webbuilder/application/partmanager/common/jsonQueryDevic.xwl"/></extPanel><extPanel name="panel2" border="false" layout="border" region="center" caption="设备" height="200" tbar="menu" split="true"><extGrid name="devGrid" columnsModel="columnModel" onCellClick="if (devGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	var record = devGrid.getSelectionModel().getSelected();
+	partsId.setValue(record.get('PARTS_ID'));
+        partNum.setValue(record.get('PARTS_NUM'));
+  
+
+
+		parStore.baseParams.partId =partsId.getValue();
+		parStore.load({params:{start:0,limit:30}});
+
+
+ 
+
+}" store="devStore" loadStore="false" region="center" split="true" pageSize="30" height="350"/><extPanel name="panel1" border="true" region="south" layout="border" split="true" height="300"><extPanel name="panel21" border="true" region="center" split="true" layout="border" height="400" width="60%" caption="子设备"><extGrid name="grid1" columnsModel="columnModel1" store="parStore" loadStore="false" height="400" tbar="menu1" pageSize="30" region="center" submitMode="modified" canEdit="true" clicksToEdit="1"/></extPanel><extPanel name="panel11" border="true" region="east" collapsible="true" collapsed="true" split="true" layout="border" height="400" width="40%" caption="物料代码选择"><extGrid name="gridPartCod" region="center" split="true" columnsModel="cmPartCod" height="400" pageSize="100" tbar="menuPartCod" store="partCodSelect" tag="sm: new Ext.grid.CheckboxSelectionModel({
+        singleSelect: false
+    })"/></extPanel></extPanel></extPanel></extViewPort></body>

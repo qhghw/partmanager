@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="update  SM_DEV_JOB  set   MAINTAIN_ITEM_COD= substr({?MAINTAIN_ITEM_COD?}, 1, instr({?MAINTAIN_ITEM_COD?},'-') - 1 ),WORK_CONTENT={?WORK_CONTENT?},
+WORK_MOD={?WORK_MOD?},WORK_CLASS={?WORK_CLASS?},PMS={?PMS?},WORK_CYCLE={?WORK_CYCLE?},
+CYCLE_TYP={?CYCLE_TYP?},PRE_TOLERANCE={?PRE_TOLERANCE?},NEXT_TOLERANCE={?NEXT_TOLERANCE?},
+PRE_WORK={?TIMESTAMP.PRE_WORK?},WORK_BEGIN={?TIMESTAMP.WORK_BEGIN?},WORK_END={?TIMESTAMP.WORK_END?},
+WORK_UINT={?WORK_UINT?},WORK_NUM={?WORK_NUM?},NOTE={?NOTE3?}
+where JOB_ID={?JOB_ID?}" dbType="Oracle" transaction="commit" type="update"/></body>

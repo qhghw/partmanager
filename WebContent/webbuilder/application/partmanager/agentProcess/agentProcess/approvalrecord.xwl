@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="select ahv.proc_inst_id_ procinstid,ahv.execution_id_,ahv.task_id_,long_ status,
+task.name_ taskname ,auser.username checkman,
+task.start_time_ begintime, task.end_time_ endtime,round(IFNULL(task.duration_,0)/(60*60*1000),2) as duration,proc.business_key_ bussinesskey ,
+buser.username as username,proc.start_time_ starttime  from act_hi_varinst ahv
+join act_hi_taskinst task on ahv.task_id_=task.id_ join act_hi_procinst proc on proc.id_=task.proc_inst_id_
+join users auser on task.assignee_=auser.userid join users buser on proc.start_user_id_ =buser.userid
+where ahv.proc_inst_id_='#processinstid#' and ahv.task_id_ is not null and ahv.long_ is not null
+order by begintime asc"/></body>

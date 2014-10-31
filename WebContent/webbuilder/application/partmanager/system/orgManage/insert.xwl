@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query type="query" fastMode="" loadData="true" sql="select C_ORG_NAM name from  s_organize  where C_ORG_NAM={?C_ORG_NAM?}" name="checkDuplicate"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="该名称已存在。"/><query name="query" sql="insert  into s_organize(C_ORG_NAM,MAIN_MAN,VICE_MAN,PARENT_COD,RECORD_TIM,RECORD_MAN,DEPT_COD,USERID,REMARKS) &#xA;values({?C_ORG_NAM?},{?MAIN_MAN?},{?VICE_MAN?},{?PARENT_COD?},now(),'{#sys.username#}','{#dept_cod#}','{#sys.userId#}',{?REMARKS?})" type="execute"/></body>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT&#xA;dp.LIST_ID,&#xA;dp.STORAGE_COD,&#xA;dp.STORAGE_NAM,&#xA;dp.PARTS_TYPE,&#xA;dp.PARTS_COD,&#xA;dp.C_PARTS_NAM,&#xA;dp.E_PARTS_NAM,&#xA;dp.STAND_TXT,&#xA;dp.STAND_UNIT,&#xA;dp.MIN_UNIT,&#xA;dp.`STATUS`,&#xA;dp.STORE_NUM,&#xA;dp.USE_NUM,&#xA;dp.STORE_PRICE,&#xA;dp.STORE_AMOUNT,&#xA;dp.MIN_NUM,&#xA;dp.RESP_NAM,&#xA;dp.RESP_DEPT,&#xA;dp.RECORD_TIM,&#xA;dp.RECORD_MAN,&#xA;dp.DEPT_COD,&#xA;dp.USERID,&#xA;dp.NOTE,&#xA;dp.PARTS_CLASS,dp.SUPPLIER_NAM&#xA;FROM &#xA;t_part_list AS dp   &#xA; {#whereSql#}" totalSql="SELECT&#xA;count(1) &#xA;FROM&#xA;t_part_list AS dp   &#xA; {#whereSql#}" metaData="-"/></body>

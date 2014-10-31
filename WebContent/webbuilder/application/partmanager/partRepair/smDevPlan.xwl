@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" headerScript="var currentNode=null,roleNameIsExpaned=true;
+var  operateType ,operateType1,operateType2 ,operateType3 ;
+
+
+function verifyData(){
+var f=true,k;
+var s=InDetailWareGrid.getStore();
+Ext.each(s.getModifiedRecords(), function(r) {
+k=100;
+if(r.get('STOCK_NUM')&lt;r.get('OUTDEPOT_NUM'))
+{
+k=1;
+}
+  
+
+
+if(k!=100)
+{var i=s.indexOf(r);
+
+f=false;
+extShowMessage('输入的出库数量比库存数量大！');
+return false;
+}
+});
+return f;
+}" jsFiles="webbuilder/script/wbfilter.js" caption="设备保养计划">
+	<folder name="folder1"><extStore name="tDevicPlanBStore" url="main?action=webbuilder/application/partmanager/partRepair/smDevPlan/tDevicPlanBQuery.xwl"/><extAjax name="insertTDevicPlanBAjax" url="main?action=webbuilder/application/partmanager/partRepair/smDevPlan/tDevicPlanBInsert.xwl" onSuccess="extShowMessage('修改成功！');
+InDetailWin.hide();
+tDevicPlanBStore.baseParams=extGetAllControlsValue('menu');
+tDevicPlanBStore.load({params:{start:0,limit:30}});" out="InDetailWin"/><extAjax name="updateTDevicPlanBAjax" url="main?action=webbuilder/application/partmanager/partRepair/smDevPlan/tDevicPlanBUpdate.xwl" onSuccess="extShowMessage('修改成功！');
+InDetailWin.hide();
+tDevicPlanBStore.baseParams=extGetAllControlsValue('menu');
+tDevicPlanBStore.load({params:{start:0,limit:30}});" out="InDetailWin"/><extAjax name="deleteTDevicPlanBAjax" url="main?action=webbuilder/application/partmanager/partRepair/smDevPlan/tDevicPlanBDelete.xwl" onSuccess="extRemoveGridSelection(grid);
+tDevicPlanBStore.baseParams=extGetAllControlsValue('menu');
+tDevicPlanBStore.load({params:{start:0,limit:30}});" showMessage="true" out="InDetailGrid"/><extStore name="tDevicPlanStore" url="main?action=webbuilder/application/partmanager/partRepair/smDevPlan/tDevicPlanQuery.xwl"/><extAjax name="insertTDevicPlanAjax" url="main?action=webbuilder/application/partmanager/partRepair/smDevPlan/tDevicPlanInsert.xwl" onSuccess="extShowMessage('修改成功！');
+InMainWin.hide();
+tDevicPlanStore.baseParams=extGetAllControlsValue('menu');
+tDevicPlanStore.load({params:{start:0,limit:30}});" out="InMainWin"/><extAjax name="updateTDevicPlanAjax" url="main?action=webbuilder/application/partmanager/partRepair/smDevPlan/tDevicPlanUpdate.xwl" onSuccess="extShowMessage('修改成功！');
+InMainWin.hide();
+tDevicPlanStore.baseParams=extGetAllControlsValue('menu');
+tDevicPlanStore.load({params:{start:0,limit:30}});" out="InMainWin"/><extAjax name="deleteTDevicPlanAjax" url="main?action=webbuilder/application/partmanager/partRepair/smDevPlan/tDevicPlanDelete.xwl" onSuccess="extRemoveGridSelection(grid);
+tDevicPlanStore.baseParams=extGetAllControlsValue('menu');
+tDevicPlanStore.load({params:{start:0,limit:30}});" showMessage="true" out="InMainGrid"/><method name="method" methodName="com.xuelang.partmanage.MultipleTree.getOrg"/><folder name="folder3"><extStore name="storeZc" url="main?action=webbuilder/application/partmanager/common/CodeSelect.xwl" baseParams="fldId:&quot;12&quot;"/></folder></folder><folder name="folder"><extColumnModel name="columnModel1"><extColumn name="column01" caption="单号" fieldName="BILL_NO" align="left"/><extColumn name="column" caption="设备编码" fieldName="DEV_NO"/><extColumn name="column1" caption="设备名称" fieldName="C_DEV_NAM"/><extColumn name="column41" caption="计划月" fieldName="PLAN_MONTH" align="left" type="datetime"/><extColumn name="column51" caption="状态" fieldName="WORK_STA" align="left" renderer="if(value=='0')
+{ return '计划';}
+else if (value=='1')
+{ return '执行';}"/><extColumn name="column61" caption="方式" fieldName="RP_MODE" align="left"/><extColumn name="column71" caption="工作地点" fieldName="WORK_ADD" align="left"/><extColumn name="column81" caption="责任人" fieldName="RESPON_MAN" align="left"/><extColumn name="column91" caption="申报部门" fieldName="APPLY_DEPT_COD" align="left"/><extColumn name="column101" caption="申报人" fieldName="APPLY_MAN_COD" align="left"/><extColumn name="column111" caption="申报日期" fieldName="APPLY_TIM" width="140" align="left" type="datetime"/><extColumn name="column121" caption="录入时间" fieldName="RECORD_TIM" width="140" align="left" type="datetime"/><extColumn name="column131" caption="录入人" fieldName="RECORD_MAN" align="left"/><extColumn name="column141" caption="所属部门" fieldName="DEPT_COD" align="left"/><extColumn name="column151" caption="用户代码" fieldName="USERID" align="left"/><extColumn name="column161" caption="备注" fieldName="REMARKS" align="left"/></extColumnModel><extColumnModel name="columnModelB"><extColumn name="column0" caption="保养单号" fieldName="BILL_NO" align="left"/><extColumn name="column2" caption="保养类型" fieldName="MAINTAIN_TYP_COD" align="left"/><extColumn name="column3" caption="保养要求" fieldName="MAINT_REQ" align="left"/><extColumn name="column4" caption="计划开工时间" fieldName="PLAN_BEGIN_TIM" width="140" align="left" type="datetime"/><extColumn name="column5" caption="计划完工时间" fieldName="PLAN_END_TIM" width="140" align="left" type="datetime"/><extColumn name="column7" caption="安排日期" fieldName="SET_DTE" width="140" align="left" type="datetime"/><extColumn name="column8" caption="维修工单号" fieldName="WORKBILL_NO" align="left"/><extColumn name="column9" caption="开始时间" fieldName="BEGIN_TIM" width="140" align="left" type="datetime"/><extColumn name="column10" caption="结束时间" fieldName="END_TIM" width="140" align="left" type="datetime"/><extColumn name="column11" caption="是否完成标志" fieldName="FINISH_ID" align="left"/><extColumn name="column12" caption="完成情况描述" fieldName="FINISH_DES" align="left"/><extColumn name="column13" caption="录入时间" fieldName="RECORD_TIM" width="140" align="left" type="datetime"/><extColumn name="column14" caption="录入人" fieldName="RECORD_MAN" align="left"/><extColumn name="column15" caption="所属部门" fieldName="DEPT_COD" align="left"/><extColumn name="column16" caption="用户代码" fieldName="USERID" align="left"/><extColumn name="column17" caption="备注" fieldName="REMARKS" align="left"/></extColumnModel></folder><folder name="folder2"><extWindow frame="true" caption="设备保养计划" onShow="if(operateType == 'insert'){
+	extResetAllControlsValue(&quot;InMainWin&quot;);	
+
+
+}
+if(operateType == 'modify'){
+	var record = InMainGrid.getSelectionModel().getSelected();		
+	extSetAllControlsValueObj(InMainWin, record.data);
+
+}" onOk="if (!extVerifyAllControls('InMainWin')) return; 
+if(operateType == 'insert'){
+
+	insertTDevicPlanAjax();
+	
+}
+if(operateType == 'modify'){
+	updateTDevicPlanAjax();
+}" width="570" height="259" dialog="true" layout="absolute" closeAction="hide" name="InMainWin"><extLabel caption="设备名：" name="extLabel21" left="10" top="35" width="100"/><extTextField name="C_DEV_NAM" left="120" top="30" width="130" allowBlank="false" onFocus="extWindowSbtz.show();"/><extLabel caption="计划时间：" name="extLabel41" left="265" top="35" width="100"/><extLabel caption="维修方式：" name="extLabel61" left="10" top="65" width="100"/><extLabel caption="工作地点：" name="extLabel71" left="265" top="65" width="100"/><extTextField name="WORK_ADD" left="370" top="60" width="130"/><extLabel caption="责任人：" name="extLabel81" left="265" top="125" width="100"/><extTextField name="RESPON_MAN" left="370" top="120" width="130"/><extLabel caption="申报部门：" name="extLabel91" left="10" top="95" width="100"/><extLabel caption="申报人：" name="extLabel101" left="265" top="95" width="100"/><extTextField name="APPLY_MAN_COD" left="370" top="90" width="130"/><extLabel caption="申报日期：" name="extLabel111" left="10" top="125" width="100"/><extDate name="APPLY_TIM" left="120" top="120" width="130"/><extLabel caption="备注：" name="extLabel161" left="10" top="155" width="100"/><extTextField name="REMARKS" left="120" top="150" width="380" inputType="textArea" height="45"/><extDate left="370" top="30" width="130" name="PLAN_MONTH" allowBlank="false"/><extComboBox mode="local" left="120" top="60" width="130" name="RP_MODE" store="storeZc" displayField="RNAME" valueField="RNAME" pageSize="30"/><extComboTree left="120" top="90" width="135" height="20" data="{#orgTree#}" onClick="var text=node.text;
+APPLY_DEPT_COD.setValue(text);APPLY_DEPT_COD.collapse();" treeHeight="300" treeWidth="200" name="APPLY_DEPT_COD"/><extLabel name="extLabel6" left="10" top="5" width="100" caption="设备编码："/><extTextField left="120" top="5" width="130" name="DEV_NO" onFocus="extWindowSbtz.show();"/></extWindow><extWindow frame="true" caption="设备保养记录" onShow="if(operateType2 == 'insert'){
+	extResetAllControlsValue(&quot;InDetailWin&quot;);	
+
+
+}
+if(operateType2 == 'modify'){
+	var record = InDetailGrid.getSelectionModel().getSelected();		
+	extSetAllControlsValueObj(InDetailWin, record.data);
+
+}" onOk="if (!extVerifyAllControls('InDetailWin')) return; 
+if(operateType2 == 'insert'){
+
+	insertTDevicPlanBAjax();
+	
+}
+if(operateType2 == 'modify'){
+	updateTDevicPlanBAjax();
+}" width="575" height="328" dialog="true" layout="absolute" closeAction="hide" name="InDetailWin"><extLabel caption="保养类型：" name="extLabel2" left="15" top="10" width="100"/><extTextField name="MAINTAIN_TYP_COD" left="125" top="5" width="130"/><extLabel caption="保养要求：" name="extLabel3" left="270" top="10" width="100"/><extTextField name="MAINT_REQ" left="375" top="5" width="130"/><extLabel caption="计划开工时间：" name="extLabel4" left="15" top="40" width="100"/><extDate name="PLAN_BEGIN_TIM" left="125" top="35" width="130"/><extLabel caption="计划完工时间：" name="extLabel5" left="270" top="40" width="100"/><extDate name="PLAN_END_TIM" left="375" top="35" width="130"/><extLabel caption="安排日期：" name="extLabel7" left="15" top="70" width="100"/><extDate name="SET_DTE" left="125" top="65" width="130"/><extLabel caption="维修工单号：" name="extLabel8" left="270" top="70" width="100"/><extTextField name="WORKBILL_NO" left="375" top="65" width="130"/><extLabel caption="开始时间：" name="extLabel9" left="15" top="100" width="100"/><extDate name="BEGIN_TIM" left="125" top="95" width="130"/><extLabel caption="结束时间：" name="extLabel10" left="270" top="105" width="100"/><extDate name="END_TIM" left="375" top="100" width="130"/><extLabel caption="完成情况描述：" name="extLabel12" left="15" top="130" width="100"/><extTextField name="FINISH_DES" left="125" top="125" width="380" inputType="textArea" height="55"/><extLabel caption="备注：" name="extLabel17" left="15" top="195" width="100"/><extTextField name="REMARKSB" left="125" top="190" width="380" inputType="textArea" height="55"/><extTextField left="35" top="255" width="120" hidden="true" name="BILL_NO"/><extTextField left="305" top="260" width="120" name="B_NO" hidden="true"/></extWindow></folder><extMenu name="menu"><extLabel name="extLabel13" caption="设备："/><extTextField name="devNam" width="100"/><extLabel name="extLabel" caption="计划日期："/><extDate name="begTim"/><extLabel name="extLabel133" html="-"/><extDate name="endTim"/><extMenuItem caption="查询" iconCls="icon_find" name="findMenu" onClick="tDevicPlanStore.baseParams=extGetAllControlsValue('menu');
+tDevicPlanStore.load({params:{start:0,limit:30}});
+tDevicPlanStore.removeAll();"/><extMenuItem name="addMenu" iconCls="icon_new" onClick="operateType = 'insert';
+	InMainWin.show();
+	C_DEV_NAM.setValue(devNam.getValue());
+
+	var d = new Date();
+var year = d.getFullYear();
+var month = d.getMonth() + 1; 
+month = month &lt; 10 ? (&quot;0&quot; + month) : month;
+var dt = d.getDate();
+dt = dt &lt; 10 ? (&quot;0&quot; + dt) : dt;
+var today= year + &quot;-&quot; + month + &quot;-&quot; + dt;
+APPLY_TIM.setValue(today);
+PLAN_MONTH.setValue(year + &quot;-&quot; + month+&quot;-01&quot;);" caption="新增"/><extMenuItem name="editMenu" caption="编辑" iconCls="icon_edit" onClick="operateType = 'modify';
+if (InMainGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	InMainWin.show();
+	var record = InMainGrid.getSelectionModel().getSelected();
+	extSetAllControlsValueObj( InMainWin, record.data);
+	OLD_DEV_NO.setValue(record.get('DEV_NO'));
+	OLD_PLAN_MONTH.setValue(record.get('PLAN_MONTH'));
+	
+
+}" hidden="false"/><extMenuItem name="delMeu" caption="删除" iconCls="icon_delete" onClick="extGridDeleteConfirm(InMainGrid,&quot;C_DEV_NAM&quot;,deleteInMain);"/><extTextField hidden="true" name="partsType"/><extTextField hidden="true" name="billNo"/><extTextField hidden="true" name="devNo"/></extMenu><extMenu name="menu1"><extMenuItem name="addDetail" caption="增加" onClick="if (InMainGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowMessage(&quot;请选择对应主信息！&quot;);
+	return;
+}
+else
+{		
+
+	
+		operateType2 = 'insert';
+		InDetailWin.show();
+	var record = InMainGrid.getSelectionModel().getSelected();
+	BILL_NO.setValue(record.get('BILL_NO'));
+	}" iconCls="icon_new"/><extMenuItem name="editDetail" caption="编辑" onClick="operateType2 = 'modify';
+		if (InDetailGrid.getSelectionModel().getSelections().length != 1)
+		{
+			extShowWarning('请选择一条数据。');
+			return;
+		}else{
+			InDetailWin.show();
+
+		
+		}" iconCls="icon_edit"/><extMenuItem name="delDetail" caption="删除" onClick="extGridDeleteConfirm(InDetailGrid,&quot;MAINTAIN_ITEM_NAM&quot;,deleteInDetail);" iconCls="icon_delete"/><extTextField name="parnetCode1" hidden="true"/></extMenu><extMenu name="muDev"><extMenuItem name="addDetail1" caption="增加" onClick="if (InMainGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowMessage(&quot;请选择对应主信息！&quot;);
+	return;
+}
+else
+{		
+
+	
+		operateType2 = 'insert';
+		InDetailWin.show();
+	var record = InMainGrid.getSelectionModel().getSelected();
+	BILL_NO.setValue(record.get('BILL_NO'));
+
+	}" iconCls="icon_new"/><extMenuItem name="editDetail1" caption="编辑" onClick="operateType2 = 'modify';
+		if (InDetailGrid.getSelectionModel().getSelections().length != 1)
+		{
+			extShowWarning('请选择一条数据。');
+			return;
+		}else{
+			InDetailWin.show();
+
+		
+		}" iconCls="icon_edit"/><extMenuItem name="delDetail1" caption="删除" onClick="extGridDeleteConfirm(InDetailGrid,&quot;MAINTAIN_ITEM_NAM&quot;,deleteInDetail);" iconCls="icon_delete"/><extTextField name="parnetCode11" hidden="true"/></extMenu><folder name="folder4"><extStore name="devStore" url="main?action=webbuilder/application/partmanager/partDevic/devJob/devSelect.xwl"/><extColumnModel name="cmDevice"><extColumn caption="设备编号" fieldName="PARTS_NUM" name="PARTS_NUMs" width="120"/><extColumn name="PARTS_TYPEs" fieldName="PARTS_TYPE" caption="物料分类"/><extColumn name="DEVICE_TYPEs" fieldName="DEVICE_TYPE" caption="设备分类"/><extColumn name="C_PARTS_NAMs" fieldName="C_PARTS_NAM" caption="设备名称"/><extColumn fieldName="STAND_TXT" name="STAND_TXTS" caption="规格型号"/><extColumn fieldName="PROD_FACT" name="PROD_FACTs" caption="生产厂家"/><extColumn name="SUPPLIER_CODs" caption="供应商" fieldName="SUPPLIER_COD"/><extColumn caption="出厂日期" fieldName="OUT_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" name="OUT_DTEs"/><extColumn caption="购买日期" fieldName="BUY_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" name="BUY_DTEs"/><extColumn fieldName="USE_DTE" type="datetime" renderer="if(value==''||value==null)
+{
+        return  &quot;&quot;;
+}else
+{
+        return  value.format('Y-m-d');  
+      
+     
+}
+" caption="使用日期" name="USE_DTES"/><extColumn caption="设备状态" fieldName="STATUS" renderer="if(value=='1')
+return '报废';
+else  
+return '无';" name="STATUSs"/></extColumnModel><extMenu name="muDev1"><extLabel name="extLabel1" caption="设备名称"/><extTextField name="devName"/><extTextField name="typeId" hidden="true"/><extMenuItem caption="查询" iconCls="icon_find" name="findMenu1" onClick="if(Ext.getCmp(&quot;devName&quot;).getValue()!='')
+{
+var nV = Ext.getCmp(&quot;devName&quot;).getValue();
+var	whereSql =&quot; and   DEVICE_TYPE ='&quot;+Ext.getCmp(&quot;typeId&quot;).getValue()+&quot;' and (C_PARTS_NAM  like '%&quot;+nV +&quot;%') &quot;;
+devStore.baseParams.WhereSql =whereSql;
+devStore.load({params:{start:0,limit:30}});
+}"/></extMenu><extWindow name="extWindowSbtz" closeAction="hide" frame="true" width="600" height="450" caption="设备台账信息" layout="border" onOk="if (gridDevic.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	
+	var record = gridDevic.getSelectionModel().getSelected();
+        DEV_NO.setValue(record.get(&quot;PARTS_NUM&quot;));
+	C_DEV_NAM.setValue(record.get(&quot;C_PARTS_NAM&quot;)); 
+        extWindowSbtz.hide()
+}"><extPanel name="panel" border="false" region="west" layout="fit" height="100%" caption="设备种类" split="true" width="150"><extTree name="tree" autoScroll="true" onBeforeLoad="control.baseParams.id=node.id;" onClick="var  whereSql=&quot;  and   DEVICE_TYPE ='&quot;+node.text+&quot;' &quot;;
+Ext.getCmp(&quot;typeId&quot;).setValue(node.text);
+devStore.baseParams.WhereSql =whereSql;
+devStore.load({params:{start:0,limit:30}});
+
+p=node;" remoteUrl="main?action=webbuilder/application/partmanager/common/jsonQueryDevic.xwl"/></extPanel><extPanel name="panel2" border="false" region="center" layout="fit"><extGrid name="gridDevic" width="100%" tbar="muDev1" store="devStore" pageSize="30" columnsModel="cmDevice" height="400" loadStore="false" onCellDblClick="if (gridDevic.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+	
+	var record = gridDevic.getSelectionModel().getSelected();
+        DEV_NO.setValue(record.get(&quot;PARTS_NUM&quot;));
+	C_DEV_NAM.setValue(record.get(&quot;C_PARTS_NAM&quot;)); 
+        extWindowSbtz.hide()
+}"/></extPanel></extWindow></folder><extViewPort name="viewPort" layout="border"><extPanel name="panel1" border="false" region="center" layout="border" height="437" width="575"><extGrid bbar="" columnsModel="columnModel1" autoExpandColumn="" onRowDblClick="extCall(editMenu);" downloadAll="true" pageSize="30" store="tDevicPlanStore" loadStore="false" split="true" tbar="menu" left="15" top="15" width="320" height="120" region="center" name="InMainGrid" onCellClick="if (InMainGrid.getSelectionModel().getSelections().length &lt; 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	var record = InMainGrid.getSelectionModel().getSelected();
+        var  whereSql=&quot; AND BILL_NO='&quot;+record.get(&quot;BILL_NO&quot;)+&quot;' &quot;;
+		tDevicPlanBStore.baseParams.whereSql=whereSql;
+		tDevicPlanBStore.load({params:{start:0,limit:30}});
+
+
+
+
+}"/><extGrid bbar="" columnsModel="columnModelB" autoExpandColumn="" onRowDblClick="extCall(editMenu);" downloadAll="true" pageSize="30" store="tDevicPlanBStore" loadStore="false" height="210" split="true" tbar="menu1" left="20" top="150" width="320" region="south" name="InDetailGrid"/></extPanel></extViewPort><extScript name="extScript" extFooter="var d=new Date();
+d.setDate(d.getDate()+5);
+Ext.getCmp('endTim').setValue(d);
+d.setDate(d.getDate()-10);
+Ext.getCmp('begTim').setValue(d);"/></body>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" dbType="MySql" type="execute" sql="insert  into T_DEVIC_ACCIDENT( PARTS_NO,&#xA;C_PARTS_NAM,&#xA;PARTS_NUM,&#xA;ACCIDENT_HAPPEN_TIM,&#xA;COURSE_LOSE_DES,&#xA;DUTY_JUDGE,&#xA;ANALYSIS_TXT,&#xA;ACC_DUTY_MAN,&#xA;IDER_TIM,&#xA;IDER_MAN,&#xA;IDER_TXT,&#xA;OPER_NAM,&#xA;OPER_TIM,&#xA;ACC_DUTY_CORP,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;NOTE) values (&#xA;{?PARTS_NO?},&#xA;{?C_PARTS_NAM?},&#xA;{?PARTS_NUM?},&#xA;{?TIMESTAMP.ACCIDENT_HAPPEN_TIM?},&#xA;{?COURSE_LOSE_DES?},&#xA;{?DUTY_JUDGE?},&#xA;{?ANALYSIS_TXT?},&#xA;{?ACC_DUTY_MAN?},&#xA;{?TIMESTAMP.IDER_TIM?},&#xA;{?IDER_MAN?},&#xA;{?IDER_TXT?},&#xA;{?OPER_NAM?},&#xA;{?TIMESTAMP.OPER_TIM?},&#xA;{?ACC_DUTY_CORP?}&#xA;,now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}',&#xA;{?NOTE?})"/>
+</body>

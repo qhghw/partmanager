@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" compact="true" simpleError="true">
+	<query type="query" fastMode="" loadData="true" sql="select CNTR_NO from BILL_CNTR where BILL_NO={?BILL_NO?}  and CNTR_NO={?CNTR_NO?}" name="checkDuplicate"/><excepter nameList="checkDuplicate.CNTR_NO" condition="exists" name="duplicate" message="箱号已存在"/><query type="update" fastMode="" sql="insert   into BILL_CNTR(BILL_NO,SHIP_NO,PORT_ID,BILL_NBR,CNTR_NO,CNTR_SIZE_COD,CNTR_TYPE_COD,CNTR_EF_ID,SEAL_NO,
+PIECE_NUM,PACK_NAM_STR,WEIGHT_TON,CNTR_TARE_KGS,VOLUME_NUM,STOWAGE_LOC,SOC_ID,USERID,TENTANTID)
+values({?BILL_NO?},{?shipNo?},'1',{?BILL_NBR?},
+{?CNTR_NO?},{?CNTR_SIZE_COD?},{?CNTR_TYPE_COD?},{?CNTR_EF_ID1?},{?SEAL_NO?},{?PIECE_NUM1?},
+{?PACK_NAM_STR?},{?WEIGHT_TON?},{?CNTR_TARE_KGS?},{?VOLUME_NUM?},{?STOWAGE_LOC?},{?SOC_ID?},'{#sys.userId#}','{#sys.tentantId#}'
+)" name="insert"/></body>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="saveOutApply" sql="insert  into t_out_apply 
+( PUR_NO,PUR_DTE,APPLY_DEPT_COD,PARTS_TYPE,OUT_MOD,STORAGE_COD,STORAGE_NAM,MANA_MAN,
+WF_STATUE,REMARKS,APPLY_TYP,
+RECORD_TIM,RECORD_MAN,DEPT_COD,USERID)
+ values
+(CONCAT('AI-', left(now()+0,8),'-',nextval('OffApply')),{?PUR_DTE?},{?APPLY_DEPT_COD?},{?PARTS_TYPE?},
+{?OUT_MOD?},{?STORAGE_COD?},{?STORAGE_NAM?},{?MANA_MAN?},{?WF_STATUE?},
+{?REMARKS1?},{?APPLY_TYP?},
+now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}')" type="update"/></body>

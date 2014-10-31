@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="UPDATE  t_out_apply_detail SET C_PARTS_NAM={?C_PARTS_NAM?},E_PARTS_NAM={?E_PARTS_NAM?},MIN_UNIT={?MIN_UNIT?},STAND_TXT={?STAND_TXT?},OUTDEPOT_NUM={?OUTDEPOT_NUM?},PRICE_VAL={?PRICE_VAL?},USE_COD={?USE_COD?},REMARKS={?REMARKS?},RECORD_TIM=now(),RECORD_MAN='{#sys.username#}',DEPT_COD='{#sys.deptCode#}',USERID='{#sys.userid#}'&#xA; &#xA;WHERE PUR_NO={?PUR_NO_?} AND PARTS_COD = {?PARTS_COD?}" dbType="MySql" transaction="commit" type="update"/></body>

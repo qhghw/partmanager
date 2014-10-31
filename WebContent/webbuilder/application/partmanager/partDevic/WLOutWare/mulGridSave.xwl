@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dbUpdater name="dbUpdater" transaction="commit" insertSql="insert into t_parts_out_detail (USE_COD,IS_OLD,OUTDEPOT_NUM,RECP_NO, PARTS_COD,C_PARTS_NAM,STAND_TXT,PRICE_VAL,MIN_UNIT,RECP_IN_NO,REMARKS,RECORD_TIM,RECORD_MAN,DEPT_COD,USERID,GET_RECP) 
+values({?USE_COD?},{?IS_OLD?}, {?OUTDEPOT_NUM?},{?RECP_NO?},{?PARTS_COD?},{?C_PARTS_NAM?},{?STAND_TXT?},{?PRICE_VAL?},{?MIN_UNIT?},{?RECP_IN_NO?},{?REMARKS?},now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}',{?GET_RECP?})" updateSql="UPDATE  T_PARTS_OUT_DETAIL SET USE_COD = {?USE_COD?},IS_OLD = {?IS_OLD?},OUTDEPOT_NUM = {?OUTDEPOT_NUM?}, RECP_NO={?RECP_NO?},PARTS_COD={?PARTS_COD?},C_PARTS_NAM={?C_PARTS_NAM?},STAND_TXT={?STAND_TXT?},PRICE_VAL={?PRICE_VAL?},MIN_UNIT={?MIN_UNIT?},RECP_IN_NO={?RECP_IN_NO?},REMARKS={?REMARKS?},RECORD_TIM=now(),RECORD_MAN='{#sys.username#}',DEPT_COD='{#sys.deptCode#}',USERID='{#sys.userid#}',GET_RECP = {?GET_RECP?} 
+ WHERE OUT_SEQ_NO={?OUT_SEQ_NO?}" deleteSql="delete  from  T_PARTS_OUT_DETAIL 
+
+where  OUT_SEQ_NO={?OUT_SEQ_NO?}" data="{#OutDetailGrid#}"/></body>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" metaData="-" sql="select PUR_NO, PARTS_COD, C_PARTS_NAM, E_PARTS_NAM, STAND_TXT, PUR_TXT, PUR_NUM, PUR_WAY_COD, RECORD_TIM, RECORD_MAN, DEPT_COD, USERID, MIN_UNIT, REMARKS 
+from (SELECT detail.PUR_NO, detail.PARTS_COD, detail.C_PARTS_NAM, detail.E_PARTS_NAM, detail.STAND_TXT, detail.PUR_TXT, detail.PUR_NUM, detail.PUR_WAY_COD, detail.RECORD_TIM, detail.RECORD_MAN, detail.DEPT_COD, detail.USERID, detail.MIN_UNIT, detail.REMARKS FROM t_apply_detail AS detail
+ union all select D.PUR_NO,D.PARTS_NUM AS PARTS_COD,D.C_PARTS_NAM,D.E_PARTS_NAM,D.STAND_TXT,'' PUR_TXT,D.PUR_NUM,'' PUR_WAY_COD, D.RECORD_TIM, D.RECORD_MAN, D.DEPT_COD, D.USERID, '' MIN_UNIT, D.NOTE REMARKS FROM t_device_apply D) as tb 
+ {#whereSql#}" totalSql="select count(1) from t_apply_detail {#whereSql#}"/></body>

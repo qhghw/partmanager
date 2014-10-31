@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body class="sys_normal" version="2.0" description="Web Builder forbidden page" author="Chen Jie" needLogin="false" logType="exception" caption="错误" name="body" headerScript="var id=&quot;bd___forbd&quot;;" bgImage="webbuilder/images/ptdb.gif">
+	<extWindow name="extWindow" dialog="false" caption="错误" layout="absolute" autoShow="true" resizable="false" closable="false" anchorCenter="true" width="300" height="120"><extPanel name="panel" border="false" left="50" top="25" width="40" height="35" bodyStyle="background-color:transparent"><image name="errormark" src="webbuilder/images/errormark.gif" caption=""/></extPanel><extLabel left="100" top="35" width="140" name="description" caption="您没有权限访问该模块。"/></extWindow></body>

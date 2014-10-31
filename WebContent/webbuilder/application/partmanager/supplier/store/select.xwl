@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT&#xA;dp.SUPPLIER_ID,&#xA;dp.SUPPLIER_COD,&#xA;dp.SUPPLIER_NAM,&#xA;dp.SUPPLIER_TYPE,&#xA;dp.TEL,&#xA;dp.EMAIL,&#xA;dp.ADDRESS,&#xA;dp.LINK_MAN,&#xA;dp.RECORD_TIM,&#xA;dp.RECORD_MAN,&#xA;dp.DEPT_COD,&#xA;dp.USERID,&#xA;dp.REMARKS&#xA;FROM&#xA;c_supplier_code AS dp {#whereSql#}" totalSql="SELECT &#xA;count(1) &#xA;FROM &#xA;c_supplier_code AS dp {#whereSql#}" metaData="-"/></body>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" compact="true" simpleError="true" exceptionType="normal">
+	<query type="query" fastMode="" loadData="true" name="checkDuplicate" sql="select  MAINTAIN_TYP_NAM name  from  SM_CODE_MAINTAIN_TYP where  MAINTAIN_TYP_NAM ={?MAINTAIN_TYP_NAM?}"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="名字重复，请重新输入"/><query type="update" fastMode="" sql="insert  into  SM_CODE_MAINTAIN_TYP( MAITYP_ID,MAINTIAN_TYP_COD,MAINTAIN_TYP_NAM,CYC_ID,CYC_NUM,EXEC_DEPT_COD,AUTO_FORECAST_ID,
+ RECORD_TIM,RECORD_NAM,USERID,TENTANTID,NOTE,dept_cod)
+values(seq_sm_pm_code.NEXTVAL,'LX'||trim(TO_CHAR(seq_sm_pm_code.NEXTVAL,'00000000')),
+{?MAINTAIN_TYP_NAM?},{?CYC_ID?},{?CYC_NUM?},{?EXEC_DEPT_COD?},{?AUTO_FORECAST_ID?},
+sysdate,'{#sys.username#}','{#sys.userId#}','{#sys.tentantId#}',{?NOTE?},'{#dept_cod#}')" name="insert"/></body>

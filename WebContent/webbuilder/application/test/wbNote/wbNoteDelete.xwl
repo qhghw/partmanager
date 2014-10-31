@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" compact="true" createBody="false">
+	<dbUpdater data="{#grid#}" transaction="start" name="startDelete" deleteSql="delete   from  CS_WB_NOTE
+ where  NOTE_ID={?NOTE_ID?}"/></body>

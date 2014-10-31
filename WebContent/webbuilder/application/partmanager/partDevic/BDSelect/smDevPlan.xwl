@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" caption="设备保养计划">
+	<method name="method1" methodName="net.huadong.shipmanage.ShipBDSelect.getSmDevPlan"/><dataProvider name="dataProvider" sql="select  SM_DEV_PLAN_H.E_SHIP_NAM,SM_DEV_PLAN_H.C_SHIP_NAM,DEV_NO,C_DEV_NAM,E_DEV_NAM,
+    PLAN_MONTH,WORK_STA,WORK_ADD,RESPON_MAN,MAINTAIN_ITEM_COD,MAINTAIN_TYP_COD,
+    MAINT_REQ,PLAN_BEGIN_TIM,PLAN_END_TIM,PLAN_FEE,SET_DTE,WORKBILL_NO,
+    BEGIN_TIM,END_TIM,FINISH_ID,FINISH_DES
+     from  SM_DEV_PLAN_H,SM_DEV_PLAN_B ,c_ship_data where   
+SM_DEV_PLAN_H.BILL_NO=SM_DEV_PLAN_B.BILL_NO  
+and ship_dev_no=ship_cod  {#whereSql#}  order by PLAN_MONTH ,PLAN_BEGIN_TIM desc" metaData="-" dateAsString="false" totalSql="select  
+   count(1)
+     from  SM_DEV_PLAN_H,SM_DEV_PLAN_B ,c_ship_data 
+where   SM_DEV_PLAN_H.BILL_NO=SM_DEV_PLAN_B.BILL_NO 
+ and ship_dev_no=ship_cod   {#whereSql#}" paging="false"/></body>

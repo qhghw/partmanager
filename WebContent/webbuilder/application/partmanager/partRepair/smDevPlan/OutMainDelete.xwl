@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query type="query" fastMode="" loadData="true" sql="select 
+BILL_NO  name
+ from  Sm_dev_plan_B where BILL_NO={?BILL_NO?}  and 
+ FINISH_ID='1'" name="checkDuplicate"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="该设备月计划有完工数据，不能删除。"/><dbUpdater data="{#InMainGrid#}" name="delete" transaction="commit" deleteSql="delete  from     SM_DEV_PLAN_H 
+where  BILL_NO={?BILL_NO?}"/></body>

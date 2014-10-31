@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" caption="日志查询">
+	<folder name="folder"><extStore name="store" url="main?action=webbuilder/application/test/DB/logQuery.xwl"/><extStore name="store1" url="main?action=webbuilder/application/test/DB/logQuery1.xwl"/></folder><extMenu name="menu" style="" bodyStyle="" autoShow="false"><extLabel name="extLabel" caption="开始日期："/><extDate name="begin"/><extLabel name="extLabel1" html="&amp;nbsp;&amp;nbsp;-&amp;nbsp;&amp;nbsp;"/><extDate name="end"/><extLabel name="extLabel11" html="&amp;nbsp;&amp;nbsp;"/><extLabel name="extLabel2" caption="日志类型："/><extComboBox mode="local" mapKey="LOG_TYPE" valueField="KEY_ID" displayField="KEY_TEXT" name="logType"/><extMenuItem name="menuItem" caption="查询" iconCls="icon_find" onClick="var logT= logType.getValue();
+if(logT==''){
+	alert('请选址日志类型');
+}else{
+	if(logT=='1'){
+		grid.reconfigure(store, columnModel);
+		store.baseParams=extGetAllControlsValue('menu');
+		store.load({params:{start:0,limit:30}});
+	}	
+	if(logT=='2'){
+		grid.reconfigure(store1, columnModel1);
+		store1.baseParams=extGetAllControlsValue('menu');
+		store1.load({params:{start:0,limit:30}});
+	}
+}"/></extMenu><extColumnModel name="columnModel"><extColumn name="column" caption="用户名" fieldName="USERNAME"/><extColumn name="column1" caption="功能名称" fieldName="FUN_NAME"/><extColumn name="column2" caption="子功能名称" fieldName="FUN_NAME1"/><extColumn name="column3" caption="操作" fieldName="OPERATE"/><extColumn name="column4" caption="操作日期" fieldName="OPE_DATE" width="140"/><extColumn name="column5" caption="IP地址" fieldName="IP"/><extColumn name="column6" fieldName="ERMSG" caption="异常信息"/></extColumnModel><extColumnModel name="columnModel1"><extColumn name="column7" caption="用户名" fieldName="USERNAME"/><extColumn name="column11" caption="功能名称" fieldName="FUN_NAME"/><extColumn name="column21" caption="子功能名称" fieldName="FUN_NAME1"/><extColumn name="column31" caption="操作" fieldName="OPERATE"/><extColumn name="column41" caption="操作日期" fieldName="OPE_DATE" width="140"/></extColumnModel><extViewPort name="viewPort" layout="fit"><extPanel name="panel" border="false" layout="fit" tbar="menu"><extGrid name="grid" bbar="" autoExpandColumn="" downloadAll="true" pageSize="30" columnsModel="columnModel" store="store"/></extPanel></extViewPort></body>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" sql="insert  into  SM_DEV_JOB(JOB_ID,DEV_ID,DEV_NO,C_DEV_NAM,E_DEV_NAM,MAINTAIN_ITEM_COD,WORK_CONTENT,
+WORK_MOD,WORK_CLASS,PMS,WORK_CYCLE,CYCLE_TYP,PRE_TOLERANCE,NEXT_TOLERANCE,
+PRE_WORK,WORK_BEGIN,WORK_END,WORK_UINT,WORK_NUM,NOTE,RECORD_TIM,RECORD_MAN,
+USERID,TENTANTID)   values('JOB'||trim(TO_CHAR(seq_sm_pm_code.NEXTVAL,'00000000')),
+{?devId?},{?devNo?},{?cDevNam?},{?eDevNam?},
+ substr({?MAINTAIN_ITEM_COD?}, 1, instr({?MAINTAIN_ITEM_COD?},'-') - 1 ) ,{?WORK_CONTENT?},
+{?WORK_MOD?},{?WORK_CLASS?},{?PMS?},{?WORK_CYCLE?},{?CYCLE_TYP?},{?PRE_TOLERANCE?},{?NEXT_TOLERANCE?},
+{?timestamp.PRE_WORK?},{?timestamp.WORK_BEGIN?},{?timestamp.WORK_END?},{?WORK_UINT?},
+{?WORK_NUM?},{?NOTE3?},sysdate,'{#sys.username#}','{#sys.userId#}','{#sys.tentantId#}')"/></body>

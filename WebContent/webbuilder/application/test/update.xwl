@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="UPDATE  menu SET menuid={?menuid?},menuname={?menuname?},menutype={?menutype?} WHERE menuid={?menuid?}" dbType="MySql" transaction="commit" type="update"/></body>

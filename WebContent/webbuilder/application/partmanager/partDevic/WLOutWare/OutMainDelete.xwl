@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<dbUpdater data="{#OutMainGrid#}" name="delete" transaction="commit" deleteSql="delete   from  T_PARTS_OUT   where RECP_NO={?RECP_NO?}"/></body>

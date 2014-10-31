@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body class="sys_normal" caption="警告" version="2.0" description="Web Builder invalid page" author="Chen Jie" needLogin="false" logType="exception" name="body" headerScript="var id=&quot;bd___invalid&quot;;" bgImage="webbuilder/images/ptdb.gif">
+	<extWindow name="extWindow" dialog="false" layout="absolute" autoShow="true" resizable="false" closable="false" caption="警告" anchorCenter="true" width="300" height="120"><extPanel name="panel" border="false" left="55" top="20" width="40" height="35" bodyStyle="background-color:transparent"><image name="excalmark1" src="webbuilder/images/excalmark.gif" caption=""/></extPanel><extLabel left="105" top="35" width="125" name="description" caption="没有找到您要的模块。"/></extWindow></body>

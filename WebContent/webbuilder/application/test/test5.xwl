@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" headerScript="var operateType;
+var summary = new Ext.ux.grid.GridSummary();" caption="错误提示测试" cssFiles="webbuilder/css/Ext.ux.grid.GridSummary.css" jsFiles="webbuilder/script/wbfilter.js|
+webbuilder/script/Ext.ux.grid.GridSummary.js">
+	<folder name="folder"><extStore name="store" url="main?action=webbuilder/application/test/DB/testQuery.xwl" onAfterLoad="ajax();"/><extAjax name="ajax" onSuccess="var  opp=response.responseText;
+var data=opp.split('@');
+
+dn=Number(data[0]);
+if(data[0]=='null') dns=&quot;0&quot;;
+else dns=data[0];
+
+if(data[1]=='null') datas1=&quot;0&quot;;
+else datas1=data[1];
+if(data[2]=='null') datas2=&quot;0&quot;;
+else datas2=data[2];
+
+
+
+
+
+summary.setSumValue(Ext.decode(&quot;{'TNAME':'合计','VALUE1':'&quot;+dns+&quot;','VALUE2':'&quot;+datas1+&quot;','VALUE3':'&quot;+datas2+&quot;'}&quot;));" url="main?action=webbuilder/application/test/DB/gridTongJi1.xwl"/><extAjax name="loginsert" url="main?action=webbuilder/application/test/DB/logInsert.xwl" out="logWin" onSuccess="alert('操作成功');"/><extAjax name="loginsert1" url="main?action=webbuilder/application/test/DB/logInsert1.xwl" out="logWin" onSuccess="var str = msgTemp.getValue();
+var start = str.indexOf('&lt;h1&gt;');
+var end = str.indexOf('&lt;/h1&gt;');
+var str1=str.substr(start,(end-start));
+start = str1.indexOf('ORA');
+if(start&gt;0){
+ str1=str1.substr(start);
+}
+title.html=str1;
+var start1 = str.indexOf('&lt;pre&gt;');
+var end1 = str.indexOf('&lt;/pre&gt;');
+var str2=str.substr(start1+5,(end1-start1-5));
+errMsg.setValue(str2);
+errorWin.show();"/><extAjax name="insertAjax" url="main?action=webbuilder/application/test/DB/testInsert2.xwl" out="extWindow" onSuccess="store.baseParams=extGetAllControlsValue('menu');
+store.load({params:{start:0,limit:40}});
+extWindow.hide();
+if(operateType=='insert'){
+	OPERATE.setValue('增加一条记录');
+}
+loginsert();" onFailure="ERMSG.setValue(response.responseText);
+msgTemp.setValue(response.responseText);
+if(operateType=='insert'){
+	OPERATE.setValue('增加一条记录');
+}
+
+loginsert1();"/><extAjax name="errorAjax" onSuccess="var str = response.responseText;
+
+var start = str.indexOf('&lt;h1&gt;');
+var end = str.indexOf('&lt;/h1&gt;');
+var str1=str.substr(start,(end-start));
+start = str1.indexOf('ORA');
+if(start&gt;0){
+ str1=str1.substr(start);
+}
+title.html=str1;
+var start1 = str.indexOf('&lt;pre&gt;');
+var end1 = str.indexOf('&lt;/pre&gt;');
+var str2=str.substr(start1+5,(end1-start1-5));
+errMsg.setValue(str2);
+errorWin.show();"/></folder><extMenu name="menu" style="" bodyStyle="" autoShow="false"><extLabel name="extLabel" caption="箱尺寸码："/><extTextField name="CNTR_SIZE_COD1"/><extLabel name="extLabel1" html="&amp;nbsp;&amp;nbsp;"/><extLabel name="extLabel2" caption="箱尺寸名："/><extTextField name="CNTR_SIZE_NAM1"/><extLabel name="extLabel11" html="&amp;nbsp;&amp;nbsp;"/><extMenuItem name="menuItem" caption="查询" iconCls="icon_find" onClick="store.baseParams=extGetAllControlsValue('menu');
+store.load({params:{start:0,limit:30}});"/><extMenuItem name="menuItem1" caption="新增" iconCls="icon_new" onClick="operateType = 'insert';
+extWindow.show();"/><extMenuItem name="menuItem2" caption="修改" iconCls="icon_edit" onClick="operateType = 'modify';
+if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	extWindow.show();
+}"/><extMenuItem name="menuItem3" caption="删除" iconCls="icon_delete" onClick="extGridDeleteConfirm(grid,'CNTR_SIZE_COD',function(){
+	deleteAjax();
+});"/><extTextField name="msgTemp" hidden="true"/></extMenu><extWindow name="extWindow" closeAction="hide" frame="true" maximizable="true" onShow="if(operateType == 'insert'){
+
+}
+if(operateType == 'modify'){
+	var record = grid.getSelectionModel().getSelected();		
+	extSetAllControlsValueObj(extWindow, record.data);	
+}" onOk="if (!extVerifyAllControls('extWindow')) return; 
+
+if(operateType == 'insert'){
+	insertAjax();	
+}
+if(operateType == 'modify'){
+	updateAjax();
+}" caption="测试" width="337" height="230" layout="absolute"><extLabel name="extLabel3" top="15" width="40" caption="名称：" left="55"/><extTextField top="10" width="120" name="TNAME" left="110"/><extLabel name="extLabel4" top="45" width="45" caption="价值1：" left="50"/><extNumber left="110" top="40" width="120" name="VALUE1"/><extLabel name="extLabel5" top="75" width="45" caption="价值2：" left="50"/><extNumber top="70" width="120" name="VALUE2" left="110"/><extLabel name="extLabel6" top="105" width="45" caption="价值3：" left="50"/><extNumber name="number" top="100" width="120" left="110"/></extWindow><extColumnModel name="columnModel"><extColumn name="column" caption="名称" fieldName="TNAME"/><extColumn name="column1" caption="价值1" fieldName="VALUE1" format="#,###.00"/><extColumn name="column2" width="200" sortable="50" caption="价值2" fieldName="VALUE2" format="#,###.00"/><extColumn name="column3" caption="价值3" fieldName="VALUE3" format="#,###.00"/></extColumnModel><extWindow closeAction="hide" frame="true" width="500" height="350" name="logWin" layout="absolute" caption="日志"><extTextField left="30" top="10" width="445" name="funName" value="扩展测试"/><extTextField left="30" top="35" width="120" name="funName1"/><extTextField left="30" top="65" width="120" name="OPERATE"/><extTextField left="30" top="95" width="120" name="IP"/><extTextField left="30" top="125" width="120" name="ERMSG"/></extWindow><extWindow closeAction="hide" frame="true" width="787" height="405" name="errorWin" caption="错误信息提示" layout="absolute" autoScroll="true" dialog="false"><extFieldSet name="fieldSet" collapsible="true" caption="查看详细信息" layout="absolute" width="750" height="320" autoScroll="true" collapsed="true" left="10" top="40"><extTextField left="10" top="5" width="715" inputType="textArea" height="315" name="errMsg"/></extFieldSet><extLabel left="125" top="15" width="630" name="title" align="left"/><extLabel name="extLabel7" left="20" top="15" width="90" caption="错误信息提示："/></extWindow><extViewPort name="viewPort" layout="fit"><extPanel name="panel" border="false" layout="fit" tbar="menu"><extGrid name="grid" bbar="" autoExpandColumn="" downloadAll="true" pageSize="30" columnsModel="columnModel" store="store" loadStore="true" onRowDblClick="extCall(menuItem2);" tag="plugins: summary"/></extPanel></extViewPort></body>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" logType="exception">
+	<method name="method" methodName="net.huadong.pass.core.platform.IkexpressPlat.getOrgId2"/><dataProvider name="dataProvider" metaData="-" sql="select  
+E_SHIP_NAM,C_SHIP_NAM,SHIP_COD,IMO_COD,CALL_NO,MMSI_COD,
+
+(select  SHIP_TYPE_COD||'('||SHIP_TYPE_COD||'-'||C_SHIP_TYPE_NAM||')'  COUNTRYNAM from C_SHIP_TYPE  where  
+SHIP_TYPE_COD=c_ship_data.SHIP_TYPE_COD)
+SHIP_TYPE_COD,
+
+(select  COUNTRY_COD||'('||COUNTRY_COD||'-'||C_COUNTRY_NAM||')'   from C_COUNTRY where COUNTRY_COD=c_ship_data.COUNTRY_COD )
+COUNTRY_COD,WEIGHT_TON,
+AMOUNT_TON,NET_TON,RELA_TEL,RELA_FAX,RELA_TELEX,RELA_EML,TRUST_COD,MADE_DTE_STR,CARRIER_COD,
+HATCH_NUM,HATCH_SIZE_STR,BALE_CAPA_NUM,BULK_CAPA_NUM,CNTR_NUM,RF_PLUGS_NUM,RF_VOLTAGE_NUM,SWL_STR,
+STEEVE_POS,MTON,SUMMER_NUM,HORSE_PWR_NUM,SPEED_NUM,SIDE_POWER_NUM,BODY_COLOR_STR,CHIMNEY_COLOR_STR,
+CHIMNEY_ID,LONGTH_NUM,WIDTH_NUM,HIGH_NUM,DEPTH_NUM,SHIP_CLASS_STR,SAIL_AREA_STR,CUSTOM_DTE,CANCEL_ID,
+EMPTY_SUMMER_NUM,SHIP_PORT_NAM,MADE_DTE,AVE_SPEED_NUM,CORP_ID,USERID,TENTANTID,SEQ_ID
+from 
+c_ship_data
+where     CANCEL_ID ='0'  {#IKsql#}" totalSql="select  
+count(1)
+from 
+c_ship_data
+where     CANCEL_ID ='0'  {#IKsql#}" paging="false"/></body>

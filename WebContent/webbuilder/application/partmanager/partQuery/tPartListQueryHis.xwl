@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" caption="物料台账表" headerScript="var operateType ;">
+	<folder name="storeFolder">
+		<extStore name="tPartListStore" url="main?action=webbuilder/application/partmanager/partQuery/stockHisDao/tPartListQuery.xwl"/>
+	</folder>
+	<folder name="columnfolder">
+		<extColumnModel name="columnModel1">
+			<extColumn name="column2" caption="仓库名称" fieldName="STORAGE_NAM" align="left"/>
+			<extColumn name="column3" caption="类型" fieldName="PARTS_TYPE" align="left"/>
+			<extColumn name="column4" caption="代码" fieldName="PARTS_COD" align="left"/>
+			<extColumn name="column5" fieldName="C_PARTS_NAM" align="left" caption="名称"/>
+			<extColumn name="column7" caption="规格型号" fieldName="STAND_TXT" align="left"/>
+			<extColumn name="column9" fieldName="MIN_UNIT" align="left" caption="单位"/>
+			<extColumn caption="数量" fieldName="STORE_NUM" align="left" name="STORE_NUMs"/>
+			<extColumn caption="可用库存量" fieldName="USE_NUM" name="USE_NUMS" hidden="true"/><extColumn caption="单价" fieldName="STORE_PRICE" name="STORE_PRICES"/><extColumn caption="库存成本" fieldName="STORE_AMOUNT" name="STORE_AMOUNTs"/></extColumnModel>
+	</folder>
+	<extMenu name="menu" style="" bodyStyle="" autoShow="false">
+		<extLabel name="extLabel811" caption="仓库名称："/><extTextField name="storeNam"/><extLabel name="extLabel" caption="编号"/><extTextField name="partCod" width="80"/><extLabel name="extLabeMenu5" caption="名称：" align="right"/>
+		<extTextField name="S_C_PARTS_NAM" width="80"/>
+		<extLabel name="extLabel1" caption="日期："/><extDate name="bgTim"/><extLabel name="extLabel13" html="-"/><extDate name="endTim"/><extMenuItem name="findTskMenu" onClick="if(storeNam.getValue()=='')&#xA;{&#xA;	extShowMessage('请选择仓库！');&#xA;	return;&#xA;	&#xA;}&#xA;tPartListStore.baseParams=extGetAllControlsValue('menu');&#xA;tPartListStore.load({params:{start:0,limit:30}});" caption="查询" iconCls="icon_find"/></extMenu>
+	<extViewPort name="viewPort" layout="border">
+		<extPanel name="panel1" border="false" region="west" layout="fit" height="100%" caption="代码类别树" collapsible="true" split="true" width="150"><extTree name="tree" autoScroll="true" onClick="Ext.getCmp(&quot;storeNam&quot;).setValue(node.text);&#xA;p=node;" remoteUrl="main?action=webbuilder/application/partmanager/partDevic/WLOutWare/jsonQuery.xwl" onBeforeLoad="control.baseParams.id=node.id;"/></extPanel><extPanel name="panel" border="false" layout="fit" tbar="menu" region="center" split="true">
+			<extGrid name="grid" bbar="" columnsModel="columnModel1" autoExpandColumn="" onRowDblClick="extCall(editMenu);" downloadAll="true" pageSize="30" store="tPartListStore" loadStore="false"/>
+		</extPanel>
+	</extViewPort>
+	<extScript name="extScript" extFooter="var d=new Date();&#xA;Ext.getCmp('endTim').setValue(d.getDate()+5);&#xA;d.setDate(d.getDate()-5);&#xA;Ext.getCmp('bgTim').setValue(d);"/></body>

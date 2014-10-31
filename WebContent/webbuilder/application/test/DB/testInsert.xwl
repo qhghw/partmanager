@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" dbType="Oracle" type="update" sql="insert into QJTEST(ID,TNAME,VALUE1,VALUE2,VALUE3)
+values(sys_guid(),{?TNAME?},{?VALUE1?},{?VALUE2?},{?VALUE1?})"/></body>

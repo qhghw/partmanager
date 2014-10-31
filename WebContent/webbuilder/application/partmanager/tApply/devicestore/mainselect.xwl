@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" metaData="-" totalSql="select count(1) from   T_APPLY  {#whereSql#}" sql="select      &#xA;PUR_NO,PUR_NO PUR_NO1,PUR_NO PUR_NO_,PUR_DTE,&#xA;APPLY_DEPT_COD,&#xA;PARTS_TYPE,&#xA;PUR_WAY_COD,&#xA;PAY_MOD,&#xA;MANA_MAN,&#xA;PUR_TXT,&#xA;IS_URGENT,&#xA;WF_STATUE,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;REMARKS,&#xA;procdefid,&#xA;processinstid&#xA;  from  T_APPLY  {#whereSql#}"/></body>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="com.xuelang.partmanage.IkexpressPlat.getOrgId"/><method name="method1" methodName="com.xuelang.partmanage.partDevie.getPanCunSql"/><dataProvider name="dataProvider" sql="SELECT&#xA;dp.STOCKH_ID,&#xA;dp.STORAGE_COD,&#xA;dp.STORAGE_NAM,&#xA;dp.CHECK_DTE,&#xA;dp.CHECK_NAM,&#xA;dp.WF_STATUE,&#xA;dp.procdefid,&#xA;dp.processinstid,&#xA;dp.RECORD_TIM,&#xA;dp.RECORD_MAN,&#xA;dp.DEPT_COD,&#xA;dp.USERID,&#xA;dp.REMARKS&#xA;FROM&#xA;t_parts_stock AS dp where 1=1  {#whereSql#}&#xA; {#IKsql#}" metaData="-" dateAsString="false" totalSql="select   count(1) from t_parts_stock  dp&#xA;&#xA; where 1=1 {#whereSql#}&#xA; {#IKsql#}" paging="false"/></body>

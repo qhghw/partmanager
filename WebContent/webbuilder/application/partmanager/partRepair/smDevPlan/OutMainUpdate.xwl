@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query type="query" fastMode="" loadData="true" sql="select 
+BILL_NO  name
+ from  Sm_dev_plan_H  where  DEV_NO={?DEV_NO?}  and
+ PLAN_MONTH=to_char({?TIMESTAMP.PLAN_MONTH?} ,'yyyymm') and  DEV_NO&lt;&gt;{?OLD_DEV_NO?}
+and  PLAN_MONTH&lt;&gt;to_char({?TIMESTAMP.OLD_PLAN_MONTH?} ,'yyyymm')" name="checkDuplicate"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="该设备本月计划已存在。"/><query name="query" sql="update    SM_DEV_PLAN_H set   DEV_NO={?DEV_NO?},C_DEV_NAM={?C_DEV_NAM?},E_DEV_NAM={?E_DEV_NAM?},
+
+PLAN_MONTH=to_char({?TIMESTAMP.PLAN_MONTH?},'yyyymm')
+,WORK_STA='0',RP_MODE={?RP_MODE?},WORK_ADD={?WORK_ADD?},
+RESPON_MAN={?RESPON_MAN?},APPLY_DEPT_COD={?APPLY_DEPT_COD?},APPLY_MAN_COD={?APPLY_MAN_COD?},
+APPLY_TIM={?TIMESTAMP.APPLY_TIM?},
+UPDATE_TIM=sysdate,UPDATE_NAM='{#sys.username#}',NOTE={?NOTE?}
+where  BILL_NO={?BILL_NO?}" dbType="Oracle" transaction="commit" type="update"/></body>

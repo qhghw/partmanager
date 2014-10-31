@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="insert  into T_PARTS_OUT &#xA;( STORAGE_NAM,RECP_NO,PLAN_DTE,UNIT_COD,FETCHER_COD,OUT_TYPE,SENDER_COD,CLASS_COD,ORIGIN_RECP_NO,PUR_NO,BILL_MAN,IS_OLD,RECORD_TIM,RECORD_MAN,DEPT_COD,USERID)&#xA; values({?STORAGE_NAM?},CONCAT('PO-', left(now()+0,8),'-',nextval('PartOut')),{?PLAN_DTE?},{?UNIT_COD?},{?FETCHER_COD?},{?OUT_TYPE?},{?SENDER_COD?},{?CLASS_COD?},{?ORIGIN_RECP_NO?},{?PUR_NO?},{?BILL_MAN?},{?IS_OLD?},now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}')" type="update"/></body>

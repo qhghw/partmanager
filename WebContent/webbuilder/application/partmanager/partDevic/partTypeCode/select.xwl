@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="com.xuelang.partmanage.IkexpressPlat.getOrgId"/><dataProvider name="dataProvider" sql="SELECT&#xA;dp.DATA_TYP,&#xA;dp.TYPE_ID,&#xA;dp.PARTS_TYPE,&#xA;dp.PARENT_ID,&#xA;dp.RECORD_TIM,&#xA;dp.RECORD_MAN,&#xA;dp.DEPT_COD,&#xA;dp.USERID,&#xA;dp.REMARKS&#xA;FROM&#xA;c_parts_type AS dp &#xA;  where  PARENT_ID={?parCod?}" metaData="-" dateAsString="false" paging="false" totalSql="SELECT COUNT(1)  FROM&#xA;c_parts_type AS dp  where  PARENT_ID={?parCod?}"/></body>

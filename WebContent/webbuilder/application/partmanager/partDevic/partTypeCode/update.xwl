@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query type="query" fastMode="" loadData="true" name="checkDuplicate" sql="select &#xA;TYPE_ID name&#xA; from  c_parts_type  where PARTS_TYPE={?PARTS_TYPE?} and    PARTS_TYPE&lt;&gt;{?OLD_PARTS_TYPE?}"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="中文名称已存在。"/><query name="query" sql="update  c_parts_type set DATA_TYP = {?DATA_TYP?},&#xA;PARTS_TYPE={?PARTS_TYPE?},REMARKS={?REMARKS?}&#xA;where  TYPE_ID={?TYPE_ID?}" dbType="MySql" transaction="commit" type="update"/></body>

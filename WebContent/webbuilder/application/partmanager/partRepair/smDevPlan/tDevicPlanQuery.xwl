@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method1" methodName="com.xuelang.partmanage.IkexpressPlat.getOrgId"/><method name="method11" methodName="com.xuelang.partmanage.partDevie.getDevicPlanJson"/><dataProvider name="dataProvider" metaData="-" totalSql="-" dateAsString="false" sql="select      BILL_NO,&#xA;DEV_NO,&#xA;C_DEV_NAM,&#xA;E_DEV_NAM,&#xA;PLAN_MONTH,&#xA;WORK_STA,&#xA;RP_MODE,&#xA;WORK_ADD,&#xA;RESPON_MAN,&#xA;APPLY_DEPT_COD,&#xA;APPLY_MAN_COD,&#xA;APPLY_TIM,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,&#xA;REMARKS  from  t_devic_plan where 1=1 {#whereSql#}"/></body>

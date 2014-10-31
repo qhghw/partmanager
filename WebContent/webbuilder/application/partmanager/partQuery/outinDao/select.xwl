@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="com.xuelang.partmanage.IkexpressPlat.getOrgId"/><dataProvider name="dataProvider" sql="select  PARTS_COD,C_PARTS_NAM,STAND_TXT,STORAGE_NAM,SUM(P_NUM) P_NUM,MIN_UNIT,SUM(P_AMOUNT) P_AMOUNT,IOUT,now() P_DTE
+FROM  v_inout_list where  date_format(P_DTE,'%Y-%m-%d') &gt;={?bgTim?}  AND date_format(P_DTE,'%Y-%m-%d') &lt;={?endTim?} AND STORAGE_NAM = {?storeNam?} AND IOUT like if({?iMod?} is null,'%%', CONCAT('%',{?iMod?},'%') ) 
+GROUP BY IOUT,PARTS_COD,C_PARTS_NAM,STAND_TXT,STORAGE_NAM,MIN_UNIT,P_AMOUNT
+UNION 
+select  '' PARTS_COD,'' C_PARTS_NAM,'' STAND_TXT,'合计:' STORAGE_NAM,sum(P_NUM) P_NUM,'' MIN_UNIT,sum(P_AMOUNT) P_AMOUNT,'' IOUT,now() P_DTE
+FROM  v_inout_list where  date_format(P_DTE,'%Y-%m-%d') &gt;={?bgTim?}  AND date_format(P_DTE,'%Y-%m-%d') &lt;={?endTim?} AND STORAGE_NAM = {?storeNam?} AND IOUT like if({?iMod?} is null,'%%', CONCAT('%',{?iMod?},'%') )" metaData="-" dateAsString="false" paging="true"/></body>

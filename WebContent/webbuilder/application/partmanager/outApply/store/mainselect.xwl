@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT
+outapply.PUR_NO,
+outapply.PUR_DTE,
+outapply.APPLY_DEPT_COD,
+outapply.PARTS_TYPE,
+outapply.APPLY_TYP,
+outapply.OUT_MOD,
+outapply.PUR_STATUE,
+outapply.STORAGE_COD,
+outapply.STORAGE_NAM,
+outapply.MANA_MAN,
+outapply.AUDIT_ID,
+outapply.AUDIT_IDEA,
+outapply.AUDITER_COD,
+outapply.AUDIT_DTE,
+outapply.WF_STATUE,
+outapply.RECORD_TIM,
+outapply.RECORD_MAN,
+outapply.DEPT_COD,
+outapply.REMARKS,
+outapply.USERID,
+outapply.IS_OLD,
+outapply.procdefid,
+outapply.processinstid
+FROM
+t_out_apply AS outapply
+ {#whereSql#}" totalSql="SELECT
+count(1) 
+FROM
+t_out_apply
+ {#whereSql#}" metaData="-"/></body>

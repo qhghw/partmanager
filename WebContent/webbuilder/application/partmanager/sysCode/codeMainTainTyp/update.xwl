@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" compact="true" exceptionType="normal">
+	<query fastMode="" loadData="true" sql="select  MAINTAIN_TYP_NAM name  from  SM_CODE_MAINTAIN_TYP
+ where  MAINTAIN_TYP_NAM ={?MAINTAIN_TYP_NAM?} and
+ MAINTAIN_TYP_NAM&lt;&gt;{?OLD_MAINTAIN_TYP_NAM?}" name="checkDuplicate" type="query"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="名字重复，请重新输入"/><query type="update" fastMode="" sql="update SM_CODE_MAINTAIN_TYP  set   MAINTAIN_TYP_NAM={?MAINTAIN_TYP_NAM?},CYC_ID={?CYC_ID?},CYC_NUM={?CYC_NUM?},
+EXEC_DEPT_COD={?EXEC_DEPT_COD?},AUTO_FORECAST_ID={?AUTO_FORECAST_ID?},NOTE={?NOTE?}
+where MAITYP_ID={?MAITYP_ID?}" name="updateUser"/></body>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" logType="exception">
+	<defaultValue name="query" key="query" value="%{#query#}%" initialize="true"/><dataProvider name="dataProvider" metaData="-" sql="select FLD_ID||'-'||FLD_NAM FLD_NAM  from SP_SHIPMANAGE_CODE
+
+where
+FLD_NAM  like {?query?}  or  
+FLD_ID  like {?query?}
+
+group  by  FLD_ID,FLD_NAM"/></body>

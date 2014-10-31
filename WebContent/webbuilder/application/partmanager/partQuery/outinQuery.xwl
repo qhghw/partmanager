@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal">
+	<extStore name="store" url="main?action=webbuilder/application/partmanager/partQuery/outinDao/select.xwl"/><extMenu name="menu"><extLabel name="extLabel811" caption="仓库名称："/><extTextField name="storeNam"/><extLabel name="extLabel17" caption="出入库"/><extComboBox mode="local" name="iMod" mapKey="IOUT" displayField="KEY_TEXT" valueField="KEY_TEXT" width="50"/><extLabel name="extLabel" caption="日期："/><extDate name="bgTim"/><extLabel name="extLabel13" html="-"/><extDate name="endTim"/><extMenuItem caption="查询" iconCls="icon_find" name="findMenu" onClick="if(storeNam.getValue()=='')
+{
+	extShowMessage('请选择仓库！');
+	return;
+	
+}
+
+store.baseParams=extGetAllControlsValue('menu');
+store.load({params:{start:0,limit:30}});
+store.removeAll();"/></extMenu><extColumnModel name="columnModel"><extColumn name="column" type="rowNum" caption="序号"/><extColumn name="column1" caption="出入库" fieldName="IOUT"/><extColumn fieldName="PARTS_COD" name="PARTS_CODs" caption="物料代码" width="120"/><extColumn fieldName="C_PARTS_NAM" name="C_PARTS_NAMs" caption="物料名称"/><extColumn fieldName="STAND_TXT" name="STAND_TXTs" caption="规格型号"/><extColumn fieldName="STORAGE_NAM" name="STORAGE_NAMs" caption="仓库"/><extColumn caption="数量" name="O_NUMs" fieldName="P_NUM"/><extColumn fieldName="MIN_UNIT" name="MIN_UNITS" caption="单位"/><extColumn caption="金额" name="O_AMOUNTs" fieldName="P_AMOUNT"/></extColumnModel><extViewPort name="viewPort" layout="border"><extPanel name="panel1" border="false" region="west" layout="fit" height="100%" split="true" width="150" caption="仓库列表"><extTree name="tree" autoScroll="true" onClick="Ext.getCmp(&quot;storeNam&quot;).setValue(node.text);
+p=node;" remoteUrl="main?action=webbuilder/application/partmanager/partDevic/WLOutWare/jsonQuery.xwl" onBeforeLoad="control.baseParams.id=node.id;"/></extPanel><extPanel name="panel2" border="false" layout="fit" region="center" height="200" split="true"><extGrid name="grid" store="store" tbar="menu" columnsModel="columnModel" pageSize="30"/></extPanel></extViewPort><extScript name="extScript" extFooter="var d=new Date();
+Ext.getCmp('endTim').setValue(d.getDate()+5);
+d.setDate(d.getDate()-5);
+Ext.getCmp('bgTim').setValue(d);"/></body>

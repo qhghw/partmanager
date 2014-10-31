@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <!--==========================================  dao  ==========================================-->
+    <bean id="baseDao" class="com.partmanager.dao.impl.BaseDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!--==========================================  biz  ==========================================-->
+	<!-- 用户管理 -->
+	<bean id="userBiz" class="com.partmanager.biz.power.imp.UserBizImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 角色管理 -->
+	<bean id="roleBiz" class="com.partmanager.biz.power.imp.RoleBizImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 供应商管理 -->
+	<bean id="gysBiz" class="com.partmanager.biz.ziliao.imp.GysBizImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 客户管理 -->
+	<bean id="khBiz" class="com.partmanager.biz.ziliao.imp.KhBizImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 商品管理 -->
+	<bean id="spxxBiz" class="com.partmanager.biz.ziliao.imp.SpxxBizImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 库存管理 -->
+	<bean id="kcBiz" class="com.partmanager.biz.ziliao.imp.KcBizImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 商品类别管理 -->
+	<bean id="splbBiz" class="com.partmanager.biz.ziliao.imp.SplbBizImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 单位管理 -->
+	<bean id="spdwBiz" class="com.partmanager.biz.ziliao.imp.SpdwBizImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	
+	<bean id="announceBiz" class="com.partmanager.biz.ziliao.imp.AnnounceBizImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	
+	
+	<!--==========================================  action  ==========================================-->
+	<!-- 用户管理 -->
+	<bean id="userAction" class="com.partmanager.action.power.UserAction" scope="prototype">
+		<property name="userBiz" ref="userBiz"/>
+	</bean>
+	<!-- 角色管理 -->
+	<bean id="roleAction" class="com.partmanager.action.power.RoleAction" scope="prototype">
+		<property name="roleBiz" ref="roleBiz"/>
+	</bean>
+	<!-- 供应商管理 -->
+	<bean id="gysAction" class="com.partmanager.action.ziliao.GysAction" scope="prototype">
+		<property name="gysBiz" ref="gysBiz"/>
+	</bean>
+	<!-- 客户管理 -->
+	<bean id="khAction" class="com.partmanager.action.ziliao.KhAction" scope="prototype">
+		<property name="khBiz" ref="khBiz"/>
+	</bean>
+	<!-- 商品管理 -->
+	<bean id="spxxAction" class="com.partmanager.action.ziliao.SpxxAction" scope="prototype">
+		<property name="spxxBiz" ref="spxxBiz"/>
+	</bean>
+	<!-- 库存管理 -->
+	<bean id="kcAction" class="com.partmanager.action.ziliao.KcAction" scope="prototype">
+		<property name="kcBiz" ref="kcBiz"/>
+	</bean>
+	<!-- 商品类别管理 -->
+	<bean id="splbAction" class="com.partmanager.action.ziliao.SplbAction" scope="prototype">
+		<property name="splbBiz" ref="splbBiz"/>
+	</bean>
+	<!-- 单位管理 -->
+	<bean id="spdwAction" class="com.partmanager.action.ziliao.SpdwAction" scope="prototype">
+		<property name="spdwBiz" ref="spdwBiz"/>
+	</bean>
+	
+	<bean id="mydeskAction" class="com.partmanager.action.power.MydeskAction" scope="prototype">
+		<property name="announceBiz" ref="announceBiz"/>
+	</bean>
+	
+	
+	<!-- 数据库备份 -->
+	<bean id="dataCopyAction" class="com.partmanager.action.power.DataCopyAction" scope="prototype">
+	</bean>
+</beans>

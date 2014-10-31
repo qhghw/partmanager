@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="select de.id_ deploymentid, pr.id_ as instid,pr.rev_ as version,pr.key_ as instcode,de.name_ as processname,&#xA;de.deploy_time_ as deploytime,&#xA;pr.resource_name_ as resourcexml,c.c_mean_str processtypekey&#xA; from act_re_deployment de join act_re_procdef&#xA;pr on de.id_=pr.deployment_id_ &#xA;left join c_code c on c.sys_cod= pr.processtypekey;" totalSql="select count(1)&#xA; from act_re_deployment de join act_re_procdef&#xA;pr on de.id_=pr.deployment_id_  {#whereSql#}" metaData="-"/></body>

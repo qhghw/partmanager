@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="com.xuelang.partmanage.IkexpressPlat.getOrgId"/><dataProvider name="dataProvider" sql="SELECT&#xA;dp.ORG_COD,&#xA;dp.C_ORG_NAM,&#xA;dp.MAIN_MAN,&#xA;dp.VICE_MAN,&#xA;dp.PARENT_COD,&#xA;dp.RECORD_TIM,&#xA;dp.RECORD_MAN,&#xA;dp.DEPT_COD,&#xA;dp.USERID,&#xA;dp.REMARKS&#xA;FROM&#xA;s_organize AS dp&#xA;&#xA;  where PARENT_COD={?parCod?}" metaData="-" dateAsString="false" paging="false" totalSql="SELECT COUNT(1)  FROM&#xA;s_organize AS dp&#xA;&#xA;  where PARENT_COD={?parCod?}"/></body>

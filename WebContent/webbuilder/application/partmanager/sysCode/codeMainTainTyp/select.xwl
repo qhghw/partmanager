@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" logType="exception">
+	<method name="method" methodName="net.huadong.pass.core.platform.IkexpressPlat.getOrgId2"/><dataProvider name="dataProvider" metaData="-" sql="select   
+ MAITYP_ID,MAINTIAN_TYP_COD,MAINTAIN_TYP_NAM,CYC_ID,CYC_NUM,EXEC_DEPT_COD,AUTO_FORECAST_ID,
+ RECORD_TIM,RECORD_NAM,USERID,TENTANTID,NOTE
+ from SM_CODE_MAINTAIN_TYP dp where MAINTAIN_TYP_NAM   like '%'||{?mainTypNam?}||'%'
+
+ {#IKsql#}   order  by RECORD_TIM  desc" totalSql="select   
+count(1)
+ from SM_CODE_MAINTAIN_TYP  dp where MAINTAIN_TYP_NAM   like '%'||{?mainTypNam?}||'%'
+
+ {#IKsql#}" paging="false"/></body>

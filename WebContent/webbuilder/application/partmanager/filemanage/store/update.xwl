@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="UPDATE file_manage 
+set file_type={?file_type?},
+receive_man={?receive_man?},
+file_describe={?file_describe?},
+REMARKS={?REMARKS?}
+ WHERE id={?id?}" dbType="MySql" transaction="commit" type="update"/></body>

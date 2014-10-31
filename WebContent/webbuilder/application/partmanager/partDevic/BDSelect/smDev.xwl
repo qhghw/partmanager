@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" caption="维修保养查询">
+	<method name="method1" methodName="net.huadong.shipmanage.ShipBDSelect.getSmDev"/><dataProvider name="dataProvider" sql="select     SM_DEV_PLAN_H.BILL_NO,
+(select  MAINTAIN_ITEM_NAM from  SM_DEV_MAINTAIN_ITM  where SM_DEV_MAINTAIN_ITM.MAINTAIN_ITEM_COD=SM_DEV_PLAN_B.MAINTAIN_ITEM_COD)
+ MAINTAIN_ITEM_NAM,
+MAINTAIN_ITEM_COD,WORK_CLASS,
+(select MAINTAIN_TYP_NAM from  SM_CODE_MAINTAIN_TYP  where MAINTIAN_TYP_COD=MAINTAIN_TYP_COD ) MAINTAIN_TYP_NAM,
+MAINTAIN_TYP_COD,
+MAINT_REQ,PLAN_BEGIN_TIM,
+PLAN_END_TIM,PLAN_FEE,SET_DTE,
+WORKBILL_NO,BEGIN_TIM,END_TIM,FINISH_ID,FINISH_DES
+   from   SM_DEV_PLAN_H,SM_DEV_PLAN_B,c_ship_data
+where  SM_DEV_PLAN_H.BILL_NO=SM_DEV_PLAN_B.BILL_NO
+and   SM_DEV_PLAN_H.SHIP_DEV_NO=c_ship_data.SHIP_COD   {#whereSql#}" metaData="-" dateAsString="false" totalSql="select    count(1)
+   from   SM_DEV_PLAN_H,SM_DEV_PLAN_B,c_ship_data
+where  SM_DEV_PLAN_H.BILL_NO=SM_DEV_PLAN_B.BILL_NO
+and   SM_DEV_PLAN_H.SHIP_DEV_NO=c_ship_data.SHIP_COD   {#whereSql#}" paging="false"/></body>

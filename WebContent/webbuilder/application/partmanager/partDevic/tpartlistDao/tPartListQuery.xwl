@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="com.xuelang.partmanage.IkexpressPlat.getOrgId"/><method name="method1" methodName="com.xuelang.partmanage.partDevie.getPartList"/><dataProvider name="dataProvider" metaData="-" totalSql="select count(1)   FROM 
+t_part_list AS dp  where   {#whereSql#}" dateAsString="false" sql="SELECT
+dp.LIST_ID,
+dp.STORAGE_COD,
+dp.STORAGE_NAM,
+dp.PARTS_TYPE,
+dp.PARTS_COD,
+dp.C_PARTS_NAM,
+dp.E_PARTS_NAM,
+dp.STAND_TXT,
+dp.STAND_UNIT,
+dp.MIN_UNIT,
+dp.`STATUS`,
+dp.STORE_NUM,
+dp.STORE_PRICE,
+dp.STORE_AMOUNT,
+dp.MIN_NUM,
+dp.RESP_NAM,
+dp.RESP_DEPT,
+dp.RECORD_TIM,
+dp.RECORD_MAN,
+dp.DEPT_COD,
+dp.USERID,
+dp.NOTE,
+dp.PARTS_CLASS
+FROM 
+t_part_list AS dp  where   {#whereSql#}
+union all 
+ {#IKsql#}
+SELECT
+'' LIST_ID,
+'' STORAGE_COD,
+'' STORAGE_NAM,
+'' PARTS_TYPE,
+'' PARTS_COD,
+'' C_PARTS_NAM,
+'' E_PARTS_NAM,
+'' STAND_TXT,
+'' STAND_UNIT,'合计:' MIN_UNIT,
+''  `STATUS`,
+sum(dp.STORE_NUM) STORE_NUM,
+'' STORE_PRICE,
+sum(dp.STORE_AMOUNT) STORE_AMOUNT,
+'' MIN_NUM,
+''  RESP_NAM,
+'' RESP_DEPT,
+'' RECORD_TIM,
+'' RECORD_MAN,
+'' DEPT_COD,
+'' USERID,
+'' NOTE,
+'' PARTS_CLASS
+FROM 
+t_part_list AS dp  where   {#whereSql#}
+ {#IKsql#}"/></body>

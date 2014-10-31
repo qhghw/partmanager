@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="update  SM_PM_ORDER_H set  
+OF_DTE={?TIMESTAMP.OF_DTE?},SUPPLIER_COD={?SUPPLIER_COD?},
+SUPPLIER_NAM=substr({?SUPPLIER_NAM?}, 1, instr({?SUPPLIER_NAM?},'(') - 1 ),
+DEPT_COD='2',
+BUYER_COD={?BUYER_COD?},ARRIVE_TIM={?TIMESTAMP.ARRIVE_TIM?},ARRIVE_MOD={?ARRIVE_MOD?},
+SEND_SHIP_DTE={?TIMESTAMP.SEND_SHIP_DTE?},SEND_PORT={?SEND_PORT?},
+IS_INVOICE={?IS_INVOICE?},INVOICE_NO={?INVOICE_NO?},UP_ID={?UP_ID?},PAY_ID={?PAY_ID?},
+NOTE={?NOTE?}
+where OF_NO={?OF_NO?}" dbType="Oracle" transaction="commit" type="update"/></body>

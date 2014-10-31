@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" caption="航次合同货物查询">
+	<method name="method1" methodName="net.huadong.shipmanage.ShipBDSelect.getConShipDetail"/><dataProvider name="dataProvider" sql="SELECT contract_ship_no, cargo_cod, cargo_nam, piece_num, weight_num,
+       package_cod, package_nam, remark_txt, contract_ship_cargo_no,
+       material_cod, material_nam, standard_cod, standard_nam, color_cod,
+       price_mny, payer_cod, dest_port_cod, dest_port_nam, dest_dock_cod,
+       dest_dock_nam, rela_man, rela_tel, barge_nam_c, orig_place, invoice_id
+  FROM contract_ship_cargo  where contract_ship_no={?contractshipno?}" metaData="-" dateAsString="true" totalSql="SELECT count(1)
+  FROM contract_ship_cargo  where contract_ship_no={?contractshipno?}" paging="false"/></body>

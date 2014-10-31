@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query type="query" fastMode="" loadData="true" sql="select  STORAGE_ID NAME from  
+SM_CODE_STORAGE  where STORAGE_COD={?STORAGE_COD?}     
+and STORAGE_COD&lt;&gt;{?OLD_STORAGE_COD?}" name="checkDuplicate"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="代码重复，请重新输入"/><query name="query" sql="update    SM_CODE_STORAGE set
+   STORAGE_COD={?STORAGE_COD?},STORAGE_NAM={?STORAGE_NAM?}
+,STORAGE_TYPE={?STORAGE_TYPE?},REMARKS={?REMARKS?}
+where 
+STORAGE_ID={?STORAGE_ID?}" dbType="Oracle" transaction="commit" type="update"/></body>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" compact="true" class="sys_normal" headerScript="var operateType;
+var summary = new Ext.ux.grid.GridSummary();" cssFiles="webbuilder/css/Ext.ux.grid.GridSummary.css" jsFiles="webbuilder/script/wbfilter.js|
+webbuilder/script/Ext.ux.grid.GridSummary.js" caption="最新公告查询">
+	<folder name="requests"><extAjax name="insertRequest" reset="" onSuccess="insertMsg();" isUpload="true" onFailure="var s = response.responseText;
+extShowMessage(s);" showMessage="false" waitTitle="请稍等" waitMsg="正在添加数据..." url="main?action=webbuilder/application/test/wbNote/wbNoteInsert.xwl" form="importForm"/><extAjax name="insertMsg" url="main?action=webbuilder/application/test/wbNote/insertMsg.xwl" out="extWindow" onSuccess="extCall(findMenu);
+extWindow.hide();"/><extAjax name="updateRequest" onSuccess="extCall(findMenu);
+extWindow.hide();" reset="" isUpload="true" onFailure="var s = response.responseText;
+extShowMessage(s);" showMessage="false" waitTitle="请稍等" waitMsg="正在更新数据..." url="main?action=webbuilder/application/test/wbNote/wbNoteUpdate.xwl" form="importForm"/><extAjax name="getSeqNo" url="main?action=webbuilder/application/test/wbNote/getWbNoteNo.xwl" onSuccess="var data=Ext.util.JSON.decode(response.responseText);
+var  names=data.row[0].NAME;
+
+NOTE_ID.setValue(names);"/><extAjax name="deleteRequest" onSuccess="extRemoveGridSelection(grid);" out="grid" url="main?action=webbuilder/application/test/wbNote/wbNoteDelete.xwl"/><extStore name="userStore" remoteSort="true" url="main?action=webbuilder/application/test/wbNote/wbNoteSource.xwl" autoLoad="false"/></folder><folder name="submit forms"><form name="exportForm" action="main?action=webbuilder/application/test/wbNote/export.xwl"><edit inputType="hidden" name="exportFiles"/><edit inputType="hidden" name="exportType"/></form></folder><extMenu name="menu" style="" bodyStyle="" autoShow="false"><extLabel name="extLabel10" html="&amp;nbsp;&amp;nbsp;客户标题："/><extTextField name="title"/><extLabel name="extLabel7" html="&amp;nbsp;&amp;nbsp;开始日期："/><extDate name="begdate"/><extLabel name="extLabel9" html="&amp;nbsp;&amp;nbsp;结束日期："/><extDate name="enddate"/><extMenuItem name="divMenu11" caption="-"/><extMenuItem name="findMenu" hint="查询指定条件的数据" onClick="userStore.baseParams=extGetAllControlsValue('menu');
+userStore.load({params:{start:0,limit:15}});" caption="查询" iconCls="icon_find" menuType="menuButton"><extMenuItem name="menuItem" caption="重置" iconCls="icon_resume" onClick="tilte.setValue('');begdate.setValue('');enddate.setValue('');"/></extMenuItem><extMenuItem name="newMenu" onClick="operateType = 'insert';
+extWindow.setTitle('新建 - 通知');
+getSeqNo();
+extWindow.show();
+extLabel3.hide();" hint="添加新的通知 (F2)" caption="新建" iconCls="icon_new" hidden="true"/><extMenuItem name="editMenu" onClick="operateType = 'modify';
+if (grid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个通知。');
+	return;
+}else{
+	var record = grid.getSelectionModel().getSelected();
+	var title= record.get(&quot;NOTE_TITLE&quot;);
+	extWindow.setTitle(&quot;修改 - &quot; +  title);
+	extWindow.show();
+	extSetAllControlsValueObj(extWindow, record.data);
+	if(record.get('FILEPATH')!=''&amp;&amp;record.get('FILEPATH')!=null)
+	{
+		extLabel3.show();
+	}
+
+}" hint="编辑选择的通知" onToggle=" " caption="编辑" iconCls="icon_edit" hidden="true"/><extMenuItem name="delMenu" onClick="extGridDeleteConfirm(grid,&quot;NOTE_TITLE&quot;,deleteRequest);" hint="删除选择的通知" iconCls="icon_delete" caption="删除" hidden="true"/></extMenu><extWindow name="extWindow" closeAction="hide" frame="true" layout="absolute" onOk="if (!extVerifyAllControls('extWindow')) return;
+var filetype=importFile.getValue();
+var extend = filetype.substring(filetype.lastIndexOf('.')+1); 
+if(extend==''&amp;&amp;filetype!=''){ 
+	alert('请选择系统支持的文件类型的文件!');
+	return;
+}else{
+	if(operateType =='insert'){
+	TABLE_NAM.setValue('CS_WB_NOTE');
+	TABLE_ID.setValue(NOTE_ID.getValue());
+	insertRequest();
+	}
+	else{
+	TABLE_NAM.setValue('CS_WB_NOTE');
+	TABLE_ID.setValue(NOTE_ID.getValue());
+
+	updateRequest();
+}
+
+}" onHide="extResetAllControlsValue(&quot;extWindow&quot;);" width="581" maximizable="true" caption="客户合同收入维护" height="400"><extForm name="importForm" layout="absolute" width="555" height="330" left="5" top="5" frame="true"><extLabel name="extLabel" left="25" top="15" width="80" caption="标题："/><extTextField left="110" top="10" width="425" name="NOTE_TITLE"/><extLabel name="extLabel1" left="15" top="45" width="90" caption="内容"/><extHtmlEditor left="110" top="40" width="425" height="205" name="NOTE"/><extLabel name="extLabel2" left="5" top="260" width="100" caption="上传附件："/><extLabel name="extLabel3" left="115" top="290" width="415" html="&lt;a href='#' onclick='uploadfile();'&gt;下载&lt;/a&gt;"/><extTextField inputType="hidden" name="importType" left="40" top="70" width="60"/><extTextField name="NOTE_ID" hidden="true" left="10" top="145" width="60"/><extTextField name="TABLE_NAM" hidden="true" left="20" top="105" width="85"/><extTextField name="TABLE_ID" hidden="true" left="20" top="190" width="80"/><extTextField left="110" top="255" width="425" inputType="file" name="importFile"/></extForm></extWindow><extColumnModel name="columnModel"><extColumn name="codeCol" width="80" hidden="false" caption="标题" fieldName="NOTE_TITLE"/><extColumn name="column" fieldName="NOTE" caption="内容" width="200"/><extColumn name="deptCol" type="datetime" width="140" renderer="if(value!='')
+return value.format('Y-m-d');" fieldName="NOTE_DATE" caption="发布日期"/><extColumn name="usernameCol" width="120" fieldName="NOTE_NAME" caption="发布人"/><extColumn name="column15" caption="附件下载" fieldName="FILEPATH" renderer="if(value!=''&amp;&amp;value!=null)
+return  &quot;&lt;a href='#' onclick='uploadfile();'&gt;下载&lt;/a&gt;  &quot;;"/></extColumnModel><extKeyMap key="SYS.
+F2" onKeyPress="extCall(newMenu);" name="newKey"/><extViewPort name="viewPort" layout="fit"><extPanel name="panel" border="false" layout="fit" tbar="menu"><extGrid name="grid" store="userStore" bbar="" columnsModel="columnModel" tag="" autoExpandColumn="" onRowDblClick="extCall(editMenu);" downloadAll="true" pageSize="15" loadStore="false"/></extPanel></extViewPort><extScript name="extScript" extLast="var d=new Date();
+Ext.getCmp(&quot;enddate&quot;).setValue(d);
+
+
+d.setDate(d.getDate()-60);
+
+Ext.getCmp(&quot;begdate&quot;).setValue(d);
+
+extCall(findMenu);"/></body>

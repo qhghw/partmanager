@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" logType="exception">
+	<method name="getWhereSql" methodName="net.huadong.test.shipAppQuery.getWnoteSql"/><defaultValue name="defaultValue" key="sql.orderExpress" value="order by NOTE_ID  desc"/><dataProvider dateAsString="false" metaData="-" sql="select 
+NOTE_ID,NOTE_TITLE,NOTE,NOTE_DATE,NOTE_NAME,FILE_ID,FILEPATH,FILENAME
+
+ from  CS_WB_NOTE,CS_FILE_ATTACH
+
+   WHERE cs_wb_note.FILE_ID = cs_file_attach.FILEID(+)
+and
+ {#whereSql#} {#sql.orderExpress#}" name="dp"/></body>

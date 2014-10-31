@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<query name="query" sql="insert  into  SM_DEV_PARAM( PARAM_ID,DEV_ID,DEV_NO,C_DEV_NAM,E_DEV_NAM,PARAM_NAM,PARAM_UNIT,
+PARAM_NUM,PARAM_MAX,PARAM_MIN,RECORD_TIM,RECORD_MAN,USERID,TENTANTID,NOTE)
+values( 'CS'||trim(TO_CHAR(seq_sm_pm_code.NEXTVAL,'00000000')),{?devId?},{?devNo?},{?cDevNam?},{?eDevNam?},
+{?PARAM_NAM?},{?PARAM_UNIT?},
+{?PARAM_NUM?},{?PARAM_MAX?},{?PARAM_MIN?},sysdate,'{#sys.username#}','{#sys.userId#}','{#sys.tentantId#}',
+{?NOTE2?})"/></body>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" metaData="-" totalSql="-" sql="select tname,value1,value2,value3 from qjtest" dateAsString="true"/><query name="query" sql="select sum(value1) num1,sum(value2) num2,sum(value3) num3 from qjtest" loadData="true"/><method name="method" methodName="net.huadong.test.Test.setGrid1"/></body>

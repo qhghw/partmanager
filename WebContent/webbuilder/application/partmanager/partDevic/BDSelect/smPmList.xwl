@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" caption="备件物料库存">
+	<method name="method1" methodName="net.huadong.shipmanage.ShipBDSelect.getSmPmlist"/><dataProvider name="dataProvider" sql="select 
+
+SM_PM_LIST.C_SHIP_NAM,SM_PM_LIST.E_SHIP_NAM,PM_COD,STORAGE_COD,STORAGE_NAM,C_PM_NAM,E_PM_NAM
+MODEL_TXT,STAND_TXT,STORE_NUM
+ from  SM_PM_LIST,c_ship_data  where SHIP_DEV_NO=ship_COD  and  STORE_NUM&gt;0
+  {#whereSql#}" metaData="-" dateAsString="false" totalSql="select 
+
+count(1)
+ from  SM_PM_LIST,c_ship_data  where SHIP_DEV_NO=ship_COD   {#whereSql#}" paging="false"/></body>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="net.huadong.test.Test.logQuery"/><dataProvider name="dataProvider" metaData="-" totalSql="-" sql="select USERNAME,FUN_NAME,FUN_NAME1,OPERATE,OPE_DATE,IP,ERMSG 
+from LOGSYSTEM where 1=1 {#whereSql#}"/></body>

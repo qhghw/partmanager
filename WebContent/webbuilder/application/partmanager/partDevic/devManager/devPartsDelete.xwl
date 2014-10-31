@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<dbUpdater data="{#grid1#}" name="delete" transaction="commit" deleteSql="delete  from  T_DEVICE_PART  where  D_PART_ID={?D_PART_ID?}"/></body>

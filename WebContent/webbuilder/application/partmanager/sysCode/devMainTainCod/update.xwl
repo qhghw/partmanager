@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" compact="true" exceptionType="normal">
+	<query fastMode="" loadData="true" sql="select  FAI_NAM  name  from   SM_CODE_HITCH where  FAI_NAM ={?FAI_NAM?} and FAI_NAM&lt;&gt;{?OLD_FAI_NAM?}" name="checkDuplicate" type="query"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="名字重复，请重新输入"/><query type="update" fastMode="" sql="update  SM_DEV_MAINTAIN_ITM    set  
+ MAINTAIN_TYP_COD=substr({?MAINTAIN_TYP_COD?}, 1, instr({?MAINTAIN_TYP_COD?},'-') - 1 )
+,MAINTAIN_ITEM_NAM={?MAINTAIN_ITEM_NAM?},DEV_PART_COD={?DEV_PART_COD?},MAINTAIN_REQ={?MAINTAIN_REQ?},
+RESULT_TXT={?RESULT_TXT?},SORT_NUM={?SORT_NUM?},NOTE={?NOTE?}
+where  MAINTAIN_ITEM_COD={?MAINTAIN_ITEM_COD?}" name="updateUser"/></body>

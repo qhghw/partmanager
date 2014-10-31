@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query type="query" fastMode="" loadData="true" sql="select 
+BILL_NO  name
+ from  Sm_dev_plan_H  where  DEV_NO={?DEV_NO?}  and
+ PLAN_MONTH=to_char({?TIMESTAMP.PLAN_MONTH?} ,'yyyymm')" name="checkDuplicate"/><excepter nameList="checkDuplicate.NAME" condition="exists" name="duplicate" message="该设备本月计划已存在。"/><query name="query" sql="insert  into SM_DEV_PLAN_H( BILL_NO,SHIP_DEV_NO,E_SHIP_NAM,C_SHIP_NAM,DEV_NO,C_DEV_NAM,E_DEV_NAM,PLAN_MONTH,WORK_STA,RP_MODE,WORK_ADD,
+RESPON_MAN,APPLY_DEPT_COD,APPLY_MAN_COD,APPLY_TIM,RECORD_TIM,RECORD_NAM,UPDATE_TIM,UPDATE_NAM,USERID
+,TENTANTID
+,NOTE,) values ( 'BJ'||trim(TO_CHAR(seq_sm_pm_code.NEXTVAL,'00000000')),{?shipCod?},{?eShipNam?},
+{?cShipNam?},{?DEV_NO?},{?C_DEV_NAM?},{?E_DEV_NAM?},
+to_char({?TIMESTAMP.PLAN_MONTH?},'yyyymm'),'0',{?RP_MODE?},{?WORK_ADD?},{?RESPON_MAN?},
+{?APPLY_DEPT_COD?},{?APPLY_MAN_COD?},
+
+{?TIMESTAMP.APPLY_TIM?},sysdate,'{#sys.username#}',sysdate,
+'{#sys.username#}','{#sys.userId#}','{#sys.tentantId#}',{?NOTE?})"/></body>

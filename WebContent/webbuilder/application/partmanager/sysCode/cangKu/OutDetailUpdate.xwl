@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false" exceptionType="normal">
+	<query name="query" sql="update  SM_PM_ORDER_B set  PM_COD={?PM_COD?}
+,C_PM_NAM={?C_PM_NAM?},E_PM_NAM={?E_PM_NAM?},MODEL_TXT={?MODEL_TXT?},
+STAND_TXT={?STAND_TXT?},NOTE={?NOTE2?},UNITS={?UNITS?},CURRENCY={?CURRENCY?},
+PRICE_VAL={?PRICE_VAL?},PURCH_NUM={?PURCH_NUM?}
+where  OF_NO={?ofNo?}  and  SEQ_NO={?SEQ_NO?}" dbType="Oracle" transaction="commit" type="update"/></body>

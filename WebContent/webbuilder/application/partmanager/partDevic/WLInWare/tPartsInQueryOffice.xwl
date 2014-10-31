@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="com.xuelang.partmanage.IkexpressPlat.getOrgId"/><method name="method1" methodName="com.xuelang.partmanage.partDevie.getWLInWareJson"/><dataProvider name="dataProvider" metaData="-" totalSql="-" dateAsString="false" sql="select      RECP_NO,    RECP_NO AS OLD_RECP_NO,
+OF_NO,
+PUR_NO,
+PARTS_TYPE,
+IN_STATUE,
+IN_MOD,
+INDEPOT_DTE,
+STORAGE_COD,
+STORAGE_NAM,
+CARRYFEE_NUM,
+MANAGER_COD,
+COMPUTER_COD,
+SAVER_COD,
+FETCHMODE_TXT,
+PAYKIND_TYP,
+WF_STATUE,
+BUYER_COD,
+RECORD_TIM,
+RECORD_MAN,
+DEPT_COD,
+USERID,
+REMARKS  from  T_PARTS_IN WHERE IN_STATUE &lt;&gt; '计划' AND STORAGE_NAM = '办公用品' AND  {#whereSql#}
+ {#IKsql#}"/></body>

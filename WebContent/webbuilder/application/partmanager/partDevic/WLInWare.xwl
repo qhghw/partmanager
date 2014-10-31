@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" headerScript="var currentNode=null,roleNameIsExpaned=true;
+var  operateType ,operateType1,operateType2 ,operateType3 ;" jsFiles="webbuilder/script/wbfilter.js" caption="物料入库">
+	<folder name="store"><extStore name="InMainStore" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/tPartsInQuery.xwl"/><extAjax name="deleteInMain" onSuccess="extRemoveGridSelection(inMainGrid);		
+InDetailStore.removeAll();" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/tPartsInDelete.xwl" out="inMainGrid,recpNo" onFailure="var s = response.responseText;
+extShowExcept(s);"/><extAjax name="insertInMain" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="extShowMessage('新增成功！');extCall(findMenu);
+InMainWin.hide();" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/tPartsInInsert.xwl" out="InMainWin,menu"/><extAjax name="updateInMain" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="extShowMessage('修改成功！');extCall(findMenu);
+InMainWin.hide();" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/tPartsInUpdate.xwl" out="InMainWin,menu" showMessage="true"/><extStore name="InDetailStore" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/tPartsInDetailQuery.xwl"/><extAjax name="deleteInDetail" onSuccess="extRemoveGridSelection(InDetailGrid);" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/tPartsInDetailDelete.xwl" out="InDetailGrid,menu" onFailure="var s = response.responseText;
+extShowExcept(s);"/><extAjax name="insertInDetail" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="extShowMessage('新增成功！');
+InDetailStore.baseParams=extGetAllControlsValue('menu');
+InDetailStore.load({params:{start:0,limit:30}});
+InDetailWin.hide();" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/tPartsInDetailInsert.xwl" out="InDetailWin,menu"/><extAjax name="updateInDetail" onFailure="var s = response.responseText;
+extShowExcept(s);" onSuccess="extShowMessage('修改成功！');
+
+InDetailStore.baseParams=extGetAllControlsValue('menu');
+InDetailStore.load({params:{start:0,limit:30}});
+
+	
+InDetailWin.hide();" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/tPartsInDetailUpdate.xwl" out="InDetailWin,menu"/><extAjax name="confirmIn" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/InConfirmAuto.xwl" out="inMainGrid,menu" onSuccess="var s = response.responseText;
+extShowMessage(s);" onFailure="var s = response.responseText;
+extShowMessage(s);"/><folder name="combSelect"><extStore name="getInmodStore" baseParams="fldId:'8'" url="main?action=webbuilder/application/partmanager/common/CodeSelect.xwl"/><extStore name="getPayMod" baseParams="fldId:'10'" url="main?action=webbuilder/application/partmanager/common/CodeSelect.xwl"/><extStore name="storeSuppli" url="main?action=webbuilder/application/partmanager/common/SuppliSelect.xwl"/><method methodName="com.xuelang.partmanage.MultipleTree.getPartsTypeTree" name="getDeviceTree"/><extStore name="getDwStore" baseParams="fldId:'1'" url="main?action=webbuilder/application/partmanager/common/dwSelect.xwl"/></folder><extAjax name="ajaxUnit" url="main?action=webbuilder/application/partmanager/outApply/store/unitChange.xwl" out="menuPartCod" onSuccess="var s = response.responseText;
+InDetailGrid=Ext.getCmp(&quot;InDetailGrid&quot;);
+var sm = InDetailGrid.getSelectionModel();
+var celIndex = sm.getSelectedCell();
+var record = InDetailGrid.getStore().getAt(celIndex [0]);
+var ss =   parseInt(s);
+record.set(&quot;REMARKS&quot;,ss);
+record.set(&quot;PRICE_VAL&quot;,( record.get(&quot;AMOUNT&quot;) / parseInt(record.get(&quot;INDEPOT_NUM&quot;) * parseInt(record.get(&quot;REMARKS&quot;)))).toFixed(4));"/></folder><folder name="fdColumn"><extTextField name="PARTS_COD1" autoShow="false"/><extTextField name="C_PARTS_NAM1" autoShow="false"/><extTextField name="STAND_TXT1" autoShow="false"/><extNumber decimalPrecision="2" allowDecimals="true" autoShow="false" maxValue="9999999" name="INDEPOTNUM1"/><extNumber name="STOCK_NUM1" autoShow="false"/><extNumber name="KEEP_VAL1" value="false"/><extNumber name="TAX_NUM1" autoShow="false"/><extNumber name="A_A_TAXe" autoShow="false"/><extTextField name="LOCATION_NO1" autoShow="false"/><extNumber name="PRICE_VAL1" autoShow="false" allowBlank="false"/><extNumber name="AMOUNT1" autoShow="false" allowBlank="false"/><extTextField name="CHEQUE_NO1" autoShow="false"/><extTextField name="INVOICE_NO1" autoShow="false"/><extComboBox mode="local" name="IS_TXT1" displayField="KEY_TEXT" valueField="KEY_TEXT" autoShow="false" mapKey="YN"/><extComboBox mode="local" name="PAY_MOD1" displayField="RNAME" valueField="RNAME" pageSize="15" store="getPayMod" autoShow="false"/><extComboBox mode="local" name="IS_CONTANT1" mapKey="IS_PLAN" displayField="KEY_TEXT" valueField="KEY_TEXT" autoShow="false"/><extComboBox mode="local" name="SUPPLIER_NAM1" store="storeSuppli" displayField="RNAME" valueField="RNAME" pageSize="30" onSelect="SUPPLIER_COD.setValue(this.value.split('/')[1]);" autoShow="false"/><extComboBox mode="local" name="MIN_UNIT1" store="getDwStore" valueField="RNAME" displayField="RNAME" pageSize="15" autoShow="false" onSelect="unitName.setValue(this.value);
+InDetailGrid=Ext.getCmp(&quot;InDetailGrid&quot;);
+var sm = InDetailGrid.getSelectionModel();
+var celIndex = sm.getSelectedCell();
+var record = InDetailGrid.getStore().getAt(celIndex [0]);
+partCod.setValue(record.data.PARTS_COD);
+ajaxUnit();"/><extColumnModel name="cmPartin"><extColumn name="column0" caption="入库单号" fieldName="RECP_NO" align="left"/><extColumn name="column17" caption="订单号" fieldName="OF_NO" align="left"/><extColumn name="column29" caption="申请号" fieldName="PUR_NO" align="left"/><extColumn name="column32" caption="类型" fieldName="PARTS_TYPE" align="left"/><extColumn name="column4" caption="入库状态" fieldName="IN_STATUE" align="left"/><extColumn name="column5" caption="入库模式" fieldName="IN_MOD" align="left"/><extColumn name="column6" caption="入库日期" fieldName="INDEPOT_DTE" width="140" align="left" type="datetime"/><extColumn name="column81" caption="仓库名称" fieldName="STORAGE_NAM" align="left"/><extColumn name="column121" caption="保管员" fieldName="SAVER_COD" align="left"/><extColumn name="column131" caption="提运方式" fieldName="FETCHMODE_TXT" align="left"/><extColumn name="column151" align="left" fieldName="WF_STATUE" caption="审核状态"/><extColumn name="column161" caption="采购员" fieldName="BUYER_COD" align="left"/><extColumn name="column171" caption="录入时间" fieldName="RECORD_TIM" width="140" align="left" type="datetime"/><extColumn name="column181" caption="录入人" fieldName="RECORD_MAN" align="left"/></extColumnModel><extColumnModel name="cmPartDetail"><extColumn name="PARTS_CODs" fieldName="PARTS_COD" caption="物料代码" editor="PARTS_COD1"/><extColumn fieldName="C_PARTS_NAM" align="left" caption="名称" name="C_PARTS_NAMs" editor="C_PARTS_NAM1"/><extColumn caption="规格" fieldName="STAND_TXT" align="left" name="STAND_TXTs" editor="STAND_TXT1"/><extColumn caption="成本价格" fieldName="PRICE_VAL" align="left" name="PRICE_VALs" editor="PRICE_VAL1"/><extColumn caption="入库数量" fieldName="INDEPOT_NUM" align="left" editor="INDEPOTNUM1" name="INDEPOT_NUMs"/><extColumn fieldName="AMOUNT" align="left" name="AMOUNTs" editor="AMOUNT1" caption="成本"/><extColumn fieldName="MIN_UNIT" name="MIN_UNITS" caption="单位" editor="MIN_UNIT1"/><extColumn caption="现存量" fieldName="STOCK_NUM" align="left" name="STOCK_NUMs" editor="STOCK_NUM1" hidden="true"/><extColumn caption="保存期" fieldName="KEEP_VAL" align="left" name="KEEP_VALs" editor="KEEP_VAL1" hidden="true"/><extColumn name="TAX_NUMs" fieldName="TAX_NUM" caption="税额" editor="TAX_NUM1"/><extColumn fieldName="A_A_TAX" name="A_A_TAXs" caption="价税合计" editor="A_A_TAXe"/><extColumn name="IS_TXTs" fieldName="IS_TXT" caption="是否含税" editor="IS_TXT1"/><extColumn caption="货位号" fieldName="LOCATION_NO" align="left" name="LOCATION_NOs" editor="LOCATION_NO1" hidden="true"/><extColumn caption="供应商名称" fieldName="SUPPLIER_NAM" align="left" name="SUPPLIER_NAMs" editor="SUPPLIER_NAM1"/><extColumn name="CHEQUE_NOs" fieldName="CHEQUE_NO" caption="支票号" editor="CHEQUE_NO1"/><extColumn name="INVOICE_NOs" fieldName="INVOICE_NO" caption="发票号" editor="INVOICE_NO1"/><extColumn name="PAY_MODs" fieldName="PAY_MOD" caption="付款方式" editor="PAY_MOD1"/><extColumn name="IS_CONTANTs" fieldName="IS_CONTANT" caption="是否有合同" editor="IS_CONTANT1"/><extColumn name="column12" caption="录入时间" fieldName="RECORD_TIM" width="140" align="left" type="datetime"/><extColumn name="column13" caption="录入人" fieldName="RECORD_MAN" align="left"/><extColumn name="column" caption="caption" fieldName="RECP_NO" hidden="true"/><extColumn name="column1" fieldName="IN_SEQ_NO" caption="IN_SEQ_NO" hidden="true"/></extColumnModel></folder><folder name="windows"><extWindow frame="true" caption="入库主表维护" onShow="if(operateType == 'insert'){
+	extResetAllControlsValue(&quot;InMainWin&quot;);	
+
+
+}
+if(operateType == 'modify'){
+	var record = inMainGrid.getSelectionModel().getSelected();		
+	extSetAllControlsValueObj(InMainWin, record.data);
+
+}" onOk="if (!extVerifyAllControls('InMainWin')) return; 
+if(operateType == 'insert'){
+
+	insertInMain();
+	
+}
+if(operateType == 'modify'){
+	updateInMain();
+}" width="567" height="340" dialog="true" layout="absolute" closeAction="hide" name="InMainWin"><extLabel caption="入库单号：" name="extLabel0" left="10" top="15" width="100"/><extTextField name="RECP_NO" left="125" top="10" width="130"/><extLabel caption="订单号：" name="extLabel1" left="270" top="45" width="100"/><extTextField name="OF_NO" left="380" top="40" width="130"/><extLabel caption="申请号：" name="extLabel2" left="10" top="45" width="100"/><extTextField name="PUR_NO" left="125" top="40" width="130"/><extLabel caption="类型：" name="extLabel31" left="270" top="15" width="100"/><extLabel caption="入库状态：" name="extLabel4" left="10" top="75" width="100"/><extTextField name="IN_STATUE" left="125" top="70" width="130" disabled="true"/><extLabel caption="入库模式：" name="extLabel51" left="270" top="75" width="100"/><extLabel caption="计划日期：" name="extLabel61" left="10" top="135" width="100"/><extDate name="PLAN_DTE" left="125" top="130" width="130"/><extLabel caption="仓库编号：" name="extLabel71" left="10" top="105" width="100"/><extTextField name="STORAGE_COD" left="125" top="100" width="130"/><extLabel caption="仓库名称：" name="extLabel81" left="270" top="105" width="100"/><extTextField name="STORAGE_NAM" left="380" top="100" width="130"/><extLabel caption="保管员：" name="extLabel121" left="270" top="135" width="100"/><extTextField name="SAVER_COD" left="380" top="130" width="130"/><extLabel caption="备注：" name="extLabel211" left="10" top="165" width="100"/><extTextField name="REMARKS" left="125" top="160" width="385" inputType="textArea" height="100"/><extTextField left="195" top="300" width="120" name="OLD_RECP_NO"/><extComboBox mode="local" left="380" top="70" width="130" displayField="RNAME" valueField="RNAME" store="getInmodStore" pageSize="15" name="IN_MOD"/><extComboTree data="{#parttypeTree#}" left="380" top="5" width="130" height="25" onClick="PARTS_TYPE.setValue(node.text);
+PARTS_TYPE.collapse();" name="PARTS_TYPE"/></extWindow><extWindow frame="true" caption="物料入库名细维护" onShow="if(operateType2 == 'insert'){
+	extResetAllControlsValue(&quot;InDetailWin&quot;);	
+
+
+}
+if(operateType2 == 'modify'){
+	var record = InDetailGrid.getSelectionModel().getSelected();		
+	extSetAllControlsValueObj(InDetailWin, record.data);
+
+}" onOk="if(operateType2 == 'insert'){
+
+	insertInDetail();
+}
+if(operateType2 == 'modify'){
+	updateInDetail();
+
+}" width="813" height="358" dialog="true" layout="absolute" closeAction="hide" name="InDetailWin"><extLabel caption="是否含税：" name="extLabel01" left="10" top="70" width="100"/><extLabel caption="税额：" name="extLabel11" left="270" top="70" width="100"/><extLabel caption="入库数量：" name="extLabel27" left="10" top="40" width="100"/><extLabel caption="现存量：" name="extLabel3" left="270" top="40" width="100"/><extLabel caption="保存期：" name="extLabel41" left="520" top="40" width="100"/><extLabel caption="货位号：" name="extLabel5" left="520" top="70" width="100"/><extTextField name="LOCATION_NO" left="625" top="65" width="130"/><extLabel caption="支票号：" name="extLabel6" left="10" top="125" width="100"/><extTextField name="CHEQUE_NO" left="125" top="125" width="130"/><extLabel caption="发票号：" name="extLabel7" left="270" top="130" width="100"/><extTextField name="INVOICE_NO" left="375" top="125" width="130"/><extLabel caption="付款方式：" name="extLabel8" left="520" top="130" width="100"/><extLabel caption="供应商名称：" name="extLabel10" left="270" top="160" width="100"/><extLabel caption="是否有合同：" name="extLabel112" left="520" top="160" width="100"/><extLabel caption="备注：" name="extLabel162" left="10" top="190" width="100"/><extTextField name="REMARKS01" left="125" top="185" width="625" inputType="textArea" height="90"/><extLabel caption="订单号：" name="extLabel192" left="10" top="95" width="100"/><extTextField name="PURCH_NO" left="125" top="95" width="130"/><extLabel caption="订单流水号：" name="extLabel202" left="270" top="100" width="100"/><extTextField name="SEQ_NO" left="375" top="95" width="130"/><extLabel caption="物料代码：" name="extLabel221" left="10" top="10" width="100"/><extTextField name="PARTS_COD" left="125" top="5" width="130"/><extLabel caption="名称：" name="extLabel231" left="270" top="10" width="100"/><extTextField name="C_PARTS_NAM" left="375" top="5" width="130"/><extLabel caption="规格：" name="extLabel251" left="520" top="10" width="100"/><extTextField name="STAND_TXT" left="625" top="5" width="130"/><extLabel caption="成本单价：" name="extLabel261" left="520" top="100" width="100"/><extLabel caption="金额：" name="extLabel271" left="10" top="160" width="100"/><extTextField left="210" top="335" width="120" name="IN_SEQ_NO" hidden="true"/><extComboBox mode="local" left="125" top="65" width="130" name="IS_TXT" displayField="KEY_TEXT" valueField="KEY_TEXT" mapKey="YN"/><extComboBox mode="local" left="625" top="125" width="130" name="PAY_MOD" displayField="RNAME" valueField="RNAME" pageSize="15" store="getPayMod"/><extComboBox mode="local" left="625" top="155" width="130" name="IS_CONTANT" mapKey="IS_PLAN" displayField="KEY_TEXT" valueField="KEY_TEXT"/><extComboBox mode="local" left="375" top="155" width="135" name="SUPPLIER_NAM" store="storeSuppli" displayField="RNAME" valueField="RNAME" pageSize="30" onSelect="SUPPLIER_COD.setValue(this.value.split('/')[1]);"/><extNumber left="125" top="155" width="130" name="AMOUNT"/><extNumber left="375" top="65" width="130" name="TAX_NUM"/><extNumber left="625" top="35" width="130" name="KEEP_VAL"/><extNumber left="375" top="35" width="130" name="STOCK_NUM"/><extNumber left="125" top="35" width="130" name="INDEPOT_NUM"/><extNumber left="625" top="95" width="130" name="PRICE_VAL"/></extWindow><extWindow name="extWindowPrint" closeAction="hide" frame="true" width="866" height="548" layout="absolute" caption="打印"><iframe name="iframe2" width="100%" height="100%"/></extWindow></folder><extMenu name="menu"><extLabel name="extLabel811" caption="仓库名称："/><extTextField name="storeNam"/><extLabel name="extLabel17" caption="状态"/><extComboBox mode="local" displayField="KEY_TEXT" name="sta" width="50" mapKey="IS_PI" valueField="KEY_TEXT"/><extLabel name="extLabel" caption="日期："/><extDate name="begTim"/><extLabel name="extLabel26" html="-"/><extDate name="endTim"/><extMenuItem caption="查询" iconCls="icon_find" name="findMenu" onClick="if(storeNam.getValue()=='')
+{
+	extShowMessage('请先输入仓库名称！');
+	return;
+	
+}
+InMainStore.baseParams=extGetAllControlsValue('menu');
+InMainStore.load({params:{start:0,limit:30}});
+InDetailStore.removeAll();"/><extMenuItem name="addMenu" iconCls="icon_new" onClick="operateType = 'insert';
+if(Ext.getCmp(&quot;storeNam&quot;).getValue()=='')
+{
+	extShowMessage(&quot;请选择仓库！&quot;);
+	return;
+}
+else
+{
+       InMainWin.show();
+       extSetDisabled(RECP_NO,true);
+       STORAGE_NAM.setValue(storeNam.getValue());
+IN_STATUE.setValue('预入库');
+}" caption="新增"/><extMenuItem name="editMenu" caption="编辑" iconCls="icon_edit" onClick="operateType = 'modify';
+if (inMainGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+				if(wareTyp.getValue()=='1')	
+				{
+					extShowMessage('盘点数据不能修改');
+					return ;	
+					
+				}	
+       var recordMain = inMainGrid.getSelectionModel().getSelected();
+      var wfstatus=recordMain .data.IN_STATUE;
+	if(wfstatus==&quot;入库&quot;){
+		extShowWarning('已经入库,不允许编辑');
+                return;
+		}
+
+	InMainWin.show();
+	var record = inMainGrid.getSelectionModel().getSelected();
+	extSetAllControlsValueObj( InMainWin, record.data);
+}" hidden="false"/><extMenuItem name="delMeu" caption="删除" iconCls="icon_delete" onClick="if(wareTyp.getValue()=='1')	
+				{
+					extShowMessage('盘点数据不能修改');
+					return ;	
+					
+				}	
+var recordMain = inMainGrid.getSelectionModel().getSelected();
+       var wfstatus=recordMain .data.IN_STATUE;
+	if(wfstatus==&quot;入库&quot;){
+		extShowWarning('已经入库,不允许编辑');
+                return;
+		}
+
+
+
+extGridDeleteConfirm(inMainGrid,&quot;RECP_NO&quot;,deleteInMain);"/><extMenuItem caption="确认入库" iconCls="icon_run" name="meConfirm" onClick="if (inMainGrid.getSelectionModel().getSelections().length &lt; 1)
+{
+	extShowWarning('请选择一条数据。');
+	return;
+}else{	
+var record = inMainGrid.getSelectionModel().getSelected();
+var wartTyp  = record.get('IN_MOD');
+
+	if(wareTyp=='4')	
+				{
+					extShowMessage('盘点数据不能修改');
+					return ;	
+					
+				}	
+
+	
+confirmIn();
+
+}"/><extTextField name="recpNo" hidden="true"/><extTextField name="inSeqNo" hidden="true"/><extTextField name="wareTyp" hidden="true"/><extMenuItem name="menuItem2" caption="打印" iconCls="icon_report" onClick="inMainGrid=Ext.getCmp(&quot;inMainGrid&quot;);
+if (inMainGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	var record = inMainGrid.getSelectionModel().getSelected();
+       var purno= record.get('RECP_NO');
+Get('iframe2').src='mydesk_stockInReport.do?purno=' +purno;
+extWindowPrint.show();
+}"/></extMenu><extMenu name="menu1"><extMenuItem name="addDetail" caption="增加" onClick="if(Ext.getCmp(&quot;recpNo&quot;).getValue()=='')
+{
+	extShowMessage(&quot;请选择对应主信息！&quot;);
+	return;
+}
+else
+{		
+    var recordMain = inMainGrid.getSelectionModel().getSelected();
+       var wfstatus=recordMain .data.IN_STATUE;
+	if(wfstatus==&quot;入库&quot;){
+		extShowWarning('已经入库,不允许编辑');
+                return;
+		}
+
+
+	
+		operateType2 = 'insert';
+		InDetailWin.show();
+	
+	}" iconCls="icon_new" hidden="true"/><extMenuItem name="editDetail" caption="编辑" onClick="operateType2 = 'modify';
+var sm = InDetailGrid.getSelectionModel();
+var celIndex = sm.getSelectedCell();
+var record = InDetailGrid.getStore().getAt(celIndex [0]);
+
+ var recordMain = inMainGrid.getSelectionModel().getSelected();
+       var wfstatus=recordMain .data.IN_STATUE;
+	if(wfstatus==&quot;入库&quot;){
+		extShowWarning('已经入库,不允许编辑');
+                return;
+		}
+if(wareTyp.getValue()=='1')	
+{
+	extShowMessage('盘点数据不能修改');
+	return ;	
+	
+}				
+InDetailWin.show();
+extSetAllControlsValueObj(InDetailWin, record.data);
+var  s=record.get('STOCK_NUM');
+var  m=record.get('INDEPOT_NUM');
+if(s!=m){
+			}
+else{
+
+}" iconCls="icon_edit" hidden="true"/><extMenuItem name="delDetail" caption="删除" iconCls="icon_delete" onClick="var recordMain = inMainGrid.getSelectionModel().getSelected();
+       var wfstatus=recordMain .data.IN_STATUE;
+	if(wfstatus==&quot;入库&quot;){
+		extShowWarning('已经入库,不允许编辑');
+                return;
+		}
+extRemoveGridSelection(InDetailGrid);"/><extTextField name="parnetCode1" hidden="true"/><extMenuItem name="menuItem" caption="保存" iconCls="icon_save" onClick="var recordMain = inMainGrid.getSelectionModel().getSelected();
+       var wfstatus=recordMain .data.IN_STATUE;
+      if(wfstatus==&quot;入库&quot;){
+		extShowWarning('已经入库,不允许编辑');
+                return;
+		}
+
+var isSave = '1';
+var partList = &quot;&quot;;
+ InDetailStore.each(function(rt) {
+              var inNum = rt.data.INDEPOT_NUM;
+              var price = rt.data.PRICE_VAL;
+              var amount  = rt.data.AMOUNT;
+              var partCod = rt.data.PARTS_COD;
+             if(Ext.isEmpty(inNum) || Ext.isEmpty(amount  ) || Ext.isEmpty(price ) )
+               {
+                  partList = partList +'  '+partCod ;
+                  isSave = '0';
+                }                      
+            });
+if (isSave =='0')
+{
+ extShowWarning(partList +'的入库数量、单价、金额为空，不能保存！');
+}
+else
+{
+  mulGridSave();
+}"/></extMenu><folder name="PartCodPackage"><extStore name="storeSuppli1" url="main?action=webbuilder/application/partmanager/common/SuppliSelect.xwl"/><extStore name="partCodSelect" url="main?action=webbuilder/application/partmanager/common/partCodeStore.xwl" autoLoad="false"/><extScript name="extScript1" extHeader="function extInsertRecordWt(store, index) {
+	var fields = store.fields.items;
+	var meta = Ext.data.Record.create(fields);
+	var i, j = fields.length;
+	var data = {};
+
+	for (i = 0; i &lt; j; i++)
+		data[fields[i].name] = &quot;&quot;;
+	var record = new meta(data);
+	if (store.modified.indexOf(record) == -1)
+		store.modified.push(record);
+	if (index == null)
+		store.add(record);
+	else
+		store.insert(index, record);
+	return record;
+}
+function setPartCod()    
+{
+if (inMainGrid.getSelectionModel().getSelections().length != 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}
+var record = inMainGrid.getSelectionModel().getSelected();
+
+       var wfstatus=record.data.IN_STATUE;
+	if(wfstatus==&quot;入库&quot;){
+		extShowWarning('已经入库,不允许编辑');
+		return;
+	}
+
+var Temprows =  gridPartCod.getSelectionModel().getSelections();
+     for (var ii = 0; ii &lt; Temprows.length; ii++){
+		 tempRow=Temprows[ii];
+                var r = extInsertRecordWt(InDetailStore,ii );
+		r.set(&quot;RECP_NO&quot;,record.get('RECP_NO'));
+                r.set(&quot;PARTS_COD&quot;,tempRow.data.PARTS_COD);
+		r.set(&quot;C_PARTS_NAM&quot;,tempRow.data.C_PARTS_NAM);
+		r.set(&quot;STAND_TXT&quot;,tempRow.data.STAND_TXT);
+		r.set(&quot;SUPPLIER_NAM&quot;,record.get(&quot;SUPPLIER_NAM&quot;));
+	 	r.set(&quot;MIN_UNIT&quot;,tempRow.data.MIN_UNIT);
+ r.set(&quot;REMARKS&quot;,'1');
+
+	 	
+     }
+}"/><extMenu name="menuPartCod"><extLabel caption="名称" name="partsNametool"/><extTextField name="partsName1" width="80"/><extLabel name="extLabel9" caption="供应商"/><extComboBox mode="local" width="100" name="SUPPLIER_COD1" store="storeSuppli1" displayField="RNAME" valueField="RNAME" pageSize="30" onSelect="SUPPLIER_COD.setValue(this.value.split('/')[1]);" listWidth="150"/><extMenuItem name="search" caption="查询" iconCls="icon_property" onClick="var partscode=SUPPLIER_COD1.getValue()==null?'':SUPPLIER_COD1.getValue();
+var partsname =partsName1.getValue()==null?'':partsName1.getValue();
+partCodSelect.baseParams.whereSql=&quot; where SUPPLIER_NAM like  '%&quot;+partscode+&quot;%' and C_PARTS_NAM like '%&quot;+partsname+&quot;%'&quot;;
+partCodSelect.load({params:{start:0,limit:100}});"/><extMenuItem name="menuItem1" caption="清空" iconCls="icon_delete" onClick="partsName1.setValue('');
+SUPPLIER_COD.setValue('');"/><extMenuItem name="edit" iconCls="icon_ok" onClick="var recordMain = inMainGrid.getSelectionModel().getSelected();
+       var wfstatus=recordMain .data.IN_STATUE;
+	if(wfstatus==&quot;入库&quot;){
+		extShowWarning('已经入库,不允许编辑');
+                return;
+		}
+setPartCod();" caption="确认"/><extTextField name="unitName" hidden="true"/><extTextField name="partCod" hidden="true"/><extTextField name="stName" hidden="true"/></extMenu><extColumnModel name="cmPartCod"><extScript name="extScript11" extHeader="new Ext.grid.CheckboxSelectionModel()"/><extColumn name="_PARTS_TYPE1" width="100" align="center" fieldName="PARTS_TYPE" caption="类型"/><extColumn name="_PARTS_COD1" fieldName="PARTS_COD" caption="代码"/><extColumn name="_C_PARTS_NAM1" fieldName="C_PARTS_NAM" caption="名称"/><extColumn width="80" name="_STAND_TXT1" fieldName="STAND_TXT" caption="型号"/><extColumn width="80" name="_STAND_UNIT" align="center" fieldName="STAND_UNIT" caption="标准单位"/><extColumn width="80" name="_MIN_UNIT" fieldName="MIN_UNIT" caption="最小单位"/><extColumn name="_STAND_CHANGE" fieldName="STAND_CHANGE" caption="转换率"/><extColumn width="60" name="_STORE_NUM" fieldName="STORE_NUM" caption="数量"/><extColumn width="80" name="_MIN_NUM" fieldName="MIN_NUM" caption="最小保有量"/><extColumn name="_SUPPLIER_NAM" fieldName="SUPPLIER_NAM" caption="供应商名称"/></extColumnModel><extAjax name="mulGridSave" url="main?action=webbuilder/application/partmanager/partDevic/WLInWare/mulGridSave.xwl" onSuccess="extShowMessage('保存成功！');" onFailure="var s = response.responseText;
+extShowExcept(s);" out="InDetailGrid"/></folder><extViewPort name="viewPort" layout="border"><extPanel name="panel1" border="false" region="west" layout="fit" height="100%" caption="代码类别树" collapsible="true" split="true" width="150"><extTree name="tree" autoScroll="true" onClick="Ext.getCmp(&quot;storeNam&quot;).setValue(node.text);
+p=node;" remoteUrl="main?action=webbuilder/application/partmanager/partDevic/WLOutWare/jsonQuery.xwl" onBeforeLoad="control.baseParams.id=node.id;"/></extPanel><extPanel name="panel2" border="false" layout="border" region="center" height="200" split="true"><extGrid name="inMainGrid" columnsModel="cmPartin" pageSize="15" onCellClick="if (inMainGrid.getSelectionModel().getSelections().length &lt; 1)
+{
+	extShowWarning('请选择一个有效的条目。');
+	return;
+}else{
+	var record = inMainGrid.getSelectionModel().getSelected();
+	recpNo.setValue(record.get('RECP_NO'));
+	InDetailStore.baseParams=extGetAllControlsValue('menu');
+	InDetailStore.load({params:{start:0,limit:30}});
+
+}" store="InMainStore" loadStore="false" region="north" split="true" height="300" tbar="menu"/><extPanel name="panel" border="false" region="center" layout="border" height="400"><extPanel name="panel21" border="false" region="center" split="true" layout="border" height="400"><extGrid loadStore="false" columnsModel="cmPartDetail" region="center" tbar="menu1" height="300" canEdit="true" submitMode="modified" pageSize="30" clicksToEdit="1" name="InDetailGrid" store="InDetailStore" onRowClick="InDetailGrid=Ext.getCmp(&quot;InDetailGrid&quot;);
+var sm = InDetailGrid.getSelectionModel();
+var celIndex = sm.getSelectedCell();
+var record = InDetailGrid.getStore().getAt(celIndex [0]);
+
+getDwStore.baseParams.PARTS_COD= record.data.PARTS_COD;
+getDwStore.load({params:{start:0,limit:30}});"/></extPanel><extPanel name="panel11" border="false" region="east" collapsible="true" collapsed="true" split="true" layout="border" height="400" width="40%" caption="物料代码选择"><extGrid name="gridPartCod" region="center" split="true" columnsModel="cmPartCod" height="400" pageSize="100" tbar="menuPartCod" store="partCodSelect" tag="sm: new Ext.grid.CheckboxSelectionModel({
+        singleSelect: false
+    })"/></extPanel></extPanel></extPanel></extViewPort><extScript name="extScript" extFooter="var d=new Date();
+d.setDate(d.getDate()+5);
+Ext.getCmp('endTim').setValue(d);
+d.setDate(d.getDate()-10);
+Ext.getCmp('begTim').setValue(d);" extLast="Ext.getCmp(&quot;InDetailGrid&quot;).on('afteredit',function(e){    
+            var grid = Ext.getCmp(&quot;InDetailGrid&quot;);
+            var record=grid.getStore().getAt(e.row);   
+            if(parseInt(record.get(&quot;INDEPOT_NUM&quot;)) &gt; 0 )
+                       {
+                        var rem = record.get(&quot;REMARKS&quot;);
+                       if(Ext.isEmpty(rem)){rem=1;}
+                        record.set(&quot;PRICE_VAL&quot;,( record.get(&quot;AMOUNT&quot;) / parseInt(record.get(&quot;INDEPOT_NUM&quot;) * parseInt(rem ))).toFixed(8));
+
+                      }       
+               
+});"/></body>

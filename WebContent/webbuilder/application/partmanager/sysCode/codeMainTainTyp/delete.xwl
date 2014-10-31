@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" compact="true" createBody="false">
+	<dbUpdater name="deleteUserData" data="{#grid#}" transaction="start" deleteSql="delete   from     SM_CODE_MAINTAIN_TYP  
+where MAITYP_ID={?MAITYP_ID?}"/></body>

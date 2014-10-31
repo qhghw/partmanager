@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dbUpdater name="dbUpdater" data="{#detailgrid#}" transaction="commit" insertSql="insert  into t_out_apply_detail (IS_OLD,MIN_UNIT,PUR_NO,PARTS_COD, C_PARTS_NAM,
+E_PARTS_NAM,STAND_TXT,OUTDEPOT_NUM,PRICE_VAL,USE_COD,REMARKS,RECORD_TIM,
+RECORD_MAN,DEPT_COD,USERID,STOCK_NUM) values({?IS_OLD?},{?MIN_UNIT?},{?PUR_NO?},{?PARTS_COD?},
+{?C_PARTS_NAM?},{?E_PARTS_NAM?},{?STAND_TXT?},{?OUTDEPOT_NUM?},{?PRICE_VAL?},{?USE_COD?},
+{?REMARKS?},now(),'{#sys.username#}','{#sys.deptCode#}','{#sys.userid#}',{?STOCK_NUM?})" updateSql="UPDATE  t_out_apply_detail SET IS_OLD={?IS_OLD?},STOCK_NUM={?STOCK_NUM?},C_PARTS_NAM={?C_PARTS_NAM?},E_PARTS_NAM={?E_PARTS_NAM?},MIN_UNIT={?MIN_UNIT?},STAND_TXT={?STAND_TXT?},OUTDEPOT_NUM={?OUTDEPOT_NUM?},PRICE_VAL={?PRICE_VAL?},USE_COD={?USE_COD?},REMARKS={?REMARKS?},RECORD_TIM=now(),RECORD_MAN='{#sys.username#}',DEPT_COD='{#sys.deptCode#}',USERID='{#sys.userid#}'
+ 
+WHERE PUR_NO={?PUR_NO?} AND PARTS_COD = {?PARTS_COD?}" deleteSql="delete from t_out_apply_detail WHERE PUR_NO={?PUR_NO?} AND PARTS_COD = {?PARTS_COD?}"/></body>

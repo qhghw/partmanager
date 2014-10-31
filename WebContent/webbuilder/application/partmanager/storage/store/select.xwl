@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT&#xA;store.STORAGE_ID,&#xA;store.STORAGE_COD,&#xA;store.STORAGE_NAM,&#xA;store.STORAGE_TYPE,&#xA;store.STORAGE_BS,&#xA;store.RESP_NAM,&#xA;store.RECORD_TIM,&#xA;store.RECORD_MAN,&#xA;store.DEPT_COD,&#xA;store.USERID,&#xA;store.REMARKS&#xA;FROM&#xA;c_storage_code AS store {#whereSql#}" totalSql="SELECT&#xA;count(1) &#xA;FROM&#xA;c_storage_code AS store {#whereSql#}" metaData="-"/></body>

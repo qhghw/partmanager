@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" sql="SELECT
+repair_rec.BILL_NO,
+repair_rec.DEV_NO,
+repair_rec.C_DEV_NAM,
+repair_rec.E_DEV_NAM,
+repair_rec.UP_ID,
+repair_rec.APPLY_MAN_COD,
+repair_rec.APPLY_DEPT_COD,
+repair_rec.APPLY_TIM,
+repair_rec.ASSIGN_ID,
+repair_rec.ASSIGN_MAN_COD,
+repair_rec.ASSIGN_DEPT_COD,
+repair_rec.ASSIGN_TIM,
+repair_rec.FINISH_ID,
+repair_rec.FEEDBACK_DEPT_COD,
+repair_rec.FEEDBACK_MAN_COD,
+repair_rec.FEEDBACK_TIM,
+repair_rec.DEV_HITCH_EXPRESS,
+repair_rec.DEV_PART_COD,
+repair_rec.DEV_HITCH_REASON,
+repair_rec.DEV_HITCH_RESOLVENT,
+repair_rec.BEGIN_TIM,
+repair_rec.END_TIM,
+repair_rec.REPAIR_ID,
+repair_rec.PROCESS_DES,
+repair_rec.REPAIR_WORKER_NAM,
+repair_rec.ACCEPT_MAN,
+repair_rec.OUT_REPAIR_CORP,
+repair_rec.OUT_REPAIR_MAN,
+repair_rec.HITCH_TYP_COD,
+repair_rec.REPAIR_MONEY_NUM,
+repair_rec.ACCEPT_ID,
+repair_rec.ACCEPT_TIM,
+repair_rec.WF_STATUE,
+repair_rec.RECORD_TIM,
+repair_rec.RECORD_MAN,
+repair_rec.DEPT_COD,
+repair_rec.USERID,
+repair_rec.REMARKS,
+repair_rec.procdefid,
+repair_rec.processinstid
+FROM
+t_devic_repair_rec AS repair_rec
+ {#whereSql#}" totalSql="SELECT
+count(1) 
+FROM
+t_devic_repair_rec AS repair_rec
+ {#whereSql#}" metaData="-"/></body>

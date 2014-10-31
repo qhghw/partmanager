@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<method name="method" methodName="net.huadong.pass.core.platform.IkexpressPlat.getOrgId2"/><method name="method1" methodName="net.huadong.shipmanage.ShipCode.getCangKuSql"/><dataProvider name="dataProvider" sql="SELECT storage_id, dept_cod, ship_dev_no, e_ship_nam, c_ship_nam, storage_cod,
+       storage_nam, storage_type, record_tim, record_man, userid, tentantid,
+       remarks
+  FROM sm_code_storage dp where  {#whereSql#}
+" metaData="-" dateAsString="false" totalSql="SELECT  count(1)
+  FROM sm_code_storage dp where   {#whereSql#}
+" paging="false"/></body>

@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="outapply" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="92c1aa40-efa2-4e8e-a7b2-8fb99af86a8d">
+	<property name="ireport.zoom" value="2.662000000000006"/>
+	<property name="ireport.x" value="592"/>
+	<property name="ireport.y" value="90"/>
+	<parameter name="purno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="outmod" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="bgTim" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="endTim" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="edTim" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+main.PUR_NO,
+main.PUR_DTE,
+main.APPLY_DEPT_COD,
+main.PARTS_TYPE,
+main.PUR_STATUE,
+main.APPLY_TYP,
+main.OUT_MOD,
+main.STORAGE_COD,
+main.STORAGE_NAM,
+main.MANA_MAN,
+main.AUDIT_ID,
+main.AUDIT_IDEA,
+main.AUDITER_COD,
+main.AUDIT_DTE,
+main.WF_STATUE,
+main.RECORD_TIM,
+main.RECORD_MAN,
+main.DEPT_COD,
+main.USERID,
+main.REMARKS,
+detail.PARTS_COD,
+detail.C_PARTS_NAM,
+detail.E_PARTS_NAM,
+detail.STAND_TXT,
+detail.OUTDEPOT_NUM,
+detail.STOCK_NUM,
+detail.PRICE_VAL,
+detail.MIN_UNIT,
+detail.USE_COD,
+detail.IS_OLD,
+detail.REMARKS
+FROM
+t_out_apply AS main join t_out_apply_detail detail on main.PUR_NO=detail.PUR_NO
+where  main.OUT_MOD=$P{outmod} and (date_format(main.PUR_DTE,'%Y-%m-%d') >=  $P{bgTim} and date_format(main.PUR_DTE,'%Y-%m-%d') <=   $P{edTim})]]>
+	</queryString>
+	<field name="PUR_NO" class="java.lang.String">
+		<fieldDescription><![CDATA[申请号]]></fieldDescription>
+	</field>
+	<field name="PUR_DTE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[申请日期]]></fieldDescription>
+	</field>
+	<field name="APPLY_DEPT_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[所属部门]]></fieldDescription>
+	</field>
+	<field name="PARTS_TYPE" class="java.lang.String">
+		<fieldDescription><![CDATA[类型（物料、办公用品、废品）]]></fieldDescription>
+	</field>
+	<field name="PUR_STATUE" class="java.lang.String">
+		<fieldDescription><![CDATA[申请状态（申请、执行、作废）]]></fieldDescription>
+	</field>
+	<field name="APPLY_TYP" class="java.lang.String">
+		<fieldDescription><![CDATA[申请类型（新增、更换、维修）]]></fieldDescription>
+	</field>
+	<field name="OUT_MOD" class="java.lang.String">
+		<fieldDescription><![CDATA[出库方式（一般出库，工具借用）]]></fieldDescription>
+	</field>
+	<field name="STORAGE_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[仓库编号]]></fieldDescription>
+	</field>
+	<field name="STORAGE_NAM" class="java.lang.String">
+		<fieldDescription><![CDATA[仓库名称]]></fieldDescription>
+	</field>
+	<field name="MANA_MAN" class="java.lang.String">
+		<fieldDescription><![CDATA[负责人]]></fieldDescription>
+	</field>
+	<field name="AUDIT_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[审批标志]]></fieldDescription>
+	</field>
+	<field name="AUDIT_IDEA" class="java.lang.String">
+		<fieldDescription><![CDATA[审批意见]]></fieldDescription>
+	</field>
+	<field name="AUDITER_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[审批人]]></fieldDescription>
+	</field>
+	<field name="AUDIT_DTE" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[审批时间]]></fieldDescription>
+	</field>
+	<field name="WF_STATUE" class="java.lang.String">
+		<fieldDescription><![CDATA[上报标志（1，0）]]></fieldDescription>
+	</field>
+	<field name="RECORD_TIM" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[录入时间]]></fieldDescription>
+	</field>
+	<field name="RECORD_MAN" class="java.lang.String">
+		<fieldDescription><![CDATA[录入人]]></fieldDescription>
+	</field>
+	<field name="DEPT_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[所属部门]]></fieldDescription>
+	</field>
+	<field name="USERID" class="java.lang.String">
+		<fieldDescription><![CDATA[用户代码]]></fieldDescription>
+	</field>
+	<field name="REMARKS" class="java.lang.String">
+		<fieldDescription><![CDATA[备注]]></fieldDescription>
+	</field>
+	<field name="PARTS_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[代码]]></fieldDescription>
+	</field>
+	<field name="C_PARTS_NAM" class="java.lang.String">
+		<fieldDescription><![CDATA[中文名]]></fieldDescription>
+	</field>
+	<field name="E_PARTS_NAM" class="java.lang.String">
+		<fieldDescription><![CDATA[英文名]]></fieldDescription>
+	</field>
+	<field name="STAND_TXT" class="java.lang.String">
+		<fieldDescription><![CDATA[规格]]></fieldDescription>
+	</field>
+	<field name="OUTDEPOT_NUM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[出库数量]]></fieldDescription>
+	</field>
+	<field name="STOCK_NUM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[可用库存]]></fieldDescription>
+	</field>
+	<field name="PRICE_VAL" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MIN_UNIT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="USE_COD" class="java.lang.String">
+		<fieldDescription><![CDATA[物料用途]]></fieldDescription>
+	</field>
+	<field name="IS_OLD" class="java.lang.String">
+		<fieldDescription><![CDATA[是否有旧件]]></fieldDescription>
+	</field>
+	<group name="PUR_NO">
+		<groupExpression><![CDATA[$F{PUR_NO}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2b51f6d2-a33a-4d2a-aa4a-5e78f7c6d915" x="224" y="0" width="90" height="29"/>
+				<textElement>
+					<font size="20" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[工具领用]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e69b19cd-668a-4cbb-bf24-c5ce8987f7ca" x="0" y="29" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="dbe25963-0911-4660-a86c-e96c778d3f0e" x="0" y="29" width="555" height="1"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e153f025-b606-451e-bb61-41b12471bd79" x="86" y="1" width="58" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[名称]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0ef4fafc-6acc-48ea-b6a8-a6ce281134d2" x="146" y="1" width="72" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[规格]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="50d79f3e-40a2-403f-a161-87e595a43cfe" x="220" y="1" width="42" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[领用数量]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="62222e11-387e-43c5-80ed-79de297c7016" x="322" y="1" width="51" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[单价]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="edb896ba-6b25-4e64-8bc8-25ab0d186f7f" x="376" y="1" width="33" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[单位]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="71763f39-446f-4525-9c73-81bfbf5d0e73" x="413" y="1" width="45" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[领料人]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="99edd0e7-c156-4316-9838-9868e96eab29" x="0" y="1" width="83" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[代码]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f7026763-d562-4966-974d-9baa61cc3707" x="511" y="1" width="44" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[备注]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="882b76f5-c8d8-4cc5-9337-f0511405b75e" x="462" y="1" width="45" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[是否旧件]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e5d40b71-1420-47e6-8e88-54fd5a2748be" x="266" y="1" width="53" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[申请日期]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="418ad442-8cf0-4a90-bd8c-b25ea51f4484" x="0" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="e2a13b70-8483-4013-beda-f65a1ccb64b6" x="84" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="05ddcc75-dbd3-40f2-9b44-549a7fccaad1" x="145" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="c21cbc64-262f-4d92-b543-c7c7018ef9ef" x="220" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="7905dd96-af37-4efb-8871-86e26f21fd56" x="265" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="790857bd-6068-48fd-8a3f-992ba3753b7b" x="321" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="fd575f3f-a406-48d4-8f63-15f7e7f339f0" x="375" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="dabc3f81-c480-4ccc-8f39-9f796c972b36" x="410" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="3cafa988-abd4-4684-a46b-a67d6402b33e" x="458" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="dd68debb-28fc-49e2-9407-9175124344a6" x="510" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="924d65ff-60db-4d09-88bd-a01cdfe0f46a" x="554" y="1" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="7fb9cf30-f03d-483f-9fe7-8a537649c236" x="1" y="20" width="555" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3868dc58-5f88-49ee-aeb3-305870b0b32c" x="1" y="2" width="83" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PARTS_COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="34b83fa0-2e65-4f82-ada3-79dd11e072ee" x="86" y="2" width="58" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{C_PARTS_NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="4baae6c2-c411-4e79-b4d6-067681708736" x="146" y="2" width="72" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{STAND_TXT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b1a61e82-d6e6-4978-b27e-25fa04c58204" x="220" y="2" width="42" height="20"/>
+				<textElement textAlignment="Right">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OUTDEPOT_NUM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="fe5501d0-62ba-4fd7-83ef-faeda0b6651a" x="322" y="2" width="51" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRICE_VAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e6efb0e5-a5f1-4662-97e4-7630710623c9" x="376" y="2" width="33" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MIN_UNIT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="88906084-fbcf-43fe-a759-b291bc0abe1e" x="413" y="2" width="45" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{USE_COD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6edb3a8e-f833-4769-a8e4-5fd4b249c306" x="462" y="2" width="45" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IS_OLD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="12a59dfc-72f9-46f9-ac75-9cc7013e5008" x="511" y="2" width="44" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{E_PARTS_NAM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b4c2ef46-8357-47c8-b5ab-aaf33f53255c" x="266" y="2" width="53" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{PUR_DTE}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="7da0cfd3-0676-46a5-a752-87d7bc252ebe" x="0" y="-1" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="de6da9ce-c94f-4d2a-8016-b33d1832f444" x="84" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="d848e3e6-7a0f-45fb-8893-8db3577099be" x="145" y="-1" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="233dacc8-0f10-4efd-8cdf-a093c2d6c8c9" x="220" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="cf22869c-9856-4542-8f4d-10f684ce1254" x="265" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="4e0bd480-8f47-456b-b5c9-97a7ceaef1ea" x="320" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="643e6471-6823-46a6-8f00-7b7bf59e6333" x="374" y="-1" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="09c0642f-b938-48f2-8fdd-d8ea802eab38" x="410" y="-1" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="8889489e-0b59-4650-86c7-311be002a696" x="458" y="-1" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="f4eb7678-93e2-4320-873e-235da9fba836" x="510" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="ec002e4d-1de6-4990-b9a0-ce84f53ce6e0" x="555" y="0" width="1" height="22"/>
+			</line>
+			<line>
+				<reportElement uuid="c9de5a14-88d0-4943-a667-906c777f08cb" x="0" y="22" width="555" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="44" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

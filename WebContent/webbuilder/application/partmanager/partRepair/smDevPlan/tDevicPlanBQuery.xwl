@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body name="body" class="sys_normal" createBody="false">
+	<dataProvider name="dataProvider" metaData="-" totalSql="-" dateAsString="false" sql="select      BILL_NO,B_NO,&#xA;MAINTAIN_TYP_COD,&#xA;MAINT_REQ,&#xA;PLAN_BEGIN_TIM,&#xA;PLAN_END_TIM,&#xA;PLAN_FEE,&#xA;SET_DTE,&#xA;WORKBILL_NO,&#xA;BEGIN_TIM,&#xA;END_TIM,&#xA;FINISH_ID,&#xA;FINISH_DES,&#xA;RECORD_TIM,&#xA;RECORD_MAN,&#xA;DEPT_COD,&#xA;USERID,REMARKS REMARKSB,&#xA;REMARKS  from  t_devic_plan_B where 1=1 {#whereSql#}"/></body>
