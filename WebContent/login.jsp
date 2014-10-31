@@ -4,8 +4,8 @@
 %>
 <HTML>
 <HEAD>
-<TITLE>高新热力设备管理系统</TITLE>
-<STYLE type=text/css>
+<TITLE>高新热力设备管理系统</TITLE> 
+<STYLE type=text/css> 
 BODY {
 	BACKGROUND-COLOR: #3068b5
 }
